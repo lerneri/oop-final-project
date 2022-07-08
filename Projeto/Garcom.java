@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Garcom{
+  private String nome;
+  private String codigo;
+  private ArrayList<Mesa> mesas;
+
+  public String getNome(){
+    return this.nome;
+  }
+  
+  public String getCodigo(){
+    return this.codigo;
+  }
+
+  public void setCodigo(String codigo){
+    this.codigo = codigo;
+  }
+  
+  public Garcom(String nome){
+    this.nome= nome;
+    
+    mesas = new ArrayList<Mesa>();
+  }
+  
+}
