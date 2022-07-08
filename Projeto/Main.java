@@ -49,14 +49,15 @@ public class Main {
     // Garcom g = new Garcom("VV");
     // Gerente ger = new Gerente("Rodrigo");
  
+	Cardapio c = new Cardapio();
     try{
-      ItemCardapio redLabel= new Bebida("4000", "Red Label bruto", "Whisky", 12);
-      System.out.println("Deu bom");
+     ItemCardapio redLabel= new Bebida("4000", "Red Label bruto", "Whisky", 12);
+     c.inserir(redLabel);
     }catch(CodigoInvalidoException e){
-      System.out.println("Deu ruim");
+    	e.printStackTrace();
     }
-    Cardapio c = new Cardapio();
-    c.inserir(redLabel);
+    
+    
     System.out.println(c.cardapio.get(0).getNome());
   }
 }
