@@ -3,16 +3,20 @@ import java.util.*;
 public class Gerente {
 	String nome;
 	ArrayList<Garcom> garcons;
+	ArrayList<Mesa> mesas;
 
 	public Gerente(String nome, ArrayList<Garcom> garcons) {
 		this.nome = nome;
 		this.garcons = garcons;
 	}
 
-	public void inserirGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
-		Garcom procurado = getGarcom(codigoGarcom);
-		if (procurado==null) {
+	public void inserirGarcomMesa(int numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
+		Garcom garcomProcurado = getGarcom(codigoGarcom);
+		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
+		if (garcomProcurado==null) {
 			throw new GarcomInvalidoException();
+		}else{
+			
 		}
 	}
 
