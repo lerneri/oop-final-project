@@ -52,12 +52,15 @@ public class Main {
 	Cardapio c = new Cardapio();
     try{
      ItemCardapio redLabel= new ItemCardapio("4000", "Red Label bruto", "Whisky", 12);
+     ItemCardapio cachaca= new ItemCardapio("4100", "Cachaça artesanal", "Cachaça", 13);
      c.inserir(redLabel);
+     c.inserir(cachaca);
     }catch(CodigoInvalidoException e){
     	e.printStackTrace();
     }
     
     // testando
-    System.out.println(c.cardapio.get(0).getNome());
+    System.out.println(c.getItemCardapio("4000"));
+    System.out.println(c.getItemCardapio("4100"));
   }
 }

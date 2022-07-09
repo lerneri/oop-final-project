@@ -15,7 +15,7 @@ public class Cardapio {
 		ItemCardapio resposta = null;
 
 		for (int i = 0; i < cardapio.size(); i++) {
-			if ((cardapio.get(i).) == codigoItem) {
+			if ((cardapio.get(i).getCodigo()) == codigoItem) {
 				resposta = cardapio.get(i);
 			}
 		}
