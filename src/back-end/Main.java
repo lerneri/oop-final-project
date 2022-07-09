@@ -51,7 +51,7 @@ public class Main {
  
 	Cardapio c = new Cardapio();
     try{
-     ItemCardapio redLabel= new Bebida("4000", "Red Label bruto", "Whisky", 12);
+     ItemCardapio redLabel= new ItemCardapio("4000", "Red Label bruto", "Whisky", 12);
      c.inserir(redLabel);
     }catch(CodigoInvalidoException e){
     	e.printStackTrace();

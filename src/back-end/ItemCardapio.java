@@ -37,12 +37,9 @@ public class ItemCardapio{
 		this.valor = valor;
 	}
 
-  public ItemCardapio(String codigo, String descricao, String nome, double valor, char codigoClasse) throws CodigoInvalidoException{
+  public ItemCardapio(String codigo, String descricao, String nome, double valor) throws CodigoInvalidoException{
     
     this.codigo = codigo;
-    if(!conferirCodigo(codigoClasse)){
-      throw new CodigoInvalidoException();
-    }
     this.descricao = descricao;
     this.nome = nome;
     this.valor = valor;
