@@ -11,7 +11,7 @@ public class Mesa {
 	
 	public void setPedido(ItemCardapio item, int quantidade) {
 		
-	
+		this.pedido.replace(item, this.pedido.get(item)+quantidade);
 	}
 	
 	
@@ -25,6 +25,6 @@ public class Mesa {
 
 	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
-		this.pedido = new HashMap<ItemCardapio, Integer>();
+		this.pedido = new HashMap<>();
 	}
 }
