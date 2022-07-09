@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class Gerente {
-	String nome;
-	ArrayList<Garcom> garcons;
-	ArrayList<Mesa> mesas;
+	private String nome;
+	private ArrayList<Garcom> garcons;
+	private ArrayList<Mesa> mesas;
 
 	public Gerente(String nome, ArrayList<Garcom> garcons) {
 		this.nome = nome;
@@ -15,8 +15,10 @@ public class Gerente {
 		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
 		if (garcomProcurado==null) {
 			throw new GarcomInvalidoException();
-		}else{
-			
+		}else if(mesaProcurada==null){
+			throw new MesaInvalidaException();
+		}else {
+			mesaProcurada.setGarcom(garcomProcurado);
 		}
 	}
 

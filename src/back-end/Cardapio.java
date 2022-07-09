@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Cardapio {
-  public ArrayList<ItemCardapio> cardapio;
+  public static ArrayList<ItemCardapio> cardapio;
 
   public Cardapio() {
     cardapio = new ArrayList<ItemCardapio>();
@@ -10,5 +10,17 @@ public class Cardapio {
   public void inserir(ItemCardapio item) {
     cardapio.add(item);
   }
+  
+  public static ItemCardapio getItemCardapio(String codigoItem) {
+		ItemCardapio resposta = null;
+
+		for (int i = 0; i < cardapio.size(); i++) {
+			if ((cardapio.get(i).) == codigoItem) {
+				resposta = cardapio.get(i);
+			}
+		}
+
+		return resposta;
+	}
 
 }
