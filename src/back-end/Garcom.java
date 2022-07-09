@@ -5,6 +5,8 @@ public class Garcom {
 	private String codigo;
 	private ArrayList<Mesa> mesas;
 
+	//NAO MEXI NO TEU
+	
 	public ArrayList<Mesa> getMesasGarcom() {
 		return this.mesas;
 	}
