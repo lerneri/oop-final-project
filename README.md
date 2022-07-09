@@ -12,6 +12,7 @@ Victor Viana Paiva <br/>
 <br/>
 Classes presentes no programa: Cardápio (que contém Prato e Bebida), Funcionários
 (que contém Gerente, Garçom, Caixa), Mesa
+<br/>
 Funcionamento do sistema: Existem interfaces diferentes para cada um dos tipos de
 funcionário.<br/>
 ● O garçom tem permissão para adicionar pedidos (armazenados na mesa, que tem o
