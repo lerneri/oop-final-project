@@ -2,10 +2,10 @@
 <br/>
 #Equipe:<br/>
 Aiko Hilly Ribeiro de Paula <br/>
-Letícia Rodrigues Neri <br/>
+Letícia Rodrigues Neri (@lerneri)<br/>
 Lucas Fernando Torquato Cares <br/>
-Rodrigo da Silva Carvalho Maia <br/>
-Victor Viana Paiva <br/>
+Rodrigo da Silva Carvalho Maia (@RodrigoMaia03)<br/>
+Victor Viana Paiva (@victorvp9)<br/>
 <br/>
 <br/>
 #Sistema: Gerenciamento de Restaurante
