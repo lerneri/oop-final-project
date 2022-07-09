@@ -11,15 +11,16 @@ public class Gerente {
 		this.mesas = new ConjuntoMesas();
 	}
 
-	public void inserirGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
+	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException, MesaInexistenteException{
 		Garcom garcomProcurado = getGarcom(codigoGarcom);
 		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
 		if (garcomProcurado==null) {
-			throw new GarcomInvalidoException();
+			throw new GarcomInexistenteException();
 		}else if(mesaProcurada==null){
-			throw new MesaInvalidaException();
+			throw new MesaInexistenteException();
 		}else {
-			mesaProcurada.setGarcom(garcomProcurado);
+			if(garcomProcurado.getMesasGarcom() != null && !(garcomProcurado.getMesasGarcom().contains(mesaProcurada)))
+			garcomProcurado.getMesasGarcom().add(mesaProcurada);
 		}
 	}
 
