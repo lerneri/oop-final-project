@@ -9,6 +9,7 @@ public class Mesa {
 		this.numeroMesa = numeroMesa;
 	}
 
+	//construtor
 	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
 	}
