@@ -1,6 +1,9 @@
+import java.util.*;
+
 public class Mesa {
 	private String numeroMesa;
-
+	private HashMap<ItemCardapio, Integer> pedido;
+	
 	public String getNumeroMesa() {
 		return numeroMesa;
 	}
@@ -9,8 +12,8 @@ public class Mesa {
 		this.numeroMesa = numeroMesa;
 	}
 
-	//construtor
 	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
+		this.pedido = new HashMap<ItemCardapio, Integer>();
 	}
 }
