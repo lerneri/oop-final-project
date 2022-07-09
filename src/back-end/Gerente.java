@@ -10,7 +10,7 @@ public class Gerente {
 		this.garcons = garcons;
 	}
 
-	public void inserirGarcomMesa(int numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
+	public void inserirGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
 		Garcom garcomProcurado = getGarcom(codigoGarcom);
 		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
 		if (garcomProcurado==null) {

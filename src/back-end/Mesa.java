@@ -1,5 +1,5 @@
 public class Mesa {
-	private int numeroMesa;
+	private String numeroMesa;
 	private Garcom garcom;
 
 	public Garcom getGarcom() {
@@ -11,15 +11,15 @@ public class Mesa {
 		this.garcom = garcom;
 	}
 
-	public int getNumeroMesa() {
+	public String getNumeroMesa() {
 		return numeroMesa;
 	}
 
-	public void setNumeroMesa(int numeroMesa) {
+	public void setNumeroMesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
 	}
 
-	public Mesa(int numeroMesa) {
+	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
 	}
 }
