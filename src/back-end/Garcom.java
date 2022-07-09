@@ -8,7 +8,7 @@ public class Garcom {
 	public ArrayList<Mesa> getMesasGarcom() {
 		return this.mesas;
 	}
-
+	
 	public String getNome() {
 		return this.nome;
 	}

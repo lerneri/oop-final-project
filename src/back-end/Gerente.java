@@ -19,8 +19,11 @@ public class Gerente {
 		}else if(mesaProcurada==null){
 			throw new MesaInexistenteException();
 		}else {
-			if(garcomProcurado.getMesasGarcom() != null && !(garcomProcurado.getMesasGarcom().contains(mesaProcurada)))
-			garcomProcurado.getMesasGarcom().add(mesaProcurada);
+			if(garcomProcurado.getMesasGarcom() == null) {
+				garcomProcurado.getMesasGarcom().add(mesaProcurada);
+			}else if(!garcomProcurado.getMesasGarcom().contains(mesaProcurada)) {
+				garcomProcurado.getMesasGarcom().add(mesaProcurada);
+			}
 		}
 	}
 
