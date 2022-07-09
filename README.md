@@ -1,7 +1,7 @@
 #Projeto Final da disciplina de Programação Orientada a Objetos 
 <br/>
 #Equipe:<br/>
-Aiko Hilly Ribeiro de Paula <br/>
+Aiko Hilly Ribefiro de Paula <br/>
 Letícia Rodrigues Neri (@lerneri)<br/>
 Lucas Fernando Torquato Cares <br/>
 Rodrigo da Silva Carvalho Maia (@RodrigoMaia03)<br/>

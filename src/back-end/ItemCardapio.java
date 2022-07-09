@@ -1,4 +1,4 @@
-public abstract class ItemCardapio{
+public class ItemCardapio{
   String codigo;
   String descricao;
   String nome;
