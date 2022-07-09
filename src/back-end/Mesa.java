@@ -4,6 +4,17 @@ public class Mesa {
 	private String numeroMesa;
 	private HashMap<ItemCardapio, Integer> pedido;
 	
+
+	public HashMap<ItemCardapio, Integer> getPedido(){
+		return this.pedido;
+	}
+	
+	public void setPedido(ItemCardapio item, int quantidade) {
+		
+	
+	}
+	
+	
 	public String getNumeroMesa() {
 		return numeroMesa;
 	}

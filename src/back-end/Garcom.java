@@ -32,7 +32,9 @@ public class Garcom {
 	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws GarcomNaoPossuiMesaException {
 		Mesa mesa = getMesa(numeroMesa);
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
-		
+		if(mesa.getPedido().containsKey(item)) {
+			
+		}
 	}
 	
 	public String getCodigo() {
