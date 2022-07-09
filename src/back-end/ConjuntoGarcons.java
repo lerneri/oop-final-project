@@ -4,10 +4,10 @@ public class ConjuntoGarcons {
 	private static ArrayList<Garcom> garcons;
 	
 	public void inserirGarcom(Garcom garcom) throws GarcomJaExistenteException{
-		if(!garcons.contains(garcom)) {
-			garcons.add(garcom);
-		}else {
+		if(garcons.contains(garcom)) {
 			throw new GarcomJaExistenteException();
+		}else {
+			garcons.add(garcom);
 		}
 		
 	}
