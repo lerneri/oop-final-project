@@ -11,6 +11,7 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.JPasswordField;
 
 public class JanelaGerente {
 
@@ -18,6 +19,7 @@ public class JanelaGerente {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -53,7 +55,7 @@ public class JanelaGerente {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 222, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmGerenciamentoDeRestaurante.getContentPane().setLayout(gridBagLayout);
 		
@@ -74,7 +76,7 @@ public class JanelaGerente {
 		JLabel lblNewLabel_8 = new JLabel("Gerenciamento de funcionários");
 		GridBagConstraints gbc_lblNewLabel_8 = new GridBagConstraints();
 		gbc_lblNewLabel_8.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_8.gridx = 10;
+		gbc_lblNewLabel_8.gridx = 9;
 		gbc_lblNewLabel_8.gridy = 1;
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_8, gbc_lblNewLabel_8);
 		
@@ -129,19 +131,22 @@ public class JanelaGerente {
 		frmGerenciamentoDeRestaurante.getContentPane().add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Caixa");
-		GridBagConstraints gbc_rdbtnNewRadioButton = new GridBagConstraints();
-		gbc_rdbtnNewRadioButton.insets = new Insets(0, 0, 5, 5);
-		gbc_rdbtnNewRadioButton.gridx = 8;
-		gbc_rdbtnNewRadioButton.gridy = 3;
-		frmGerenciamentoDeRestaurante.getContentPane().add(rdbtnNewRadioButton, gbc_rdbtnNewRadioButton);
+		JLabel lblNewLabel_11 = new JLabel("Código:");
+		GridBagConstraints gbc_lblNewLabel_11 = new GridBagConstraints();
+		gbc_lblNewLabel_11.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel_11.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel_11.gridx = 7;
+		gbc_lblNewLabel_11.gridy = 3;
+		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_11, gbc_lblNewLabel_11);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Garçom");
-		GridBagConstraints gbc_rdbtnNewRadioButton_1 = new GridBagConstraints();
-		gbc_rdbtnNewRadioButton_1.insets = new Insets(0, 0, 5, 5);
-		gbc_rdbtnNewRadioButton_1.gridx = 10;
-		gbc_rdbtnNewRadioButton_1.gridy = 3;
-		frmGerenciamentoDeRestaurante.getContentPane().add(rdbtnNewRadioButton_1, gbc_rdbtnNewRadioButton_1);
+		passwordField = new JPasswordField();
+		GridBagConstraints gbc_passwordField = new GridBagConstraints();
+		gbc_passwordField.gridwidth = 3;
+		gbc_passwordField.insets = new Insets(0, 0, 5, 5);
+		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField.gridx = 8;
+		gbc_passwordField.gridy = 3;
+		frmGerenciamentoDeRestaurante.getContentPane().add(passwordField, gbc_passwordField);
 		
 		JButton btnNewButton = new JButton("Confirmar desconto");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
