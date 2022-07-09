@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class ConjuntoGarcons {
-	private static ArrayList<Garcom> garcons;
+	private static ArrayList<Garcom> garcons = new ArrayList<Garcom>();
 	
 	public void inserirGarcom(Garcom garcom) throws GarcomJaExistenteException{
-		if(garcons.contains(garcom)) {
+		if(garcons != null && garcons.contains(garcom)) {
 			throw new GarcomJaExistenteException();
 		}else {
 			garcons.add(garcom);
