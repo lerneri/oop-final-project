@@ -25,5 +25,8 @@ public class ConjuntoGarcons {
 		}
 		
 	}
-	
+
+	public ArrayList<Garcom> getArrayGarcons(){
+		return this.garcons;
+	}
 }

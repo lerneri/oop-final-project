@@ -5,7 +5,7 @@ public class Garcom {
 	private String codigo;
 	private ArrayList<Mesa> mesas;
 
-	public ArrayList<Mesa> getGarcomMesas() {
+	public ArrayList<Mesa> getMesasGarcom() {
 		return this.mesas;
 	}
 

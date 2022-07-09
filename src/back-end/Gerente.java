@@ -2,12 +2,13 @@ import java.util.*;
 
 public class Gerente {
 	private String nome;
-	private ArrayList<Garcom> garcons;
+	private ConjuntoGarcons garcons;
 	private ConjuntoMesas mesas;
 
 	public Gerente(String nome) {
 		this.nome = nome;
-		this.garcons = new ArrayList<Garcom>();
+		this.garcons = new ConjuntoGarcons();
+		this.mesas = new ConjuntoMesas();
 	}
 
 	public void inserirGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{
@@ -24,9 +25,9 @@ public class Gerente {
 
 	public Garcom getGarcom(String codigo) {
 		Garcom g = null;
-		for (int i = 0; i < garcons.size(); i++) {
-			if (garcons.get(i).getCodigo().equalsIgnoreCase(codigo)) {
-				g = garcons.get(i);
+		for (int i = 0; i < garcons.getArrayGarcons().size(); i++) {
+			if (garcons.getArrayGarcons().get(i).getCodigo().equalsIgnoreCase(codigo)) {
+				g = garcons.getArrayGarcons().get(i);
 				break;
 			}
 		}
