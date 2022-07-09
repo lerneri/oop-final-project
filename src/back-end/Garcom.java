@@ -5,6 +5,11 @@ public class Garcom{
   private String codigo;
   private ArrayList<Mesa> mesas;
 
+  public ArrayList<Mesa> getGarcomMesas(){
+	  return this.mesas;
+  }
+  
+  
   public String getNome(){
     return this.nome;
   }

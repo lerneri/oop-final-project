@@ -3,11 +3,11 @@ import java.util.*;
 public class Gerente {
 	private String nome;
 	private ArrayList<Garcom> garcons;
-	private ArrayList<Mesa> mesas;
+	private ConjuntoMesas mesas;
 
-	public Gerente(String nome, ArrayList<Garcom> garcons) {
+	public Gerente(String nome) {
 		this.nome = nome;
-		this.garcons = garcons;
+		this.garcons = new ArrayList<Garcom>();
 	}
 
 	public void inserirGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInvalidoException, MesaInvalidaException{

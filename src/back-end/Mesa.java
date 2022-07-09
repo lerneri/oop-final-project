@@ -7,7 +7,7 @@ public class Mesa {
 	}
 	
 	public void setGarcom(Garcom garcom) {
-		//tem que tirar a mesa do array de mesas do garçom antigo
+		
 		this.garcom = garcom;
 	}
 
