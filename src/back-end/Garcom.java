@@ -42,6 +42,15 @@ public class Garcom {
 		}
 	}
 	
+	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException {
+		Mesa m = getMesa(numeroMesa);
+		if(m == null) {
+			throw new GarcomNaoPossuiMesaException();
+		} else {
+			Caixa.gerarNota(m.getPedido());
+		}
+	}
+	
 	public String getCodigo() {
 		return this.codigo;
 	}
