@@ -6,7 +6,7 @@
 Aiko Hilly Ribeiro de Paula <br/>
 Letícia Rodrigues Neri [@lerneri](https://github.com/lerneri)<br/>
 Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/>
-Victor Viana Paiva [@victorvp9](https://github.com/RodrigoMaia03)<br/>
+Victor Viana Paiva [@victorvp9](https://github.com/victorvp9)<br/>
 
 
 ## Sistema: Gerenciamento de Restaurante
