@@ -18,16 +18,31 @@ public class Gerente {
 	//	m.getPedido();
 	//}
 	
-	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException, MesaInexistenteException{
+	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException,
+	MesaInexistenteException{
+		
 		Garcom garcomProcurado = ConjuntoGarcons.getGarcom(codigoGarcom);
 		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
 		
-		if(garcomProcurado.getMesasGarcom() == null) {
-			garcomProcurado.getMesasGarcom().add(mesaProcurada);
-		}else if(!garcomProcurado.getMesasGarcom().contains(mesaProcurada)) {
-			garcomProcurado.getMesasGarcom().add(mesaProcurada);
+		if(mesaProcurada.mesaPossuiGarcom() == false) {
+			if((garcomProcurado.getMesasGarcom() == null) || 
+			(!garcomProcurado.getMesasGarcom().contains(mesaProcurada))) {
+				
+				garcomProcurado.getMesasGarcom().add(mesaProcurada);
+				mesaProcurada.setGarcomMesa(garcomProcurado);
+			} 
 		}
-		
+		else {
+			Garcom garcomAntigo = mesaProcurada.getGarcomMesa();
+			if((garcomProcurado.getMesasGarcom() == null) || 
+			(!garcomProcurado.getMesasGarcom().contains(mesaProcurada))) {
+				
+				garcomAntigo.getMesasGarcom().remove(mesaProcurada);
+				garcomProcurado.getMesasGarcom().add(mesaProcurada);
+				mesaProcurada.setGarcomMesa(garcomProcurado);
+				
+			}
+		}
 	}
 
 	

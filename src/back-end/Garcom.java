@@ -2,6 +2,7 @@ import java.util.*;
 
 import Excecoes.GarcomNaoPossuiMesaException;
 import Excecoes.ItemNaoExistenteException;
+import Excecoes.QuantidadeInvalidaException;
 
 public class Garcom {
 	private String nome;
@@ -32,14 +33,15 @@ public class Garcom {
 		
 	}
 	
-	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws GarcomNaoPossuiMesaException, ItemNaoExistenteException {
+	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws
+	GarcomNaoPossuiMesaException, ItemNaoExistenteException {
 		Mesa mesa = getMesa(numeroMesa);
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
-		if(mesa.getPedido().containsKey(item)) {
-			mesa.setPedido(item, quantidade);
-		}else {
-			mesa.getPedido().put(item, quantidade);
-		}
+			if(mesa.getPedido().containsKey(item)) {
+				mesa.setPedido(item, quantidade);
+			} else {
+				mesa.getPedido().put(item, quantidade);
+			} 
 	}
 	
 	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException {
@@ -51,6 +53,23 @@ public class Garcom {
 		}
 	}
 	
+	
+	public void removerPedido(String numeroMesa, String codigoItem, int quantidade) throws 
+	GarcomNaoPossuiMesaException, ItemNaoExistenteException, QuantidadeInvalidaException {
+		Mesa mesa = getMesa(numeroMesa);
+		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
+				if((mesa.getPedido().containsKey(item)) && (mesa.getPedido().get(item)>1) && 
+						(mesa.getPedido().get(item) > quantidade)) {
+							mesa.setPedido(item, (-quantidade));
+				} else if((mesa.getPedido().containsKey(item)) && (mesa.getPedido().get(item)>1) && 
+						(mesa.getPedido().get(item) == quantidade)) {
+							mesa.getPedido().remove(item);
+				} else {
+					throw new QuantidadeInvalidaException();
+				}
+	}
+	
+		
 	public String getCodigo() {
 		return this.codigo;
 	}
