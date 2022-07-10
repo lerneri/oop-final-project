@@ -14,6 +14,7 @@ public class ConjuntoGarcons {
 		}
 		
 	}
+	
 	public void removerGarcom(String codigoGarcom) throws GarcomInexistenteException{
 		boolean aux = false;
 		for(int i=0; i < garcons.size(); i++) {
@@ -28,7 +29,24 @@ public class ConjuntoGarcons {
 		}
 		
 	}
-
+	
+	public static Garcom getGarcom(String codigo) throws GarcomInexistenteException{
+		Garcom garcomProcurado = null;
+		for (int i = 0; i < garcons.size(); i++) {
+			if (garcons.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+				garcomProcurado = garcons.get(i);
+				break;
+			}
+		}
+		if(garcomProcurado== null) {
+			throw new GarcomInexistenteException();
+		}else {
+			return garcomProcurado;
+		}
+		
+	}
+	
+	
 	public ArrayList<Garcom> getArrayGarcons(){
 		return this.garcons;
 	}
