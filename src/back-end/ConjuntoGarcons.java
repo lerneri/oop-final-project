@@ -12,7 +12,6 @@ public class ConjuntoGarcons {
 		}else {
 			garcons.add(garcom);
 		}
-		
 	}
 	
 	public void removerGarcom(String codigoGarcom) throws GarcomInexistenteException{

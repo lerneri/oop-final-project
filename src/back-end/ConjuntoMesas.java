@@ -5,6 +5,14 @@ public class ConjuntoMesas {
 
 	private static ArrayList<Mesa> mesas;
 	
+	public void inserirMesa(Mesa mesa) throws MesaJaExistenteException{
+		if(mesas != null && mesas.contains(mesa)) {
+			throw new MesaJaExistenteException();
+		}else {
+			mesas.add(mesa);
+		}
+	}
+	
 	public static Mesa getMesa(String numeroMesa) throws MesaInexistenteException{
 		Mesa mesaProcurada = null;
 

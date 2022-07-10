@@ -18,6 +18,23 @@ public class Gerente {
 	//	m.getPedido();
 	//}
 	
+	
+	public void cadastrarMesa(String numeroMesa) throws MesaJaExistenteException {
+		Mesa mesa = new Mesa(numeroMesa);
+		mesas.inserirMesa(mesa);
+	}
+	
+	public void cadastrarGarcom(String nome, String codigo) throws GarcomJaExistenteException{
+		Garcom garcom = new Garcom(nome, codigo);
+		garcons.inserirGarcom(garcom);
+	}
+	
+	
+	public void removerGarcom(Garcom garcom) throws GarcomInexistenteException{
+		garcons.removerGarcom(garcom.getNome());
+	}
+	
+	
 	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException,
 	MesaInexistenteException{
 		
