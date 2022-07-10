@@ -1,18 +1,28 @@
 # Projeto Final da disciplina de Programação Orientada a Objetos 
 <br/>
+
 ## Equipe:
-Aiko Hilly Ribefiro de Paula <br/>
+
+Aiko Hilly Ribeiro de Paula <br/>
 Letícia Rodrigues Neri (@lerneri)(https://github.com/lerneri)<br/>
 Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/>
 Victor Viana Paiva [@victorvp9](https://github.com/RodrigoMaia03)<br/>
 <br/>
 <br/>
+
 ## Sistema: Gerenciamento de Restaurante
+
 <br/>
-### Classes presentes no programa: Cardápio (que contém Prato e Bebida), Funcionários
+
+### Classes presentes no programa:
+
+Cardápio (que contém Prato e Bebida), Funcionários
 (que contém Gerente, Garçom, Caixa), Mesa
 <br/>
-### Funcionamento do sistema: Existem interfaces diferentes para cada um dos tipos de
+
+### Funcionamento do sistema: 
+
+Existem interfaces diferentes para cada um dos tipos de
 funcionário.<br/>
 ● O garçom tem permissão para adicionar pedidos (armazenados na mesa, que tem o
 atributo conta) referentes às mesas alocadas para ele e encerrar a conta
