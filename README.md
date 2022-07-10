@@ -1,5 +1,5 @@
 # Projeto Final da disciplina de Programação Orientada a Objetos 
-<br/>
+
 
 ## Equipe:
 
@@ -7,18 +7,15 @@ Aiko Hilly Ribeiro de Paula <br/>
 Letícia Rodrigues Neri [@lerneri](https://github.com/lerneri)<br/>
 Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/>
 Victor Viana Paiva [@victorvp9](https://github.com/RodrigoMaia03)<br/>
-<br/>
-<br/>
+
 
 ## Sistema: Gerenciamento de Restaurante
 
-<br/>
 
 ### Classes presentes no programa:
 
 Cardápio (que contém Prato e Bebida), Funcionários
 (que contém Gerente, Garçom, Caixa), Mesa
-<br/>
 
 ### Funcionamento do sistema: 
 
