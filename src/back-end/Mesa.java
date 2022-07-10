@@ -3,7 +3,15 @@ import java.util.*;
 public class Mesa {
 	private String numeroMesa;
 	private HashMap<ItemCardapio, Integer> pedido;
-	
+	private Garcom garcomMesa;
+
+	public Garcom getGarcomMesa() {
+		return garcomMesa;
+	}
+
+	public void setGarcomMesa(Garcom garcomMesa) {
+		this.garcomMesa = garcomMesa;
+	}
 
 	public HashMap<ItemCardapio, Integer> getPedido(){
 		return this.pedido;

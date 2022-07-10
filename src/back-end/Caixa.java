@@ -1,24 +1,16 @@
 import java.util.*;
 public class Caixa {
-	String nome;
-	
 	
 	public static void gerarNota(HashMap<ItemCardapio, Integer> pedido) {
 		
 	}
 	
+	public static void encerrarMesa(Mesa mesa) {
+		mesa.setGarcomMesa(null);
+		mesa.getPedido().clear();
+	}
 	
-	public String getNome() {
-		return nome;
-	}
-
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-
-	public Caixa(String nome) {
-		this.nome = nome;
+	public Caixa() {
+	
 	}
 }
