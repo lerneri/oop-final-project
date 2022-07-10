@@ -1,6 +1,7 @@
 import java.util.*;
 
 import Excecoes.GarcomNaoPossuiMesaException;
+import Excecoes.ItemNaoExistenteException;
 
 public class Garcom {
 	private String nome;
@@ -31,11 +32,13 @@ public class Garcom {
 		
 	}
 	
-	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws GarcomNaoPossuiMesaException {
+	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws GarcomNaoPossuiMesaException, ItemNaoExistenteException {
 		Mesa mesa = getMesa(numeroMesa);
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
 		if(mesa.getPedido().containsKey(item)) {
-			
+			mesa.setPedido(item, quantidade);
+		}else {
+			mesa.getPedido().put(item, quantidade);
 		}
 	}
 	

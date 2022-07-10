@@ -10,7 +10,6 @@ public class Mesa {
 	}
 	
 	public void setPedido(ItemCardapio item, int quantidade) {
-		
 		this.pedido.replace(item, this.pedido.get(item)+quantidade);
 	}
 	

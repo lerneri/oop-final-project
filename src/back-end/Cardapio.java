@@ -1,5 +1,7 @@
 import java.util.*;
 
+import Excecoes.ItemNaoExistenteException;
+
 public class Cardapio {
   public static ArrayList<ItemCardapio> cardapio;
 
@@ -11,7 +13,7 @@ public class Cardapio {
     cardapio.add(item);
   }
   
-  public static ItemCardapio getItemCardapio(String codigoItem) {
+  public static ItemCardapio getItemCardapio(String codigoItem) throws ItemNaoExistenteException{
 		ItemCardapio resposta = null;
 
 		for (int i = 0; i < cardapio.size(); i++) {
@@ -19,8 +21,12 @@ public class Cardapio {
 				resposta = cardapio.get(i);
 			}
 		}
-
-		return resposta;
+		if(resposta==null) {
+			throw new ItemNaoExistenteException();
+		}else {
+			return resposta;	
+		}
+		
 	}
 
 }
