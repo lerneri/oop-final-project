@@ -1,11 +1,10 @@
 # Projeto Final da disciplina de Programação Orientada a Objetos 
 <br/>
-## Equipe:<br/>
+## Equipe:
 Aiko Hilly Ribefiro de Paula <br/>
-Letícia Rodrigues Neri (@lerneri)<br/>
-Lucas Fernando Torquato Cares <br/>
-Rodrigo da Silva Carvalho Maia (@RodrigoMaia03)<br/>
-Victor Viana Paiva (@victorvp9)<br/>
+Letícia Rodrigues Neri (@lerneri)(https://github.com/lerneri)<br/>
+Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/>
+Victor Viana Paiva [@victorvp9](https://github.com/RodrigoMaia03)<br/>
 <br/>
 <br/>
 ## Sistema: Gerenciamento de Restaurante
