@@ -1,3 +1,5 @@
+import Excecoes.CodigoInvalidoException;
+
 public class ItemCardapio {
 	private String codigo;
 	private String descricao;

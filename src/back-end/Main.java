@@ -1,5 +1,7 @@
 import javax.swing.JOptionPane;
 
+import Excecoes.GarcomJaExistenteException;
+
 public class Main {
 	
 	

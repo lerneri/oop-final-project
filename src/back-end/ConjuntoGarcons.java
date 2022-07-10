@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import Excecoes.GarcomInexistenteException;
+import Excecoes.GarcomJaExistenteException;
+
 public class ConjuntoGarcons {
 	private static ArrayList<Garcom> garcons = new ArrayList<Garcom>();
 	

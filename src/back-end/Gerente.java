@@ -1,5 +1,8 @@
 import java.util.*;
 
+import Excecoes.GarcomInexistenteException;
+import Excecoes.MesaInexistenteException;
+
 public class Gerente {
 	private String nome;
 	private ConjuntoGarcons garcons;

@@ -1,5 +1,7 @@
 import java.util.*;
 
+import Excecoes.GarcomNaoPossuiMesaException;
+
 public class Garcom {
 	private String nome;
 	private String codigo;
