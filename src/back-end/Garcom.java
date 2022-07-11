@@ -3,6 +3,7 @@ import java.util.*;
 import Excecoes.CodigoInvalidoException;
 import Excecoes.GarcomNaoPossuiMesaException;
 import Excecoes.ItemNaoExistenteException;
+import Excecoes.PedidoVazioException;
 import Excecoes.QuantidadeInvalidaException;
 
 public class Garcom {
@@ -51,8 +52,11 @@ public class Garcom {
 			} 
 	}
 	
-	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException {
+	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException, PedidoVazioException {
 		Mesa m = getMesa(numeroMesa);
+		if (m.getPedido()==null) {
+			throw new PedidoVazioException();
+		}
 		Caixa.gerarNota(m.getPedido());
 	}
 	
