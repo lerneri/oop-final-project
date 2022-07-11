@@ -6,6 +6,7 @@ public class Caixa {
 	}
 	
 	public static void encerrarMesa(Mesa mesa) {
+		mesa.getGarcomMesa().getMesasGarcom().remove(mesa);
 		mesa.setGarcomMesa(null);
 		mesa.getPedido().clear();
 	}
