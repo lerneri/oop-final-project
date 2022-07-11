@@ -14,7 +14,7 @@ public class Cardapio {
 		ItemCardapio result = null;
 		while ((frase = raf.readLine()) != null) {
 			StringTokenizer fraseTK = new StringTokenizer(frase, ":");
-			result = new ItemCardapio(fraseTK.nextToken(), fraseTK.nextToken(), fraseTK.nextToken(), Integer.parseInt(fraseTK.nextToken()));
+			result = new ItemCardapio(fraseTK.nextToken(), fraseTK.nextToken(), fraseTK.nextToken(), Double.parseDouble(fraseTK.nextToken()));
 			Cardapio.inserir(result);
 			// result = new ItemCardapio(st[1],st[2],st[3],st[4])//converter st[4] pra
 			// double

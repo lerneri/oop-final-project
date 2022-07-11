@@ -16,9 +16,9 @@ public class Main {
 	public static void main(String[] args) throws GarcomNaoPossuiMesaException, 
 	ItemNaoExistenteException, GarcomInexistenteException, MesaInexistenteException, IOException, CodigoInvalidoException {
 		
-		//File arquivo = new File("cardapio.txt");
+
 		Cardapio cardapio = new Cardapio();
-		System.out.println(Cardapio.getItemCardapio("1000").getNome());
+		System.out.println(Cardapio.getItemCardapio("2002").getValor());
 		
 //		ConjuntoGarcons gc = new ConjuntoGarcons();
 //		Garcom g1 = new Garcom("Rod bala", "5012");
