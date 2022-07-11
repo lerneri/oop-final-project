@@ -34,7 +34,10 @@ public class Garcom {
 	}
 	
 	public void adicionarPedido(String numeroMesa, String codigoItem, int quantidade) throws
-	GarcomNaoPossuiMesaException, ItemNaoExistenteException {
+	GarcomNaoPossuiMesaException, ItemNaoExistenteException, QuantidadeInvalidaException {
+		if(quantidade <=0) {
+			throw new QuantidadeInvalidaException();
+		}
 		Mesa mesa = getMesa(numeroMesa);
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
 			if(mesa.getPedido().containsKey(item)) {
@@ -53,6 +56,9 @@ public class Garcom {
 	
 	public void removerPedido(String numeroMesa, String codigoItem, int quantidade) throws 
 	GarcomNaoPossuiMesaException, ItemNaoExistenteException, QuantidadeInvalidaException {
+		if(quantidade <=0) {
+			throw new QuantidadeInvalidaException();
+		}
 		Mesa mesa = getMesa(numeroMesa);
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
 				if((mesa.getPedido().containsKey(item)) && (mesa.getPedido().get(item)>1) && 
