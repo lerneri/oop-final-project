@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 
 import Excecoes.CodigoInvalidoException;
@@ -52,7 +53,7 @@ public class Garcom {
 			} 
 	}
 	
-	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException, PedidoVazioException {
+	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException, PedidoVazioException, IOException {
 		Mesa m = getMesa(numeroMesa);
 		if (m.getPedido()==null) {
 			throw new PedidoVazioException();

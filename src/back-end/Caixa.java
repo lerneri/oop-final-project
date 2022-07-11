@@ -10,6 +10,7 @@ public class Caixa {
 			bw.write(me.getKey().getCodigo() + "  ");
 			bw.write(me.getKey().getNome() + "  ");
 			bw.write(me.getKey().getValor() + "");
+			bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
 			soma += me.getKey().getValor();
 			bw.write(System.lineSeparator());
 		}
