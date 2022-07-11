@@ -11,9 +11,9 @@ public class Caixa {
 			bw.write(me.getKey().getNome() + "  ");
 			bw.write(me.getKey().getValor() + "");
 			soma += me.getKey().getValor();
-			System.lineSeparator();
+			bw.write(System.lineSeparator());
 		}
-		bw.write("Valor total do pedido: " + soma);
+		bw.write("Valor total do pedido: R$" + soma);
 		bw.close();
 	}
 	
