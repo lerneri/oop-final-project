@@ -39,7 +39,15 @@ public class ItemCardapio {
 	}
 
 
-	public ItemCardapio(String codigo, String nome, String descricao, double valor) {
+	public ItemCardapio(String codigo, String nome, String descricao, double valor) throws CodigoInvalidoException{
+		for(byte b : codigo.getBytes()) {
+			if(b<48 || b>57) {
+				throw new CodigoInvalidoException();
+			}
+		}
+		if(codigo.length()!=4) {
+			throw new CodigoInvalidoException();
+		}
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.nome = nome;
