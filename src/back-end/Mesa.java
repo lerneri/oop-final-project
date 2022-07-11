@@ -5,15 +5,6 @@ public class Mesa {
 	private HashMap<ItemCardapio, Integer> pedido;
 	private Garcom garcomMesa;
 	private boolean ocupada;
-
-	public boolean mesaPossuiGarcom() {
-		boolean resultado = false;
-		Garcom gm = getGarcomMesa();
-		if(gm != null) {
-			resultado = true;
-		}
-		return resultado;
-	}
 	
 	public Garcom getGarcomMesa() {
 		return garcomMesa;
