@@ -42,6 +42,7 @@ public class Mesa {
 
 	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
+		this.garcomMesa = null;
 		this.pedido = new HashMap<ItemCardapio, Integer>();
 		this.ocupada = false;
 	}

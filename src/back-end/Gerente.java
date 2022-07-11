@@ -41,10 +41,9 @@ public class Gerente {
 		Garcom garcomProcurado = ConjuntoGarcons.getGarcom(codigoGarcom);
 		Mesa mesaProcurada = ConjuntoMesas.getMesa(numeroMesa);
 		
-		if(mesaProcurada.mesaPossuiGarcom() == false) {
+		if(mesaProcurada.getGarcomMesa() == null) {
 			if((garcomProcurado.getMesasGarcom() == null) || 
 			(!garcomProcurado.getMesasGarcom().contains(mesaProcurada))) {
-				
 				garcomProcurado.getMesasGarcom().add(mesaProcurada);
 				mesaProcurada.setGarcomMesa(garcomProcurado);
 			} 
@@ -56,8 +55,7 @@ public class Gerente {
 				
 				garcomAntigo.getMesasGarcom().remove(mesaProcurada);
 				garcomProcurado.getMesasGarcom().add(mesaProcurada);
-				mesaProcurada.setGarcomMesa(garcomProcurado);
-				
+								
 			}
 		}
 	}
