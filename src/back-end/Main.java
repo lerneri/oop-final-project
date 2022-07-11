@@ -18,7 +18,7 @@ public class Main {
 		
 
 		Cardapio cardapio = new Cardapio();
-		System.out.println(Cardapio.getItemCardapio("2002").getValor());
+		System.out.println(Cardapio.getItemCardapio("1001").getValor());
 		
 //		ConjuntoGarcons gc = new ConjuntoGarcons();
 //		Garcom g1 = new Garcom("Rod bala", "5012");

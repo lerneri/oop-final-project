@@ -6,8 +6,10 @@ public class Caixa {
 	}
 	
 	public static void encerrarMesa(Mesa mesa) {
-		mesa.getGarcomMesa().getMesasGarcom().remove(mesa);
-		mesa.setGarcomMesa(null);
+		
+		// Quando a mesa é encerrada, o garçom continua responsável por ela
+		//mesa.getGarcomMesa().getMesasGarcom().remove(mesa);
+		//mesa.setGarcomMesa(null);
 		mesa.getPedido().clear();
 	}
 	

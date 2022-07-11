@@ -13,6 +13,8 @@ public class Gerente {
 		this.mesas = new ConjuntoMesas();
 	}
 
+	
+	
 	//public void desconto(String numeroMesa, double porcentagem) {
 	//	Mesa m = mesas.getMesa(numeroMesa);
 	//	m.getPedido();
@@ -24,7 +26,7 @@ public class Gerente {
 		mesas.inserirMesa(mesa);
 	}
 	
-	public void cadastrarGarcom(String nome, String codigo) throws GarcomJaExistenteException{
+	public void cadastrarGarcom(String nome, String codigo) throws GarcomJaExistenteException, CodigoInvalidoException{
 		Garcom garcom = new Garcom(nome, codigo);
 		garcons.inserirGarcom(garcom);
 	}

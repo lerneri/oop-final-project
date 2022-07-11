@@ -4,6 +4,7 @@ public class Mesa {
 	private String numeroMesa;
 	private HashMap<ItemCardapio, Integer> pedido;
 	private Garcom garcomMesa;
+	private boolean ocupada;
 
 	public boolean mesaPossuiGarcom() {
 		boolean resultado = false;
@@ -41,6 +42,15 @@ public class Mesa {
 
 	public Mesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
-		this.pedido = new HashMap<>();
+		this.pedido = new HashMap<ItemCardapio, Integer>();
+		this.ocupada = false;
+	}
+
+	public boolean isOcupada() {
+		return ocupada;
+	}
+
+	public void setOcupada(boolean ocupada) {
+		this.ocupada = ocupada;
 	}
 }

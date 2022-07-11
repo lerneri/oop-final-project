@@ -1,6 +1,6 @@
-1000:Batata frita:Porção de batata frita(300g):14
-1001:Espetinho:Frango, Carne ou Linguiça (100g):7
-1002:Dadinho de tapioca: Porção de dadinhos de tapioca(350g):17
+1000:Batata frita:Porção de batata frita(300g):14.50
+1001:Espetinho:Frango, Carne ou Linguiça (100g):7.48
+1002:Dadinho de tapioca: Porção de dadinhos de tapioca(350g):17.99
 2000:Filé à parmegiana:Acompanha uma porção de arroz ou baião(300g) e um corte de filé mignon ao molho parmegiana(200g):62
 2001:Picanha ao molho madeira:Acompanha uma porção de arroz ou baião(300g) e um corte de picanha ao molho madeira(200g):55
 2002:Maminha ao molho funghi:Acompanha uma porção de arroz ou baião(300g) e um corte de maminha ao molho funghi(200g):48
