@@ -38,7 +38,7 @@ public class ItemCardapio {
 		this.valor = valor;
 	}
 
-	public ItemCardapio(String codigo, String descricao, String nome, double valor) throws CodigoInvalidoException {
+	public ItemCardapio(String codigo, String descricao, String nome, double valor){
 
 		this.codigo = codigo;
 		this.descricao = descricao;
