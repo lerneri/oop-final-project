@@ -2,8 +2,8 @@ import Excecoes.CodigoInvalidoException;
 
 public class ItemCardapio {
 	private String codigo;
-	private String descricao;
 	private String nome;
+	private String descricao;
 	private double valor;
 
 	public String getCodigo() {
@@ -38,8 +38,8 @@ public class ItemCardapio {
 		this.valor = valor;
 	}
 
-	public ItemCardapio(String codigo, String descricao, String nome, double valor){
 
+	public ItemCardapio(String codigo, String nome, String descricao, double valor) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 		this.nome = nome;
