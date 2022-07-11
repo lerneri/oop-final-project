@@ -3,10 +3,10 @@
 
 ## Equipe:
 
-Aiko Hilly Ribeiro de Paula <br/>
-Letícia Rodrigues Neri [@lerneri](https://github.com/lerneri)<br/>
-Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/>
-Victor Viana Paiva [@victorvp9](https://github.com/victorvp9)<br/>
+Aiko Hilly Ribeiro de Paula <br/> - Documentação e QA
+Letícia Rodrigues Neri [@lerneri](https://github.com/lerneri)<br/> - Gerenciamento de projeto e GUI
+Rodrigo da Silva Carvalho Maia [@RodrigoMaia03](https://github.com/RodrigoMaia03)<br/> - Back-end
+Victor Viana Paiva [@victorvp9](https://github.com/victorvp9)<br/> - Back-end
 
 
 ## Sistema: Gerenciamento de Restaurante
