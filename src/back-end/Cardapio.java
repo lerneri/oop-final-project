@@ -9,7 +9,7 @@ public class Cardapio {
 
 	public Cardapio() throws IOException, CodigoInvalidoException {
 		cardapio = new ArrayList<ItemCardapio>();
-		RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Usuario\\Downloads\\cardapio.txt", "r");
+		RandomAccessFile raf = new RandomAccessFile("cardapio.txt", "r");
 		String frase;
 		ItemCardapio result = null;
 		while ((frase = raf.readLine()) != null) {
