@@ -40,6 +40,9 @@ public class Garcom {
 			throw new QuantidadeInvalidaException();
 		}
 		Mesa mesa = getMesa(numeroMesa);
+		if(mesa.isOcupada()==false) {
+			mesa.setOcupada(true);
+		}
 		ItemCardapio item = Cardapio.getItemCardapio(codigoItem);
 			if(mesa.getPedido().containsKey(item)) {
 				mesa.setPedido(item, quantidade);
@@ -51,7 +54,6 @@ public class Garcom {
 	public void encerrarPedido(String numeroMesa) throws GarcomNaoPossuiMesaException {
 		Mesa m = getMesa(numeroMesa);
 		Caixa.gerarNota(m.getPedido());
-		
 	}
 	
 	
