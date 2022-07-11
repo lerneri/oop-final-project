@@ -13,8 +13,6 @@ public class Gerente {
 		this.mesas = new ConjuntoMesas();
 	}
 
-	
-	
 	//public void desconto(String numeroMesa, double porcentagem) {
 	//	Mesa m = mesas.getMesa(numeroMesa);
 	//	m.getPedido();
