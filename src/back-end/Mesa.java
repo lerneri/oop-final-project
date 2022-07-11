@@ -30,14 +30,7 @@ public class Mesa {
 	public void setNumeroMesa(String numeroMesa) {
 		this.numeroMesa = numeroMesa;
 	}
-
-	public Mesa(String numeroMesa) {
-		this.numeroMesa = numeroMesa;
-		this.garcomMesa = null;
-		this.pedido = new HashMap<ItemCardapio, Integer>();
-		this.ocupada = false;
-	}
-
+	
 	public boolean isOcupada() {
 		return ocupada;
 	}
@@ -45,5 +38,12 @@ public class Mesa {
 	// ALTERAR NOS CONJUNTOS DE MESAS, COLOCAR DE OCUPADA PRA LIVRE OU DE LIVRE PARA OCUPADA
 	public void setOcupada(boolean ocupada) {
 		this.ocupada = ocupada;
+	}
+
+	public Mesa(String numeroMesa) {
+		this.numeroMesa = numeroMesa;
+		this.garcomMesa = null;
+		this.pedido = new HashMap<ItemCardapio, Integer>();
+		this.ocupada = false;
 	}
 }
