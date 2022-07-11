@@ -1,5 +1,8 @@
+import java.io.*;
+
 import javax.swing.JOptionPane;
 
+import Excecoes.CodigoInvalidoException;
 import Excecoes.GarcomInexistenteException;
 import Excecoes.GarcomJaExistenteException;
 import Excecoes.GarcomNaoPossuiMesaException;
@@ -11,11 +14,12 @@ public class Main {
 	
 	
 	public static void main(String[] args) throws GarcomNaoPossuiMesaException, 
-	ItemNaoExistenteException, GarcomInexistenteException, MesaInexistenteException {
+	ItemNaoExistenteException, GarcomInexistenteException, MesaInexistenteException, IOException, CodigoInvalidoException {
 		
-		Cardapio cardapio = new Cardapio("Do"
+		//File arquivo = new File("cardapio.txt");
+		Cardapio cardapio = new Cardapio();
+		System.out.println(cardapio.toString());
 		
-//		Gerente ger = new Gerente("Rodrigo");
 //		ConjuntoGarcons gc = new ConjuntoGarcons();
 //		Garcom g1 = new Garcom("Rod bala", "5012");
 //		Garcom g2 = new Garcom("Vv gol matador", "5044");

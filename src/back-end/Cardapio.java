@@ -7,9 +7,9 @@ import Excecoes.ItemNaoExistenteException;
 public class Cardapio {
 	public static ArrayList<ItemCardapio> cardapio;
 
-	public Cardapio(File arquivo) throws IOException, CodigoInvalidoException {
+	public Cardapio() throws IOException, CodigoInvalidoException {
 		cardapio = new ArrayList<ItemCardapio>();
-		RandomAccessFile raf = new RandomAccessFile(arquivo, "r");
+		RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Rodrigo Maia\\Documents\\Trabalho Final POO\\projeto-final-poo\\src\\back-end\\cardapio.txt", "r");
 		String frase;
 		ItemCardapio result = null;
 		while ((frase = raf.readLine()) != null) {

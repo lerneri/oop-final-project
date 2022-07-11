@@ -11,6 +11,6 @@ public class Fachada{
   
   private Fachada(){
     gerente = new Gerente("Fernando Trinta");
-    cardapio = new Cardapio();
+    //cardapio = new Cardapio();
   }
 }
