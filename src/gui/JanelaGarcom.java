@@ -18,6 +18,8 @@ public class JanelaGarcom {
 	private JFrame frmGerenciamentoDeRestaurante;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -48,9 +50,9 @@ public class JanelaGarcom {
 	private void initialize() {
 		frmGerenciamentoDeRestaurante = new JFrame();
 		frmGerenciamentoDeRestaurante.setTitle("Gerenciamento de Restaurante - Garçom garcom.nome");
-		frmGerenciamentoDeRestaurante.setBounds(100, 100, 450, 300);
+		frmGerenciamentoDeRestaurante.setBounds(100, 100, 531, 420);
 		frmGerenciamentoDeRestaurante.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmGerenciamentoDeRestaurante.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][][]"));
+		frmGerenciamentoDeRestaurante.getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][][][][][][][]"));
 		
 		JLabel lblNewLabel = new JLabel("Bem-vindo, nomeGarçom!");
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel, "cell 0 0");
@@ -67,8 +69,9 @@ public class JanelaGarcom {
 		JLabel lblNewLabel_5 = new JLabel("Item:");
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_5, "cell 0 3,alignx trailing");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		frmGerenciamentoDeRestaurante.getContentPane().add(comboBox_1, "cell 1 3,growx");
+		textField_2 = new JTextField();
+		frmGerenciamentoDeRestaurante.getContentPane().add(textField_2, "cell 1 3,growx");
+		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_2, "cell 0 4,alignx trailing,aligny baseline");
@@ -96,8 +99,9 @@ public class JanelaGarcom {
 		JLabel lblNewLabel_7 = new JLabel("Item:");
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_7, "cell 0 8,alignx trailing");
 		
-		JComboBox comboBox_2 = new JComboBox();
-		frmGerenciamentoDeRestaurante.getContentPane().add(comboBox_2, "cell 1 8,growx");
+		textField_3 = new JTextField();
+		frmGerenciamentoDeRestaurante.getContentPane().add(textField_3, "cell 1 8,growx");
+		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Qauntidade:");
 		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_8, "cell 0 9,alignx trailing");
@@ -112,6 +116,21 @@ public class JanelaGarcom {
 			}
 		});
 		frmGerenciamentoDeRestaurante.getContentPane().add(btnNewButton_1, "cell 1 10");
+		
+		JLabel lblNewLabel_9 = new JLabel("Direcionar para pagamento");
+		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_9, "cell 1 11");
+		
+		JLabel lblNewLabel_10 = new JLabel("Mesa:");
+		frmGerenciamentoDeRestaurante.getContentPane().add(lblNewLabel_10, "cell 0 12,alignx trailing");
+		
+		JComboBox comboBox_1 = new JComboBox();
+		frmGerenciamentoDeRestaurante.getContentPane().add(comboBox_1, "cell 1 12,growx");
+		
+		JButton btnNewButton_2 = new JButton("Encerrar mesa");
+		frmGerenciamentoDeRestaurante.getContentPane().add(btnNewButton_2, "cell 1 13");
+		
+		JButton btnNewButton_3 = new JButton("Voltar à tela inicial");
+		frmGerenciamentoDeRestaurante.getContentPane().add(btnNewButton_3, "cell 0 15");
 	}
 
 }
