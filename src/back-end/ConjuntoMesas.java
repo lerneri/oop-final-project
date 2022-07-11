@@ -3,9 +3,13 @@ import Excecoes.*;
 
 public class ConjuntoMesas {
 
-	private static ArrayList<Mesa> mesas;
+	private static ArrayList<Mesa> mesas;	
 	
 	// CRIAR DOIS ARRAYLIST - MESAS OCUPADAS E MESAS LIVRES E IMPLEMENTAR OS POSSÍVEIS ERROS
+	
+	public static ArrayList<Mesa> getArrayMesas(){
+		return mesas;
+	}
 	
 	public void inserirMesa(Mesa mesa) throws MesaJaExistenteException{
 		if(mesas != null && mesas.contains(mesa)) {

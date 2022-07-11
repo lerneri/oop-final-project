@@ -12,6 +12,16 @@ public class Gerente {
 		this.garcons = new ConjuntoGarcons();
 		this.mesas = new ConjuntoMesas();
 	}
+	
+	public ArrayList<Mesa> getMesasLivres(){
+		ArrayList<Mesa> resposta = null;
+		for (int i=0; i<ConjuntoMesas.getArrayMesas().size(); i++) {
+			if(ConjuntoMesas.getArrayMesas().get(i).isOcupada()==false) {
+				resposta.add(ConjuntoMesas.getArrayMesas().get(i));
+			}
+		}
+		return resposta;
+	}
 
 	//public void desconto(String numeroMesa, double porcentagem) {
 	//	Mesa m = mesas.getMesa(numeroMesa);
