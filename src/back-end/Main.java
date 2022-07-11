@@ -18,7 +18,7 @@ public class Main {
 		
 		//File arquivo = new File("cardapio.txt");
 		Cardapio cardapio = new Cardapio();
-		System.out.println(cardapio.toString());
+		System.out.println(Cardapio.getItemCardapio("1000").getNome());
 		
 //		ConjuntoGarcons gc = new ConjuntoGarcons();
 //		Garcom g1 = new Garcom("Rod bala", "5012");

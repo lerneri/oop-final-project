@@ -9,19 +9,17 @@ public class Cardapio {
 
 	public Cardapio() throws IOException, CodigoInvalidoException {
 		cardapio = new ArrayList<ItemCardapio>();
-		RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Rodrigo Maia\\Documents\\Trabalho Final POO\\projeto-final-poo\\src\\back-end\\cardapio.txt", "r");
+		RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Usuario\\Downloads\\cardapio.txt", "r");
 		String frase;
 		ItemCardapio result = null;
 		while ((frase = raf.readLine()) != null) {
 			StringTokenizer fraseTK = new StringTokenizer(frase, ":");
-			result.setCodigo(fraseTK.nextToken());
-			result.setNome(fraseTK.nextToken());
-			result.setDescricao(fraseTK.nextToken());
-			result.setValor(Integer.parseInt(fraseTK.nextToken()));
+			result = new ItemCardapio(fraseTK.nextToken(), fraseTK.nextToken(), fraseTK.nextToken(), Integer.parseInt(fraseTK.nextToken()));
 			Cardapio.inserir(result);
 			// result = new ItemCardapio(st[1],st[2],st[3],st[4])//converter st[4] pra
 			// double
 		}
+		raf.close();
 
 	}
 
@@ -39,7 +37,7 @@ public class Cardapio {
 		ItemCardapio resposta = null;
 
 		for (int i = 0; i < cardapio.size(); i++) {
-			if ((cardapio.get(i).getCodigo()) == codigoItem) {
+			if ((cardapio.get(i).getCodigo()).equals(codigoItem)) {
 				resposta = cardapio.get(i);
 			}
 		}
