@@ -50,6 +50,7 @@ public class Mesa {
 		return ocupada;
 	}
 
+	// ALTERAR NOS CONJUNTOS DE MESAS, COLOCAR DE OCUPADA PRA LIVRE OU DE LIVRE PARA OCUPADA
 	public void setOcupada(boolean ocupada) {
 		this.ocupada = ocupada;
 	}

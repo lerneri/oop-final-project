@@ -5,6 +5,8 @@ public class ConjuntoMesas {
 
 	private static ArrayList<Mesa> mesas;
 	
+	// CRIAR DOIS ARRAYLIST - MESAS OCUPADAS E MESAS LIVRES E IMPLEMENTAR OS POSSÍVEIS ERROS
+	
 	public void inserirMesa(Mesa mesa) throws MesaJaExistenteException{
 		if(mesas != null && mesas.contains(mesa)) {
 			throw new MesaJaExistenteException();
