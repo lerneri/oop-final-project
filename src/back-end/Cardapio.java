@@ -6,20 +6,24 @@ import Excecoes.ItemNaoExistenteException;
 public class Cardapio {
   public static ArrayList<ItemCardapio> cardapio;
 
-  public Cardapio() throws IOException {
+  public Cardapio(File arquivo) throws IOException {
     cardapio = new ArrayList<ItemCardapio>();
-    RandomAccessFile raf = new RandomAccessFile("cardapio.txt", "r");
+    RandomAccessFile raf = new RandomAccessFile(arquivo, "r");
     String frase;
+    ItemCardapio result=null;
     	while ((frase = raf.readLine()) != null) {
-    		ItemCardapio result=null;
     		StringTokenizer fraseTK = new StringTokenizer(frase, ":");
-    		
+    		result.setCodigo(fraseTK.nextToken());
+    		result.setNome(fraseTK.nextToken());
+    		result.setDescricao(fraseTK.nextToken());
+    		result.setValor(Integer.parseInt(fraseTK.nextToken()));
+    		Cardapio.inserir(result);
     			//result = new ItemCardapio(st[1],st[2],st[3],st[4])//converter st[4] pra double
     	}
     
   }
 
-  public void inserir(ItemCardapio item) {
+  public static void inserir(ItemCardapio item) {
     cardapio.add(item);
   }
   
