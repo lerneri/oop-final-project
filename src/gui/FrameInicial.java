@@ -16,6 +16,8 @@ import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
 
+import backend.*;
+
 public class FrameInicial extends JFrame {
 
 	private JPanel contentPane;

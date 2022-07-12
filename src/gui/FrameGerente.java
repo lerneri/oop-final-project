@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +18,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+
+import backend.*;
 
 public class FrameGerente extends JFrame {
 
@@ -40,8 +43,9 @@ public class FrameGerente extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("Mesa:");
 		getContentPane().add(lblNewLabel_2, "cell 0 2,alignx right,aligny center");
 		
-		JComboBox comboBox_4 = new JComboBox();
-		getContentPane().add(comboBox_4, "cell 1 2,growx,aligny center");
+		JComboBox comboBoxMesa1 = new JComboBox();
+		//TODO: comboBoxMesa1 recebe ArrayList de mesas livres
+		getContentPane().add(comboBoxMesa1, "cell 1 2,growx,aligny center");
 		
 		JLabel lblNewLabel_9 = new JLabel("Nome:");
 		getContentPane().add(lblNewLabel_9, "cell 2 2,alignx right,aligny center");
@@ -53,6 +57,7 @@ public class FrameGerente extends JFrame {
 		JButton btnNewButton_6 = new JButton("Ocupar mesa");
 		btnNewButton_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//TODO: ocupada recebe true
 			}
 		});
 		getContentPane().add(btnNewButton_6, "cell 1 3,alignx center,aligny center");

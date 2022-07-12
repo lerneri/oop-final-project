@@ -12,6 +12,8 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
+import backend.*;
+
 public class FrameCaixa extends JFrame {
 	
 	//Tela referente ao caixa do restaurante
@@ -37,6 +39,7 @@ public class FrameCaixa extends JFrame {
 		
 		JComboBox comboBoxMesas = new JComboBox();
 		getContentPane().add(comboBoxMesas, "cell 1 2");
+		
 		
 		//Formas de pagamento
 		

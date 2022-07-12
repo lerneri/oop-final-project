@@ -15,6 +15,8 @@ import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
 
+import backend.*;
+
 public class FrameGarcom extends JFrame {
 
 	private JPanel contentPane;
