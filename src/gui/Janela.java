@@ -53,12 +53,7 @@ public class Janela {
 		if(frameGarcom.isVisible()){
 			frameGarcom.getContentPane().add(btnVoltar, "cell 0 15");
 			}
-		if(frameCaixa.isVisible()){
-			frameCaixa.getContentPane().add(btnVoltar, "cell 0 9");
-			}
-		if(frameGerente.isVisible()){
-			frameGerente.getContentPane().add(btnVoltar, "cell 0 19");
-		}
+		
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
