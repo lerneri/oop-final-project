@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import excecoes.CodigoInvalidoException;
 import excecoes.GarcomInexistenteException;
-import excecoes.GarcomJaExistenteException;
+import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
 

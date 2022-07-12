@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import excecoes.CodigoInvalidoException;
 import excecoes.GarcomInexistenteException;
-import excecoes.GarcomJaExistenteException;
+import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
 import excecoes.MesaInexistenteException;

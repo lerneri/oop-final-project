@@ -3,16 +3,16 @@ package backend;
 import java.util.ArrayList;
 
 import excecoes.GarcomInexistenteException;
-import excecoes.GarcomJaExistenteException;
+import excecoes.CodigoGarcomJaExistenteException;
 
 public class ConjuntoGarcons {
 	private static ArrayList<Garcom> garcons = new ArrayList<Garcom>();
 	
-	public void inserirGarcom(Garcom garcom) throws GarcomJaExistenteException{
+	public void inserirGarcom(Garcom garcom) throws CodigoGarcomJaExistenteException{
 		if(garcons != null) {
 			for(int i=0; i<garcons.size(); i++) {
 				if(garcons.get(i).getCodigo().equals(garcom.getCodigo())) {
-					throw new GarcomJaExistenteException();
+					throw new CodigoGarcomJaExistenteException();
 				}
 			}
 				

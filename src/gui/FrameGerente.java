@@ -23,7 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 import backend.*;
 import excecoes.CodigoInvalidoException;
-import excecoes.GarcomJaExistenteException;
+import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
 import excecoes.NomeInvalidoException;
@@ -107,7 +107,7 @@ public class FrameGerente extends JFrame {
 					Garcom g = new Garcom(textField_2.getText(), passwordField.getText());
 					Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(g);
 					JOptionPane.showMessageDialog(contentPane,"Garçom inserido com sucesso!");
-				}catch (GarcomJaExistenteException e1) {
+				}catch (CodigoGarcomJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Código do garçom já existe");
 				}catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane,"IO Exception");
