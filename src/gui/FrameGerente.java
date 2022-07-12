@@ -26,6 +26,7 @@ import excecoes.CodigoInvalidoException;
 import excecoes.GarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
+import excecoes.NomeInvalidoException;
 
 public class FrameGerente extends JFrame {
 

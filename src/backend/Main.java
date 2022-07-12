@@ -22,12 +22,6 @@ public class Main {
 		Cardapio cardapio = new Cardapio();
 		System.out.println(Cardapio.getItemCardapio("1001").getValor());
 		
-<<<<<<< HEAD
-		Fachada fachada = new Fachada();
-=======
-		
->>>>>>> a07f026a638170170779aa65ac02645c863b11de
-		
 //		ConjuntoGarcons gc = new ConjuntoGarcons();
 //		Garcom g1 = new Garcom("Rod bala", "5012");
 //		Garcom g2 = new Garcom("Vv gol matador", "5044");

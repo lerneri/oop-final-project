@@ -36,7 +36,7 @@ public class Gerente {
 		mesas.inserirMesa(mesa);
 	}
 	
-	public void cadastrarGarcom(String nome, String codigo) throws GarcomJaExistenteException, CodigoInvalidoException{
+	public void cadastrarGarcom(String nome, String codigo) throws GarcomJaExistenteException, CodigoInvalidoException, NomeInvalidoException{
 		Garcom garcom = new Garcom(nome, codigo);
 		garcons.inserirGarcom(garcom);
 	}
