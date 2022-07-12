@@ -23,6 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 import backend.*;
 import excecoes.CodigoInvalidoException;
+import excecoes.GarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
 
@@ -96,6 +97,27 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(comboBox_1, "cell 1 4,growx,aligny center");
 		
 		JButton btnNewButton_3 = new JButton("Cadastrar funcionário");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+				if (textField_2.getText().length()<=3) {
+					JOptionPane.showMessageDialog(contentPane,"Nome deve possuir mais de 3 letras");
+				}
+				try {
+					Garcom g = new Garcom(textField_2.getText(), passwordField.getText());
+					Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(g);
+				}catch (GarcomJaExistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Código do garçom já existe");
+				}catch (IOException e1) {
+					JOptionPane.showMessageDialog(contentPane,"IO Exception");
+				}catch (CodigoInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Codigo do garçom deve possuir apenas 4 números!");
+				}catch (NomeInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Nome do garçom deve possuir apenas letras e espaços!");
+				}
+				
+			}
+		});
 		getContentPane().add(btnNewButton_3, "cell 3 4,alignx center,aligny center");
 		
 		JLabel lblNewLabel_6 = new JLabel("Garçom:");
