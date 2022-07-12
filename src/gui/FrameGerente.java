@@ -31,12 +31,14 @@ import excecoes.NomeInvalidoException;
 public class FrameGerente extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_3;
 
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[106px][115px][37px][172px]", "[14px][14px][22px][23px][23px][22px][23px][20px][23px][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[106px][:115px:115px,grow][37px][172px]", "[14px][14px][22px][23px][23px][22px][23px][20px][23px][][][][][][][][][][][]"));
 		
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, GERENTE!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0,alignx center,aligny center");
@@ -92,10 +94,7 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(passwordField, "cell 3 3,growx,aligny center");
 		
 		JLabel lblNewLabel_5 = new JLabel("Mesa:");
-		getContentPane().add(lblNewLabel_5, "cell 0 4,alignx right,aligny center");
-		
-		JComboBox comboBox_1 = new JComboBox();
-		getContentPane().add(comboBox_1, "cell 1 4,growx,aligny center");
+		getContentPane().add(lblNewLabel_5, "cell 0 4,alignx trailing,aligny center");
 		
 		JButton btnNewButton_3 = new JButton("Cadastrar funcionário");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -119,13 +118,18 @@ public class FrameGerente extends JFrame {
 				
 			}
 		});
+		
+		textField = new JTextField();
+		getContentPane().add(textField, "cell 1 4,growx");
+		textField.setColumns(10);
 		getContentPane().add(btnNewButton_3, "cell 3 4,alignx center,aligny center");
 		
 		JLabel lblNewLabel_6 = new JLabel("Garçom:");
-		getContentPane().add(lblNewLabel_6, "cell 0 5,alignx right,aligny center");
+		getContentPane().add(lblNewLabel_6, "cell 0 5,alignx trailing,aligny center");
 		
-		JComboBox comboBox_2 = new JComboBox();
-		getContentPane().add(comboBox_2, "cell 1 5,growx,aligny center");
+		textField_3 = new JTextField();
+		getContentPane().add(textField_3, "cell 1 5,growx");
+		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_10 = new JLabel("Nome:");
 		getContentPane().add(lblNewLabel_10, "cell 2 5,alignx center,aligny center");
