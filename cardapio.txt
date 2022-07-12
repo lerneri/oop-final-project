@@ -1,0 +1,12 @@
+1000:Batata frita:Porção de batata frita(300g):14.50
+1001:Espetinho:Frango, Carne ou Linguiça (100g):7.48
+1002:Dadinho de tapioca: Porção de dadinhos de tapioca(350g):17.99
+2000:Filé à parmegiana:Acompanha uma porção de arroz ou baião(300g) e um corte de filé mignon ao molho parmegiana(200g):62
+2001:Picanha ao molho madeira:Acompanha uma porção de arroz ou baião(300g) e um corte de picanha ao molho madeira(200g):55
+2002:Maminha ao molho funghi:Acompanha uma porção de arroz ou baião(300g) e um corte de maminha ao molho funghi(200g):48
+3000:Pudim:Pudim de leite condensado - Fatia:5
+3001:Gelato:Variados sabores - Taça(250mL):15
+3002:Brownie:Brownie de chocolate - Fatia:7
+4000:Água Indaiá:Água mineral - Garrafa(500mL):3
+4001:Coca-Cola:Refrigerante de cola - Lata(350mL):4
+4002:Red Label:Whisky blend - Dose(30mL):9
