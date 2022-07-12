@@ -13,8 +13,24 @@ public class Fachada {
 	private Cardapio cardapio;
 	private ConjuntoMesas conjuntoMesas;
 	private ConjuntoGarcons conjuntoGarcons;
-
 	
+	
+	public Gerente getGerente() {
+		return gerente;
+	}
+
+	public Cardapio getCardapio() {
+		return cardapio;
+	}
+
+	public ConjuntoMesas getConjuntoMesas() {
+		return conjuntoMesas;
+	}
+
+	public ConjuntoGarcons getConjuntoGarcons() {
+		return conjuntoGarcons;
+	}
+
 	public static Fachada getInstancia() throws IOException, CodigoInvalidoException {
 		if (instancia == null) {
 			instancia = new Fachada();
