@@ -107,5 +107,10 @@ public class FrameGerente extends JFrame {
 		
 		
 	}
+	
+	public static void main(String[] args) {
+		FrameGerente fg = new FrameGerente();
+		fg.setVisible(true);
+	}
 
 }
