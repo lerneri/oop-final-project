@@ -40,7 +40,7 @@ public class Fachada {
 		return instancia;
 	}
 
-	private Fachada() throws IOException, CodigoInvalidoException {
+	Fachada() throws IOException, CodigoInvalidoException {
 		gerente = new Gerente("Fernando Trinta");
 		cardapio = new Cardapio();
 		conjuntoMesas = new ConjuntoMesas();

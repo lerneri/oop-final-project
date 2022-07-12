@@ -6,6 +6,7 @@ import java.util.*;
 import excecoes.CodigoInvalidoException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
+import excecoes.NomeInvalidoException;
 import excecoes.PedidoVazioException;
 import excecoes.QuantidadeInvalidaException;
 
@@ -91,7 +92,7 @@ public class Garcom {
 		this.codigo = codigo;
 	}
 
-	public Garcom(String nome, String codigo) throws CodigoInvalidoException {
+	public Garcom(String nome, String codigo) throws CodigoInvalidoException, NomeInvalidoException {
 		for(byte b : codigo.getBytes()) {
 			if(b<48 || b>57) {
 				throw new CodigoInvalidoException();
@@ -100,6 +101,14 @@ public class Garcom {
 		if(codigo.length()!=4) {
 			throw new CodigoInvalidoException();
 		}
+		
+		for(byte b : nome.getBytes()) {
+			if((b<65 && b!=32) || (b>90 && b<97) || (b>122)) {
+				throw new NomeInvalidoException();
+			}
+		}
+		
+	
 		this.codigo = codigo;
 		this.nome = nome;
 		mesas = new ArrayList<Mesa>();
