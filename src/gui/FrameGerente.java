@@ -106,6 +106,7 @@ public class FrameGerente extends JFrame {
 				try {
 					Garcom g = new Garcom(textField_2.getText(), passwordField.getText());
 					Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(g);
+					JOptionPane.showMessageDialog(contentPane,"Garçom inserido com sucesso!");
 				}catch (GarcomJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Código do garçom já existe");
 				}catch (IOException e1) {

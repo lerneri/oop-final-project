@@ -9,8 +9,13 @@ public class ConjuntoGarcons {
 	private static ArrayList<Garcom> garcons = new ArrayList<Garcom>();
 	
 	public void inserirGarcom(Garcom garcom) throws GarcomJaExistenteException{
-		if(garcons != null && garcons.contains(garcom)) {
-			throw new GarcomJaExistenteException();
+		if(garcons != null) {
+			for(int i=0; i<garcons.size(); i++) {
+				if(garcons.get(i).getCodigo().equals(garcom.getCodigo())) {
+					throw new GarcomJaExistenteException();
+				}
+			}
+				
 		}else {
 			garcons.add(garcom);
 		}
