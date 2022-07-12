@@ -2,6 +2,8 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -49,8 +51,7 @@ public class FrameInicial extends JFrame {
 		JPasswordField passwordCodigo = new JPasswordField();
 		getContentPane().add(passwordCodigo, "cell 1 3,growx");
 		
-		JButton btnLogin = new JButton("Login");
-		getContentPane().add(btnLogin, "cell 1 5");
+		
 	}
 	
 

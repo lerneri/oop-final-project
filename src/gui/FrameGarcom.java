@@ -28,21 +28,18 @@ public class FrameGarcom extends JFrame {
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, nomeGarçom!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0");
 		
-		JLabel lblNewLabel_3 = new JLabel("Inserir pedido");
-		getContentPane().add(lblNewLabel_3, "cell 1 1");
+		JLabel lblInserirPedido = new JLabel("Inserir pedido");
+		getContentPane().add(lblInserirPedido, "cell 1 1");
 		
-		JLabel lblNewLabel_1 = new JLabel("Mesa:");
-		getContentPane().add(lblNewLabel_1, "cell 0 2,alignx trailing");
+		JComboBox comboBoxMesas = new JComboBox();
+		getContentPane().add(comboBoxMesas, "flowx,cell 1 2,alignx left");
 		
-		JComboBox comboBox = new JComboBox();
-		getContentPane().add(comboBox, "flowx,cell 1 2,alignx left");
-		
-		JLabel lblNewLabel_5 = new JLabel("Item:");
-		getContentPane().add(lblNewLabel_5, "cell 0 3,alignx trailing");
+		JLabel lblItem = new JLabel("Item:");
+		getContentPane().add(lblItem, "cell 0 3,alignx trailing");
 		
 		JTextField textField_2 = new JTextField();
 		getContentPane().add(textField_2, "cell 1 3,alignx left");
-		textField_2.setColumns(10);
+		textField_2.setColumns(4);
 		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_2, "cell 0 4,alignx trailing,aligny baseline");
@@ -61,8 +58,11 @@ public class FrameGarcom extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Remover pedido");
 		getContentPane().add(lblNewLabel_4, "cell 1 6");
 		
-		JLabel lblNewLabel_6 = new JLabel("Mesa:");
-		getContentPane().add(lblNewLabel_6, "cell 0 7,alignx trailing");
+		JLabel lblMesa2 = new JLabel("Mesa:");
+		getContentPane().add(lblMesa2, "cell 0 2,alignx trailing");
+		
+		JLabel lblMesa = new JLabel("Mesa:");
+		getContentPane().add(lblMesa, "cell 0 7,alignx trailing");
 		
 		JComboBox comboBox_3 = new JComboBox();
 		getContentPane().add(comboBox_3, "cell 1 7");
@@ -81,27 +81,26 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(textField_1, "cell 1 9");
 		textField_1.setColumns(2);
 		
-		JButton btnNewButton_1 = new JButton("Cancelar pedido");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnCancelar = new JButton("Cancelar pedido");
+		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		getContentPane().add(btnNewButton_1, "cell 1 10");
+		getContentPane().add(btnCancelar, "cell 1 10");
 		
-		JLabel lblNewLabel_9 = new JLabel("Direcionar para pagamento");
-		getContentPane().add(lblNewLabel_9, "cell 1 11");
+		JLabel lblDirecionar = new JLabel("Direcionar para pagamento");
+		getContentPane().add(lblDirecionar, "cell 1 11");
 		
-		JLabel lblNewLabel_10 = new JLabel("Mesa:");
-		getContentPane().add(lblNewLabel_10, "cell 0 12,alignx trailing");
+		JLabel lblMesa3 = new JLabel("Mesa:");
+		getContentPane().add(lblMesa3, "cell 0 12,alignx trailing");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		getContentPane().add(comboBox_1, "cell 1 12");
+		JComboBox comboBoxMesas3 = new JComboBox();
+		getContentPane().add(comboBoxMesas3, "cell 1 12");
 		
-		JButton btnNewButton_2 = new JButton("Encerrar mesa");
-		getContentPane().add(btnNewButton_2, "cell 1 13");
+		JButton btnEncerrar = new JButton("Encerrar mesa");
+		getContentPane().add(btnEncerrar, "cell 1 13");
 		
-		JButton btnNewButton_3 = new JButton("Voltar à tela inicial");
-		getContentPane().add(btnNewButton_3, "cell 0 15");
+		
 	}
 
 }

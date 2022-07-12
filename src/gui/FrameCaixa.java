@@ -61,10 +61,6 @@ public class FrameCaixa extends JFrame {
 		JButton btnComprovante = new JButton("Emitir comprovante");
 		getContentPane().add(btnComprovante, "cell 1 5");
 		
-		//Voltar ao frame de login
-		
-		JButton btnVoltar = new JButton("Voltar à tela inicial");
-		getContentPane().add(btnVoltar, "cell 0 9");
 		
 	}
 

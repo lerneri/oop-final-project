@@ -1,8 +1,10 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
 
 public class Janela {
 
@@ -19,10 +21,10 @@ public class Janela {
 			public void run() {
 				try {
 					Janela janela = new Janela();
-					janela.frameInicial.setVisible(true);
+					janela.frameInicial.setVisible(false);
 					janela.frameCaixa.setVisible(false);
 					janela.frameGerente.setVisible(false);
-					janela.frameGarcom.setVisible(false);
+					janela.frameGarcom.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,6 +43,29 @@ public class Janela {
 		frameGarcom = new FrameGarcom();
 		
 		//TODO: Tratamento de eventos para troca entre frames
+		
+		JButton btnVoltar = new JButton("Voltar à tela inicial");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frameInicial.setVisible(true);
+			}
+		});
+		if(frameGarcom.isVisible()){
+			frameGarcom.getContentPane().add(btnVoltar, "cell 0 15");
+			}
+		if(frameCaixa.isVisible()){
+			frameCaixa.getContentPane().add(btnVoltar, "cell 0 9");
+			}
+		if(frameGerente.isVisible()){
+			frameGerente.getContentPane().add(btnVoltar, "cell 0 19");
+		}
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent f) {
+			}
+		});
+		frameInicial.getContentPane().add(btnLogin, "cell 1 5");
 		
 	}
 
