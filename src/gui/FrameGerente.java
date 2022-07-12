@@ -7,12 +7,14 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -20,6 +22,9 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 
 import backend.*;
+import excecoes.CodigoInvalidoException;
+import excecoes.MesaInexistenteException;
+import excecoes.MesaJaExistenteException;
 
 public class FrameGerente extends JFrame {
 
@@ -41,9 +46,9 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(lblGerenciamentoFuncionarios, "cell 3 1,alignx center,aligny center");
 		
 		JLabel lblMesa1 = new JLabel("Mesa:");
-		getContentPane().add(Mesa1, "cell 0 2,alignx right,aligny center");
+		getContentPane().add(lblMesa1, "cell 0 2,alignx right,aligny center");
 		
-		Mesas<Mesa> = (ArrayList) fachada.gerente.getMesasLivres();
+		
 		
 		JComboBox comboBoxMesa1 = new JComboBox(); //TODO: comboBoxMesa1 recebe ArrayList de mesas livres
 		getContentPane().add(comboBoxMesa1, "cell 1 2,growx,aligny center");
@@ -51,9 +56,19 @@ public class FrameGerente extends JFrame {
 		JButton btnOcupar = new JButton("Ocupar mesa");
 		btnOcupar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(ConjuntoMesas.getArrayMesas() == null) {
+					JOptionPane.showMessageDialog(contentPane, "Conjunto de Mesas vazio");
+					return;
+				}
 				String s = (String) comboBoxMesa1.getSelectedItem();
-				Mesa m = getNumeroMesa(s);
-				m.isOcupada(true);
+				Mesa m;
+				try {
+					m = ConjuntoMesas.getMesa(s);
+					m.setOcupada(true);
+				} catch (MesaInexistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
+				}
+				
 				
 			}
 		});
@@ -96,6 +111,13 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(comboBox_3, "cell 3 5,growx,aligny center");
 		
 		JButton btnNewButton_1 = new JButton("Realocar garçom");
+//		btnNewButton_1.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				String numeroMesa = (String)comboBox_1.getSelectedItem();
+//				String numeroGarcom = 
+//				
+//			}
+//		});
 		getContentPane().add(btnNewButton_1, "cell 1 6,alignx center,aligny top");
 		
 		JButton btnNewButton_4 = new JButton("Remover funcionário");
@@ -109,6 +131,21 @@ public class FrameGerente extends JFrame {
 		textField_1.setColumns(10);
 		
 		JButton btnNewButton_2 = new JButton("Cadastrar mesa");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Mesa m = new Mesa(textField_1.getText());
+				try {
+					Fachada.getInstancia().getConjuntoMesas().inserirMesa(m);
+					JOptionPane.showMessageDialog(contentPane, "Mesa inserida com sucesso!");
+				} catch (MesaJaExistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa já existente");
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(contentPane, "IOException");
+				} catch (CodigoInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Codigo no arquivo Cardapio digitado incorretamente");
+				}
+			}
+		});
 		getContentPane().add(btnNewButton_2, "cell 1 8,alignx center,aligny center");
 		
 		
