@@ -13,65 +13,59 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 public class FrameCaixa extends JFrame {
+	
+	//Tela referente ao caixa do restaurante
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameCaixa frmCaixa = new FrameCaixa();
-					frmCaixa.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrameCaixa() {
 		setTitle("Gerenciamento de Restaurante - Caixa");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][]"));
 		
-		JLabel lblNewLabel = new JLabel("Bem-vindo, CAIXA!");
-		getContentPane().add(lblNewLabel, "cell 0 0");
+		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, CAIXA!");
+		getContentPane().add(mensagemBoasVindas, "cell 0 0");
 		
-		JLabel lblNewLabel_1 = new JLabel("Encerrar mesa");
-		getContentPane().add(lblNewLabel_1, "cell 1 1,aligny baseline");
+		//Seleção de mesa para emissão de pagamento
 		
-		JLabel lblNewLabel_2 = new JLabel("Mesa:");
-		getContentPane().add(lblNewLabel_2, "cell 0 2,alignx trailing");
+		JLabel lblEncerrarMesa = new JLabel("Encerrar mesa");
+		getContentPane().add(lblEncerrarMesa, "cell 1 1,aligny baseline");
 		
-		JComboBox comboBox = new JComboBox();
-		getContentPane().add(comboBox, "cell 1 2");
+		JLabel lblMesa = new JLabel("Mesa:");
+		getContentPane().add(lblMesa, "cell 0 2,alignx trailing");
 		
-		JLabel lblNewLabel_3 = new JLabel("Forma de pagamento:");
-		getContentPane().add(lblNewLabel_3, "cell 0 3,alignx trailing");
+		JComboBox comboBoxMesas = new JComboBox();
+		getContentPane().add(comboBoxMesas, "cell 1 2");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		getContentPane().add(comboBox_1, "cell 1 3");
+		//Formas de pagamento
 		
-		JLabel lblNewLabel_4 = new JLabel("Valor recebido (R$):");
-		getContentPane().add(lblNewLabel_4, "cell 0 4,alignx trailing");
+		String[] pagamentos = { "Crédito", "Débito", "Espécie", "PIX", "Cheque" };
 		
-		JTextField textField = new JTextField();
-		textField.setText("000.00");
-		getContentPane().add(textField, "cell 1 4");
-		textField.setColumns(10);
+		JLabel lblPagamentos = new JLabel("Forma de pagamento:");
+		getContentPane().add(lblPagamentos, "cell 0 3,alignx trailing");
 		
-		JButton btnNewButton = new JButton("Emitir comprovante");
-		getContentPane().add(btnNewButton, "cell 1 5");
+		JComboBox comboBoxPagamento = new JComboBox(pagamentos);
+		getContentPane().add(comboBoxPagamento, "cell 1 3");
 		
-		JButton btnNewButton_1 = new JButton("Voltar à tela inicial");
-		getContentPane().add(btnNewButton_1, "cell 0 9");
+		JLabel lblValor = new JLabel("Valor recebido (R$):");
+		getContentPane().add(lblValor, "cell 0 4,alignx trailing");
+		
+		JTextField valor = new JTextField();
+		valor.setText("000.00");
+		getContentPane().add(valor, "cell 1 4");
+		valor.setColumns(10);
+		
+		//Emissão de comprovante
+		
+		JButton btnComprovante = new JButton("Emitir comprovante");
+		getContentPane().add(btnComprovante, "cell 1 5");
+		
+		//Voltar ao frame de login
+		
+		JButton btnVoltar = new JButton("Voltar à tela inicial");
+		getContentPane().add(btnVoltar, "cell 0 9");
+		
 	}
 
 }

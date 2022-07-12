@@ -19,33 +19,14 @@ public class FrameGarcom extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameGarcom frmGarcom = new FrameGarcom();
-					frmGarcom.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrameGarcom() {
 		setTitle("Gerenciamento de Restaurante - Garçom garcom.nome");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][][][][][][][]"));
 		
-		JLabel lblNewLabel = new JLabel("Bem-vindo, nomeGarçom!");
-		getContentPane().add(lblNewLabel, "cell 0 0");
+		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, nomeGarçom!");
+		getContentPane().add(mensagemBoasVindas, "cell 0 0");
 		
 		JLabel lblNewLabel_3 = new JLabel("Inserir pedido");
 		getContentPane().add(lblNewLabel_3, "cell 1 1");
@@ -93,7 +74,7 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(textField_3, "cell 1 8");
 		textField_3.setColumns(10);
 		
-		JLabel lblNewLabel_8 = new JLabel("Qauntidade:");
+		JLabel lblNewLabel_8 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_8, "cell 0 9,alignx trailing");
 		
 		JTextField textField_1 = new JTextField();

@@ -12,7 +12,7 @@ public class Janela {
 	private FrameGarcom frameGarcom;
 
 	/**
-	 * Launch the application.
+	 * Lança a aplicação
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -20,6 +20,9 @@ public class Janela {
 				try {
 					Janela janela = new Janela();
 					janela.frameInicial.setVisible(true);
+					janela.frameCaixa.setVisible(false);
+					janela.frameGerente.setVisible(false);
+					janela.frameGarcom.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -28,20 +31,18 @@ public class Janela {
 	}
 
 	/**
-	 * Create the application.
+	 * Inicializa a aplicação
 	 */
 	public Janela() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+		//Inicializa os frames
 		frameInicial = new FrameInicial();
 		frameCaixa = new FrameCaixa();
 		frameGerente = new FrameGerente();
 		frameGarcom = new FrameGarcom();
+		
+		//TODO: Tratamento de eventos para troca entre frames
+		
 	}
+
 
 }

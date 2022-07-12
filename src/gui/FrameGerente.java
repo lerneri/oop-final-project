@@ -21,25 +21,6 @@ public class FrameGerente extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FrameGerente frmGerente = new FrameGerente();
-					frmGerente.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
 		setBounds(100, 100, 800, 600);
