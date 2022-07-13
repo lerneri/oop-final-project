@@ -64,13 +64,16 @@ public class FrameGerente extends JFrame {
 		btnOcupar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String s = (String) textField_4.getText();
+					String s = textField_4.getText();
 					Mesa m;
 					m = Fachada.getInstancia().getConjuntoMesas().getMesa(s);
 					if (m.isOcupada() == true) {
 						JOptionPane.showMessageDialog(contentPane, "Mesa Já Ocupada");
+						return;
 					}
 					m.setOcupada(true);
+					JOptionPane.showMessageDialog(contentPane, "Mesa ocupada com sucesso!");
+					textField_4.setText("");
 				} catch (ConjuntoMesasVazioException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Conjunto de Mesas vazio");
 				} catch (IOException e2) {
@@ -117,6 +120,8 @@ public class FrameGerente extends JFrame {
 					Garcom g = new Garcom(textField_2.getText(), passwordField.getText());
 					Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(g);
 					JOptionPane.showMessageDialog(contentPane, "Garçom inserido com sucesso!");
+					textField_2.setText("");
+					passwordField.setText("");
 				} catch (CodigoGarcomJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Código do garçom já existe");
 				} catch (IOException e1) {

@@ -45,7 +45,7 @@ public class ConjuntoMesas implements IConjuntoMesas{
 		}
 		Mesa mesaProcurada = null;
 		for (int i = 0; i < mesas.size(); i++) {
-			if ((mesas.get(i).getNumeroMesa()) == numeroMesa) {
+			if ((mesas.get(i).getNumeroMesa()).equals(numeroMesa)) {
 				mesaProcurada = mesas.get(i);
 			}
 		}
