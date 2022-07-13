@@ -21,10 +21,10 @@ public class Janela {
 			public void run() {
 				try {
 					Janela janela = new Janela();
-					janela.frameInicial.setVisible(false);
+					janela.frameInicial.setVisible(true);
 					janela.frameCaixa.setVisible(false);
 					janela.frameGerente.setVisible(false);
-					janela.frameGarcom.setVisible(true);
+					janela.frameGarcom.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -54,15 +54,24 @@ public class Janela {
 			frameGarcom.getContentPane().add(btnVoltar, "cell 0 15");
 			}
 		
-		
-		JButton btnLogin = new JButton("Login");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent f) {
-			}
-		});
-		frameInicial.getContentPane().add(btnLogin, "cell 1 5");
-		
+	}
+	
+	
+	
+
+	public FrameInicial getFrameInicial() {
+		return frameInicial;
 	}
 
+	public FrameCaixa getFrameCaixa() {
+		return frameCaixa;
+	}
 
+	public FrameGerente getFrameGerente() {
+		return frameGerente;
+	}
+
+	public FrameGarcom getFrameGarcom() {
+		return frameGarcom;
+	}
 }
