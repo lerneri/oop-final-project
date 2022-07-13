@@ -1,5 +1,7 @@
 package backend;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -63,7 +65,19 @@ public class Garcom {
 			throw new PedidoVazioException();
 		}
 		m.setEncerrada(true);
-		Caixa.gerarNota(m.getPedido());
+		FileWriter fw = new FileWriter("NF.txt");
+		BufferedWriter bw = new BufferedWriter(fw);
+		double soma = 0;
+		for (Map.Entry <ItemCardapio, Integer> me : m.getPedido().entrySet()) {
+			bw.write(me.getKey().getCodigo() + "  ");
+			bw.write(me.getKey().getNome() + "  ");
+			bw.write(me.getKey().getValor() + "");
+			bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
+			soma += me.getKey().getValor();
+			bw.write(System.lineSeparator());
+		}
+		bw.write("Valor total do pedido: R$" + soma);
+		bw.close();
 	}
 	
 	
