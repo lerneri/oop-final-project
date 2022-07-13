@@ -40,13 +40,13 @@ public class FrameGerente extends JFrame {
 	private JTextField textField;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private JTextField textField_5;
 
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[106px][:115px:115px,grow][37px][172px]",
-				"[14px][14px][22px][23px][23px][22px][23px][20px][23px][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[106px][:115px:115px,grow][37px][172px]", "[14px][14px][22px][23px][23px][22px][23px][20px][23px][][][][][][][][][][][]"));
 
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, GERENTE!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0,alignx center,aligny center");
@@ -124,8 +124,7 @@ public class FrameGerente extends JFrame {
 				} catch (CodigoGarcomInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Codigo do garçom deve possuir apenas 4 números!");
 				} catch (CodigoItemInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane,
-							"Codigo de algum item no Cardapio foi digitado incorretamente!");
+					JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente!");
 				} catch (NomeInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Nome do garçom deve possuir apenas letras e espaços!");
 				}
@@ -145,11 +144,8 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(textField_3, "cell 1 5,growx");
 		textField_3.setColumns(10);
 
-		JLabel lblNewLabel_10 = new JLabel("Nome:");
-		getContentPane().add(lblNewLabel_10, "cell 2 5,alignx center,aligny center");
-
-		JComboBox comboBox_3 = new JComboBox();
-		getContentPane().add(comboBox_3, "cell 3 5,growx,aligny center");
+		JLabel lblNewLabel_10 = new JLabel("Código:");
+		getContentPane().add(lblNewLabel_10, "cell 2 5,alignx trailing,aligny center");
 
 		JButton btnNewButton_1 = new JButton("Realocar garçom");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -170,14 +166,36 @@ public class FrameGerente extends JFrame {
 				} catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane, "IO Exception");
 				} catch (CodigoItemInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane,
-							"Codigo de algum item no Cardapio foi digitado incorretamente");
+					JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente");
 				}
 			}
 		});
+		
+		textField_5 = new JTextField();
+		getContentPane().add(textField_5, "cell 3 5,growx");
+		textField_5.setColumns(10);
 		getContentPane().add(btnNewButton_1, "cell 1 6,alignx center,aligny top");
 
 		JButton btnNewButton_4 = new JButton("Remover funcionário");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String codigo = textField_5.getText();
+				Garcom garcom;
+				try {
+					garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
+					Fachada.getInstancia().getGerente().removerGarcom(garcom);
+				} catch (GarcomInexistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
+				} catch (ConjuntoGarcomVazioException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Conjunto de garçons vazio!");
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(contentPane, "IO Exception");
+				} catch (CodigoItemInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Codigo de algum item no Cardapio foi digitado incorretamente");
+				}
+				
+			}
+		});
 		getContentPane().add(btnNewButton_4, "cell 3 6,alignx center,aligny center");
 
 		JLabel lblNewLabel_7 = new JLabel("Nova mesa:");

@@ -50,6 +50,9 @@ public class Mesa {
 				throw new NumeroMesaInvalidoException();
 			}
 		}
+		if(numeroMesa.length()!=4) {
+			throw new NumeroMesaInvalidoException();
+		}
 		this.numeroMesa = numeroMesa;
 		this.garcomMesa = null;
 		this.pedido = new HashMap<ItemCardapio, Integer>();
