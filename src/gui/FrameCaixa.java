@@ -2,6 +2,13 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,9 +44,9 @@ public class FrameCaixa extends JFrame {
 		JLabel lblMesa = new JLabel("Mesa:");
 		getContentPane().add(lblMesa, "cell 0 2,alignx trailing");
 		
-		JComboBox comboBoxMesas = new JComboBox();
-		getContentPane().add(comboBoxMesas, "cell 1 2");
-		
+		JTextField txtMesas = new JTextField();
+		getContentPane().add(txtMesas, "cell 1 2");
+		txtMesas.setColumns(3);
 		
 		//Formas de pagamento
 		
@@ -57,12 +64,36 @@ public class FrameCaixa extends JFrame {
 		JTextField valor = new JTextField();
 		valor.setText("000.00");
 		getContentPane().add(valor, "cell 1 4");
-		valor.setColumns(10);
+		valor.setColumns(7);
+		
+		
 		
 		//Emissão de comprovante
 		
 		JButton btnComprovante = new JButton("Emitir comprovante");
 		getContentPane().add(btnComprovante, "cell 1 5");
+		btnComprovante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			FileWriter fw = new FileWriter("NF.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			try{double soma = 0;
+			//TODO: getSoma a partir da conta da mesa
+			bw.write("Valor total do pedido: R$" + soma);
+			bw.write(System.lineSeparator());
+			String metodo = comboBoxPagamento.getSelectedItem().toString();
+			bw.write("Método de pagamento: " + metodo);
+			bw.write(System.lineSeparator());
+			String pagamento = valor.getText();
+			bw.write("Valor pago: R$" + pagamento);
+			double pago = Double.parseDouble(pagamento);
+			double troco = pago - soma;
+			bw.write(System.lineSeparator());
+			bw.write("Troco: R$" + troco);
+		
+			bw.close();}
+			finally {}
+			}
+		});
 		
 		
 	}
