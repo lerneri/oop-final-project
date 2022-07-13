@@ -50,7 +50,7 @@ public class Gerente {
 	
 	
 	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException,
-	MesaInexistenteException, ConjuntoGarcomVazioException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException{
+	MesaInexistenteException, ConjuntoGarcomVazioException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException, GarcomJaPossuiMesaException{
 		
 		Garcom garcomProcurado = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigoGarcom);
 		Mesa mesaProcurada = Fachada.getInstancia().getConjuntoMesas().getMesa(numeroMesa);
@@ -60,7 +60,9 @@ public class Gerente {
 			(!garcomProcurado.getMesasGarcom().contains(mesaProcurada))) {
 				garcomProcurado.getMesasGarcom().add(mesaProcurada);
 				mesaProcurada.setGarcomMesa(garcomProcurado);
-			} 
+			} else {
+				throw new GarcomJaPossuiMesaException();
+			}
 		}
 		else {
 			Garcom garcomAntigo = mesaProcurada.getGarcomMesa();
@@ -69,7 +71,9 @@ public class Gerente {
 				
 				garcomAntigo.getMesasGarcom().remove(mesaProcurada);
 				garcomProcurado.getMesasGarcom().add(mesaProcurada);
-								
+				mesaProcurada.setGarcomMesa(garcomProcurado);	
+			} else {
+				throw new GarcomJaPossuiMesaException();
 			}
 		}
 	}
