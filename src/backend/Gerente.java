@@ -7,20 +7,16 @@ import excecoes.*;
 
 public class Gerente {
 	private String nome;
-	private ConjuntoGarcons garcons;
-	private ConjuntoMesas mesas;
 
 	public Gerente(String nome) {
 		this.nome = nome;
-		this.garcons = new ConjuntoGarcons();
-		this.mesas = new ConjuntoMesas();
 	}
 	
-	public ArrayList<Mesa> getMesasLivres() throws ConjuntoMesasVazioException{
+	public ArrayList<Mesa> getMesasLivres() throws ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException{
 		ArrayList<Mesa> resposta = null;
-		for (int i=0; i<mesas.getArrayMesas().size(); i++) {
-			if(mesas.getArrayMesas().get(i).isOcupada()==false) {
-				resposta.add(mesas.getArrayMesas().get(i));
+		for (int i=0; i<Fachada.getInstancia().getConjuntoMesas().getArrayMesas().size(); i++) {
+			if(Fachada.getInstancia().getConjuntoMesas().getArrayMesas().get(i).isOcupada()==false) {
+				resposta.add(Fachada.getInstancia().getConjuntoMesas().getArrayMesas().get(i));
 			}
 		}
 		return resposta;
@@ -32,9 +28,9 @@ public class Gerente {
 	//}
 	
 	
-	public void cadastrarMesa(String numeroMesa) throws MesaJaExistenteException, NumeroMesaInvalidoException {
+	public void cadastrarMesa(String numeroMesa) throws MesaJaExistenteException, NumeroMesaInvalidoException, IOException, CodigoItemInvalidoException {
 		Mesa mesa = new Mesa(numeroMesa);
-		mesas.inserirMesa(mesa);
+		Fachada.getInstancia().getConjuntoMesas().inserirMesa(mesa);
 	}
 	
 	public void removerMesa(String numeroMesa) throws MesaInexistenteException, NumeroMesaInvalidoException, IOException, CodigoItemInvalidoException {
@@ -54,10 +50,10 @@ public class Gerente {
 	
 	
 	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException,
-	MesaInexistenteException, ConjuntoGarcomVazioException, ConjuntoMesasVazioException{
+	MesaInexistenteException, ConjuntoGarcomVazioException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException{
 		
-		Garcom garcomProcurado = garcons.getGarcom(codigoGarcom);
-		Mesa mesaProcurada = mesas.getMesa(numeroMesa);
+		Garcom garcomProcurado = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigoGarcom);
+		Mesa mesaProcurada = Fachada.getInstancia().getConjuntoMesas().getMesa(numeroMesa);
 		
 		if(mesaProcurada.getGarcomMesa() == null) {
 			if((garcomProcurado.getMesasGarcom() == null) || 
