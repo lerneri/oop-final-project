@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 
-public class ConjuntoGarcons {
+public class ConjuntoGarcons implements IConjuntoGarcons{
 	private static ArrayList<Garcom> garcons;
 	
 	public void inserirGarcom(Garcom garcom) throws CodigoGarcomJaExistenteException{
@@ -37,7 +37,7 @@ public class ConjuntoGarcons {
 		
 	}
 	
-	public static Garcom getGarcom(String codigo) throws GarcomInexistenteException{
+	public Garcom getGarcom(String codigo) throws GarcomInexistenteException{
 		Garcom garcomProcurado = null;
 		for (int i = 0; i < garcons.size(); i++) {
 			if (garcons.get(i).getCodigo().equalsIgnoreCase(codigo)) {
@@ -55,6 +55,6 @@ public class ConjuntoGarcons {
 	
 	
 	public ArrayList<Garcom> getArrayGarcons(){
-		return this.garcons;
+		return ConjuntoGarcons.garcons;
 	}
 }
