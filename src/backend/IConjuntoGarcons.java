@@ -6,11 +6,11 @@ import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.GarcomInexistenteException;
 
 public interface IConjuntoGarcons {
+	
 	public void inserirGarcom(Garcom garcom) throws CodigoGarcomJaExistenteException;
 	
 	public void removerGarcom(String codigoGarcom) throws GarcomInexistenteException;
 	
 	public Garcom getGarcom(String codigoGarcom) throws GarcomInexistenteException;
 	
-	public ArrayList<Garcom> getArrayGarcons();
 }

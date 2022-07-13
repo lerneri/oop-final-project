@@ -6,7 +6,7 @@ import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 
 public class ConjuntoGarcons implements IConjuntoGarcons{
-	private static ArrayList<Garcom> garcons;
+	private ArrayList<Garcom> garcons;
 	
 	public void inserirGarcom(Garcom garcom) throws CodigoGarcomJaExistenteException{
 		if(garcons != null) {
@@ -55,6 +55,6 @@ public class ConjuntoGarcons implements IConjuntoGarcons{
 	
 	
 	public ArrayList<Garcom> getArrayGarcons(){
-		return ConjuntoGarcons.garcons;
+		return this.garcons;
 	}
 }

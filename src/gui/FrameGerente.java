@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.HeadlessException;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -61,18 +62,23 @@ public class FrameGerente extends JFrame {
 		JButton btnOcupar = new JButton("Ocupar mesa");
 		btnOcupar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ConjuntoMesas.getArrayMesas() == null) {
-					JOptionPane.showMessageDialog(contentPane, "Conjunto de Mesas vazio");
-					return;
-				}
-				String s = (String) comboBoxMesa1.getSelectedItem();
-				Mesa m;
 				try {
-					m = ConjuntoMesas.getMesa(s);
+					if(Fachada.getInstancia().getConjuntoMesas().getArrayMesas() == null) {
+						JOptionPane.showMessageDialog(contentPane, "Conjunto de Mesas vazio");
+						return;
+					}
+					
+					String s = (String) comboBoxMesa1.getSelectedItem();
+					Mesa m;
+					m = Fachada.getInstancia().getConjuntoMesas().getMesa(s);
 					if(m.isOcupada()==true) {
 						JOptionPane.showMessageDialog(contentPane, "Mesa Já Ocupada");
 					}
 					m.setOcupada(true);
+				} catch (IOException e2) {
+					JOptionPane.showMessageDialog(contentPane, "IO Exception");					
+				} catch (CodigoInvalidoException e2) {
+					JOptionPane.showMessageDialog(contentPane, "Codigo Invalido Exception");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 				}

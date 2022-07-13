@@ -5,12 +5,12 @@ import excecoes.*;
 
 public class ConjuntoMesas implements IConjuntoMesas{
 
-	private static ArrayList<Mesa> mesas;	
+	private ArrayList<Mesa> mesas;	
 	
 	// CRIAR DOIS ARRAYLIST - MESAS OCUPADAS E MESAS LIVRES E IMPLEMENTAR OS POSS�VEIS ERROS
 	
 	public ArrayList<Mesa> getArrayMesas(){
-		return ConjuntoMesas.mesas;
+		return this.mesas;
 	}
 	
 	public void inserirMesa(Mesa mesa) throws MesaJaExistenteException{
