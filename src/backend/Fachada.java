@@ -27,17 +27,11 @@ public class Fachada {
 		return cardapio;
 	}
 
-	public ConjuntoMesas getConjuntoMesas() throws ConjuntoMesasVazioException{
-		if (conjuntoMesas == null) {
-			throw new ConjuntoMesasVazioException();
-		}
+	public ConjuntoMesas getConjuntoMesas(){
 		return conjuntoMesas;
 	}
 
-	public ConjuntoGarcons getConjuntoGarcons() throws ConjuntoGarcomVazioException{
-		if(conjuntoGarcons==null) {
-			throw new ConjuntoGarcomVazioException();
-		}
+	public ConjuntoGarcons getConjuntoGarcons(){
 		return conjuntoGarcons;
 	}
 
