@@ -31,7 +31,12 @@ public class FrameGarcom extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-
+	private Garcom garcomFrame;
+	
+	public void setGarcomFrame(Garcom garcom) {
+		this.garcomFrame = garcom;
+	}
+	
 	public FrameGarcom() {
 		setTitle("Gerenciamento de Restaurante - Garçom garcom.nome");
 		setBounds(100, 100, 800, 600);
