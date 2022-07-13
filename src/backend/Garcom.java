@@ -3,6 +3,7 @@ package backend;
 import java.io.IOException;
 import java.util.*;
 
+import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
