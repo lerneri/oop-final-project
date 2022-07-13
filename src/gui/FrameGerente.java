@@ -23,6 +23,7 @@ import net.miginfocom.swing.MigLayout;
 
 import backend.*;
 import excecoes.CodigoInvalidoException;
+import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
@@ -68,6 +69,9 @@ public class FrameGerente extends JFrame {
 				Mesa m;
 				try {
 					m = ConjuntoMesas.getMesa(s);
+					if(m.isOcupada()==true) {
+						JOptionPane.showMessageDialog(contentPane, "Mesa Já Ocupada");
+					}
 					m.setOcupada(true);
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
@@ -141,13 +145,24 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(comboBox_3, "cell 3 5,growx,aligny center");
 		
 		JButton btnNewButton_1 = new JButton("Realocar garçom");
-//		btnNewButton_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				String numeroMesa = (String)comboBox_1.getSelectedItem();
-//				String numeroGarcom = 
-//				
-//			}
-//		});
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String numeroMesa = textField.getText();
+				String numeroGarcom = textField_3.getText();
+				try {
+					Fachada.getInstancia().getGerente().alocarGarcomMesa(numeroMesa, numeroGarcom);
+					JOptionPane.showMessageDialog(contentPane,"Garcom Realocado");
+				} catch (GarcomInexistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Garcom inexistente");
+				} catch (MesaInexistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Mesa inexistente");
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(contentPane,"IO Exception");
+				} catch (CodigoInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Codigo Invalido");
+				}
+			}
+		});
 		getContentPane().add(btnNewButton_1, "cell 1 6,alignx center,aligny top");
 		
 		JButton btnNewButton_4 = new JButton("Remover funcionário");
