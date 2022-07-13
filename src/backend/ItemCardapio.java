@@ -1,6 +1,6 @@
 package backend;
 
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 
 public class ItemCardapio {
 	private String codigo;
@@ -41,14 +41,14 @@ public class ItemCardapio {
 	}
 
 
-	public ItemCardapio(String codigo, String nome, String descricao, double valor) throws CodigoInvalidoException{
+	public ItemCardapio(String codigo, String nome, String descricao, double valor) throws CodigoItemInvalidoException{
 		for(byte b : codigo.getBytes()) {
 			if(b<48 || b>57) {
-				throw new CodigoInvalidoException();
+				throw new CodigoItemInvalidoException();
 			}
 		}
 		if(codigo.length()!=4) {
-			throw new CodigoInvalidoException();
+			throw new CodigoItemInvalidoException();
 		}
 		this.codigo = codigo;
 		this.descricao = descricao;

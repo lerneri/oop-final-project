@@ -23,7 +23,7 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 
 import backend.*;
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
@@ -35,6 +35,7 @@ public class FrameGerente extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_3;
+	private JTextField textField_4;
 
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
@@ -52,12 +53,7 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(lblGerenciamentoFuncionarios, "cell 3 1,alignx center,aligny center");
 		
 		JLabel lblMesa1 = new JLabel("Mesa:");
-		getContentPane().add(lblMesa1, "cell 0 2,alignx right,aligny center");
-		
-		
-		
-		JComboBox comboBoxMesa1 = new JComboBox(); //TODO: comboBoxMesa1 recebe ArrayList de mesas livres
-		getContentPane().add(comboBoxMesa1, "cell 1 2,growx,aligny center");
+		getContentPane().add(lblMesa1, "cell 0 2,alignx trailing,aligny center");
 		
 		JButton btnOcupar = new JButton("Ocupar mesa");
 		btnOcupar.addActionListener(new ActionListener() {
@@ -68,7 +64,7 @@ public class FrameGerente extends JFrame {
 						return;
 					}
 					
-					String s = (String) comboBoxMesa1.getSelectedItem();
+					String s = (String) textField_4.getText();
 					Mesa m;
 					m = Fachada.getInstancia().getConjuntoMesas().getMesa(s);
 					if(m.isOcupada()==true) {
@@ -77,7 +73,7 @@ public class FrameGerente extends JFrame {
 					m.setOcupada(true);
 				} catch (IOException e2) {
 					JOptionPane.showMessageDialog(contentPane, "IO Exception");					
-				} catch (CodigoInvalidoException e2) {
+				} catch (CodigoItemInvalidoException e2) {
 					JOptionPane.showMessageDialog(contentPane, "Codigo Invalido Exception");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
@@ -86,6 +82,10 @@ public class FrameGerente extends JFrame {
 				
 			}
 		});
+		
+		textField_4 = new JTextField();
+		getContentPane().add(textField_4, "cell 1 2,growx");
+		textField_4.setColumns(10);
 		getContentPane().add(btnOcupar, "cell 1 3,alignx center,aligny center");
 		
 		JLabel Nome1 = new JLabel("Nome:");
@@ -121,7 +121,9 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane,"Código do garçom já existe");
 				}catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane,"IO Exception");
-				}catch (CodigoInvalidoException e1) {
+				}
+				//AJUSTAR PARA A NOVA EXCEÇÃO CODIGOGARCOMINVALIDO
+				catch (CodigoItemInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Codigo do garçom deve possuir apenas 4 números!");
 				}catch (NomeInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Nome do garçom deve possuir apenas letras e espaços!");
@@ -164,8 +166,8 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane,"Mesa inexistente");
 				} catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane,"IO Exception");
-				} catch (CodigoInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane,"Codigo Invalido");
+				} catch (CodigoItemInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente");
 				}
 			}
 		});
@@ -184,16 +186,18 @@ public class FrameGerente extends JFrame {
 		JButton btnNewButton_2 = new JButton("Cadastrar mesa");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Mesa m = new Mesa(textField_1.getText());
+				//APOS A CORREÇÃO DO METODO CODIGOINVALIDOEXCEPTION, FAZER O TRATAMENTO DA NOVA EXCEÇÃO
 				try {
+					Mesa m = new Mesa(textField_1.getText());
 					Fachada.getInstancia().getConjuntoMesas().inserirMesa(m);
 					JOptionPane.showMessageDialog(contentPane, "Mesa inserida com sucesso!");
-				} catch (MesaJaExistenteException e1) {
+				} 
+				catch (MesaJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa já existente");
 				} catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane, "IOException");
-				} catch (CodigoInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Codigo no arquivo Cardapio digitado incorretamente");
+				} catch (CodigoItemInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Codigo de algum item no Cardapio foi digitado incorretamente");
 				}
 			}
 		});

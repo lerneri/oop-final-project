@@ -3,13 +3,13 @@ package backend;
 import java.io.*;
 import java.util.*;
 
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 import excecoes.ItemNaoExistenteException;
 
 public class Cardapio {
 	public static ArrayList<ItemCardapio> cardapio;
 
-	public Cardapio() throws IOException, CodigoInvalidoException {
+	public Cardapio() throws IOException, CodigoItemInvalidoException {
 		cardapio = new ArrayList<ItemCardapio>();
 		RandomAccessFile raf = new RandomAccessFile("cardapio.txt", "r");
 		String frase;
@@ -25,11 +25,11 @@ public class Cardapio {
 
 	}
 
-	public static void inserir(ItemCardapio item) throws CodigoInvalidoException{
+	public static void inserir(ItemCardapio item) throws CodigoItemInvalidoException{
 		
 		for(int i=0; i< cardapio.size(); i++) {
 			if(cardapio.get(i).getCodigo().equals(item.getCodigo())) {
-				throw new CodigoInvalidoException();
+				throw new CodigoItemInvalidoException();
 			}
 		}
 		cardapio.add(item);

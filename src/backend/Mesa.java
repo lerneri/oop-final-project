@@ -2,6 +2,8 @@ package backend;
 
 import java.util.*;
 
+import excecoes.CodigoItemInvalidoException;
+
 public class Mesa {
 	private String numeroMesa;
 	private HashMap<ItemCardapio, Integer> pedido;
@@ -42,7 +44,12 @@ public class Mesa {
 		this.ocupada = ocupada;
 	}
 
-	public Mesa(String numeroMesa) {
+	public Mesa(String numeroMesa) throws CodigoItemInvalidoException{
+		for(byte b : numeroMesa.getBytes()) {
+			if(b<48 || b>57) {
+				throw new CodigoItemInvalidoException();
+			}
+		}
 		this.numeroMesa = numeroMesa;
 		this.garcomMesa = null;
 		this.pedido = new HashMap<ItemCardapio, Integer>();

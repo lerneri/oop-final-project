@@ -17,8 +17,9 @@ public class ConjuntoMesas implements IConjuntoMesas{
 		if(mesas != null && mesas.contains(mesa)) {
 			throw new MesaJaExistenteException();
 		}else {
-			mesas.add(mesa);
+			mesas = new ArrayList<Mesa>();
 		}
+		mesas.add(mesa);
 	}
 	
 	public void removerMesa(Mesa mesa) throws MesaInexistenteException{

@@ -3,7 +3,7 @@ package backend;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
@@ -33,14 +33,14 @@ public class Fachada {
 		return conjuntoGarcons;
 	}
 
-	public static Fachada getInstancia() throws IOException, CodigoInvalidoException {
+	public static Fachada getInstancia() throws IOException, CodigoItemInvalidoException {
 		if (instancia == null) {
 			instancia = new Fachada();
 		}
 		return instancia;
 	}
 
-	Fachada() throws IOException, CodigoInvalidoException {
+	Fachada() throws IOException, CodigoItemInvalidoException {
 		gerente = new Gerente("Fernando Trinta");
 		cardapio = new Cardapio();
 		conjuntoMesas = new ConjuntoMesas();

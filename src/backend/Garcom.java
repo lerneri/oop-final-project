@@ -3,7 +3,7 @@ package backend;
 import java.io.IOException;
 import java.util.*;
 
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
 import excecoes.NomeInvalidoException;
@@ -92,14 +92,14 @@ public class Garcom {
 		this.codigo = codigo;
 	}
 
-	public Garcom(String nome, String codigo) throws CodigoInvalidoException, NomeInvalidoException {
+	public Garcom(String nome, String codigo) throws CodigoItemInvalidoException, NomeInvalidoException {
 		for(byte b : codigo.getBytes()) {
 			if(b<48 || b>57) {
-				throw new CodigoInvalidoException();
+				throw new CodigoItemInvalidoException();
 			}
 		}
 		if(codigo.length()!=4) {
-			throw new CodigoInvalidoException();
+			throw new CodigoItemInvalidoException();
 		}
 		
 		for(byte b : nome.getBytes()) {

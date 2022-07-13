@@ -4,7 +4,7 @@ import java.io.*;
 
 import javax.swing.JOptionPane;
 
-import excecoes.CodigoInvalidoException;
+import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.GarcomNaoPossuiMesaException;
@@ -16,7 +16,7 @@ public class Main {
 	
 	
 	public static void main(String[] args) throws GarcomNaoPossuiMesaException, 
-	ItemNaoExistenteException, GarcomInexistenteException, MesaInexistenteException, IOException, CodigoInvalidoException {
+	ItemNaoExistenteException, GarcomInexistenteException, MesaInexistenteException, IOException, CodigoItemInvalidoException {
 		
 
 		Cardapio cardapio = new Cardapio();
