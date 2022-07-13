@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import excecoes.CodigoItemInvalidoException;
+import excecoes.ConjuntoGarcomVazioException;
+import excecoes.ConjuntoMesasVazioException;
 import excecoes.GarcomInexistenteException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
@@ -25,11 +27,17 @@ public class Fachada {
 		return cardapio;
 	}
 
-	public ConjuntoMesas getConjuntoMesas() {
+	public ConjuntoMesas getConjuntoMesas() throws ConjuntoMesasVazioException{
+		if (conjuntoMesas == null) {
+			throw new ConjuntoMesasVazioException();
+		}
 		return conjuntoMesas;
 	}
 
-	public ConjuntoGarcons getConjuntoGarcons() {
+	public ConjuntoGarcons getConjuntoGarcons() throws ConjuntoGarcomVazioException{
+		if(conjuntoGarcons==null) {
+			throw new ConjuntoGarcomVazioException();
+		}
 		return conjuntoGarcons;
 	}
 

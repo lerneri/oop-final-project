@@ -15,7 +15,7 @@ public class Gerente {
 		this.mesas = new ConjuntoMesas();
 	}
 	
-	public ArrayList<Mesa> getMesasLivres(){
+	public ArrayList<Mesa> getMesasLivres() throws ConjuntoMesasVazioException{
 		ArrayList<Mesa> resposta = null;
 		for (int i=0; i<mesas.getArrayMesas().size(); i++) {
 			if(mesas.getArrayMesas().get(i).isOcupada()==false) {
@@ -53,7 +53,7 @@ public class Gerente {
 	
 	
 	public void alocarGarcomMesa(String numeroMesa, String codigoGarcom) throws GarcomInexistenteException,
-	MesaInexistenteException{
+	MesaInexistenteException, ConjuntoGarcomVazioException, ConjuntoMesasVazioException{
 		
 		Garcom garcomProcurado = garcons.getGarcom(codigoGarcom);
 		Mesa mesaProcurada = mesas.getMesa(numeroMesa);

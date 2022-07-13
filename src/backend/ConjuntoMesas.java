@@ -9,7 +9,10 @@ public class ConjuntoMesas implements IConjuntoMesas{
 	
 	// CRIAR DOIS ARRAYLIST - MESAS OCUPADAS E MESAS LIVRES E IMPLEMENTAR OS POSS�VEIS ERROS
 	
-	public ArrayList<Mesa> getArrayMesas(){
+	public ArrayList<Mesa> getArrayMesas() throws ConjuntoMesasVazioException{
+		if (mesas == null) {
+			throw new ConjuntoMesasVazioException();
+		}
 		return this.mesas;
 	}
 	
@@ -30,9 +33,12 @@ public class ConjuntoMesas implements IConjuntoMesas{
 		}
 	}
 	
-	public Mesa getMesa(String numeroMesa) throws MesaInexistenteException{
+	public Mesa getMesa(String numeroMesa) throws MesaInexistenteException, ConjuntoMesasVazioException{
+		
+		if(mesas == null) {
+			throw new ConjuntoMesasVazioException();
+		}
 		Mesa mesaProcurada = null;
-
 		for (int i = 0; i < mesas.size(); i++) {
 			if ((mesas.get(i).getNumeroMesa()) == numeroMesa) {
 				mesaProcurada = mesas.get(i);
