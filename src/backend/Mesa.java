@@ -2,7 +2,7 @@ package backend;
 
 import java.util.*;
 
-import excecoes.CodigoItemInvalidoException;
+import excecoes.*;
 
 public class Mesa {
 	private String numeroMesa;
@@ -44,10 +44,10 @@ public class Mesa {
 		this.ocupada = ocupada;
 	}
 
-	public Mesa(String numeroMesa) throws CodigoItemInvalidoException{
+	public Mesa(String numeroMesa) throws NumeroMesaInvalidoException{
 		for(byte b : numeroMesa.getBytes()) {
 			if(b<48 || b>57) {
-				throw new CodigoItemInvalidoException();
+				throw new NumeroMesaInvalidoException();
 			}
 		}
 		this.numeroMesa = numeroMesa;

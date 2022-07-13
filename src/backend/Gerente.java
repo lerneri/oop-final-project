@@ -31,12 +31,12 @@ public class Gerente {
 	//}
 	
 	
-	public void cadastrarMesa(String numeroMesa) throws MesaJaExistenteException {
+	public void cadastrarMesa(String numeroMesa) throws MesaJaExistenteException, NumeroMesaInvalidoException {
 		Mesa mesa = new Mesa(numeroMesa);
 		mesas.inserirMesa(mesa);
 	}
 	
-	public void removerMesa(String numeroMesa) throws MesaInexistenteException {
+	public void removerMesa(String numeroMesa) throws MesaInexistenteException, NumeroMesaInvalidoException {
 		Mesa mesa = new Mesa(numeroMesa);
 		mesas.removerMesa(mesa);
 	}
