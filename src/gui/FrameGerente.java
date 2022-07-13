@@ -160,6 +160,8 @@ public class FrameGerente extends JFrame {
 				try {
 					Fachada.getInstancia().getGerente().alocarGarcomMesa(numeroMesa, numeroGarcom);
 					JOptionPane.showMessageDialog(contentPane, "Garcom Realocado com sucesso!");
+					textField.setText("");
+					textField_3.setText("");
 				} catch (ConjuntoMesasVazioException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Conjunto de mesas vazio!");
 				} catch (ConjuntoGarcomVazioException e1) {
@@ -189,6 +191,7 @@ public class FrameGerente extends JFrame {
 				try {
 					garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 					Fachada.getInstancia().getGerente().removerGarcom(garcom);
+					textField_5.setText("");
 				} catch (GarcomInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
 				} catch (ConjuntoGarcomVazioException e1) {
@@ -219,6 +222,7 @@ public class FrameGerente extends JFrame {
 					Mesa m = new Mesa(textField_1.getText());
 					Fachada.getInstancia().getConjuntoMesas().inserirMesa(m);
 					JOptionPane.showMessageDialog(contentPane, "Mesa inserida com sucesso!");
+					textField_1.setText("");
 				} catch (NumeroMesaInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Numero da mesa deve conter apenas 4 números!");
 				} catch (MesaJaExistenteException e1) {
