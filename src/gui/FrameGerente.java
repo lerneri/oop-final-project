@@ -25,10 +25,12 @@ import net.miginfocom.swing.MigLayout;
 import backend.*;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.GarcomInexistenteException;
+import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
 import excecoes.NomeInvalidoException;
+import excecoes.NumeroMesaInvalidoException;
 
 public class FrameGerente extends JFrame {
 
@@ -159,7 +161,7 @@ public class FrameGerente extends JFrame {
 				String numeroGarcom = textField_3.getText();
 				try {
 					Fachada.getInstancia().getGerente().alocarGarcomMesa(numeroMesa, numeroGarcom);
-					JOptionPane.showMessageDialog(contentPane,"Garcom Realocado");
+					JOptionPane.showMessageDialog(contentPane,"Garcom Realocado com sucesso!");
 				} catch (GarcomInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Garcom inexistente");
 				} catch (MesaInexistenteException e1) {
