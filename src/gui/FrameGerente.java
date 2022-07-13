@@ -74,7 +74,7 @@ public class FrameGerente extends JFrame {
 				} catch (IOException e2) {
 					JOptionPane.showMessageDialog(contentPane, "IO Exception");					
 				} catch (CodigoItemInvalidoException e2) {
-					JOptionPane.showMessageDialog(contentPane, "Codigo Invalido Exception");
+					JOptionPane.showMessageDialog(contentPane, "Codigo de algum item no Cardapio foi digitado incorretamente");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 				}
@@ -121,10 +121,10 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane,"Código do garçom já existe");
 				}catch (IOException e1) {
 					JOptionPane.showMessageDialog(contentPane,"IO Exception");
-				}
-				//AJUSTAR PARA A NOVA EXCEÇÃO CODIGOGARCOMINVALIDO
-				catch (CodigoItemInvalidoException e1) {
+				}catch (CodigoGarcomInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Codigo do garçom deve possuir apenas 4 números!");
+				}catch (CodigoItemInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente!");
 				}catch (NomeInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Nome do garçom deve possuir apenas letras e espaços!");
 				}
@@ -191,7 +191,9 @@ public class FrameGerente extends JFrame {
 					Mesa m = new Mesa(textField_1.getText());
 					Fachada.getInstancia().getConjuntoMesas().inserirMesa(m);
 					JOptionPane.showMessageDialog(contentPane, "Mesa inserida com sucesso!");
-				} 
+				}catch (NumeroMesaInvalidoException e1){
+					JOptionPane.showMessageDialog(contentPane, "Numero da mesa deve conter apenas 4 números!");
+				}
 				catch (MesaJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa já existente");
 				} catch (IOException e1) {
