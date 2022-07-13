@@ -41,7 +41,7 @@ public class Gerente {
 		mesas.removerMesa(mesa);
 	}
 	
-	public void cadastrarGarcom(String nome, String codigo) throws CodigoGarcomJaExistenteException, CodigoItemInvalidoException, NomeInvalidoException{
+	public void cadastrarGarcom(String nome, String codigo) throws CodigoGarcomJaExistenteException, CodigoGarcomInvalidoException, NomeInvalidoException{
 		Garcom garcom = new Garcom(nome, codigo);
 		garcons.inserirGarcom(garcom);
 	}

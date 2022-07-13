@@ -92,14 +92,14 @@ public class Garcom {
 		this.codigo = codigo;
 	}
 
-	public Garcom(String nome, String codigo) throws CodigoItemInvalidoException, NomeInvalidoException {
+	public Garcom(String nome, String codigo) throws CodigoGarcomInvalidoException, NomeInvalidoException {
 		for(byte b : codigo.getBytes()) {
 			if(b<48 || b>57) {
-				throw new CodigoItemInvalidoException();
+				throw new CodigoGarcomInvalidoException();
 			}
 		}
 		if(codigo.length()!=4) {
-			throw new CodigoItemInvalidoException();
+			throw new CodigoGarcomInvalidoException();
 		}
 		
 		for(byte b : nome.getBytes()) {
