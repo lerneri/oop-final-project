@@ -195,6 +195,7 @@ public class FrameGerente extends JFrame {
 					garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 					Fachada.getInstancia().getGerente().removerGarcom(garcom);
 					textField_5.setText("");
+					JOptionPane.showMessageDialog(contentPane, "Garcom removido com sucesso!");
 				} catch (GarcomInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
 				} catch (ConjuntoGarcomVazioException e1) {

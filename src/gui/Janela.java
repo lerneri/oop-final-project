@@ -23,8 +23,8 @@ public class Janela {
 					Janela janela = new Janela();
 					janela.frameInicial.setVisible(false);
 					janela.frameCaixa.setVisible(false);
-					janela.frameGerente.setVisible(true);
-					janela.frameGarcom.setVisible(false);
+					janela.frameGerente.setVisible(false);
+					janela.frameGarcom.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
