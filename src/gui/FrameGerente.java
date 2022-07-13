@@ -27,6 +27,7 @@ import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
 import excecoes.ConjuntoMesasVazioException;
 import excecoes.GarcomInexistenteException;
+import excecoes.GarcomJaPossuiMesaException;
 import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoGarcomJaExistenteException;
 import excecoes.MesaInexistenteException;
@@ -174,6 +175,8 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane, "IO Exception");
 				} catch (CodigoItemInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente");
+				} catch (GarcomJaPossuiMesaException e1) {
+					JOptionPane.showMessageDialog(contentPane,"Garçom já possui essa mesa");
 				}
 			}
 		});
@@ -224,7 +227,7 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inserida com sucesso!");
 					textField_1.setText("");
 				} catch (NumeroMesaInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Numero da mesa deve conter apenas 4 números!");
+					JOptionPane.showMessageDialog(contentPane, "Numero da mesa deve conter apenas 2 números!");
 				} catch (MesaJaExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa já existente");
 				} catch (IOException e1) {

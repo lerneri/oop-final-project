@@ -50,7 +50,7 @@ public class Mesa {
 				throw new NumeroMesaInvalidoException();
 			}
 		}
-		if(numeroMesa.length()!=4) {
+		if(numeroMesa.length()!=2) {
 			throw new NumeroMesaInvalidoException();
 		}
 		this.numeroMesa = numeroMesa;
