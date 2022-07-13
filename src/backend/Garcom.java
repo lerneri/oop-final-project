@@ -62,6 +62,7 @@ public class Garcom {
 		if (m.getPedido()==null) {
 			throw new PedidoVazioException();
 		}
+		m.setEncerrada(true);
 		Caixa.gerarNota(m.getPedido());
 	}
 	

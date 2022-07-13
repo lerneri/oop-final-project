@@ -21,9 +21,9 @@ public class Caixa {
 	}
 	
 	public static void encerrarMesa(Mesa mesa) {
-				
 		mesa.getPedido().clear();
 		mesa.setOcupada(false);
+		mesa.setEncerrada(false);
 	}
 	
 	public Caixa() {

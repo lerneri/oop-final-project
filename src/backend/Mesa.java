@@ -66,5 +66,6 @@ public class Mesa {
 		this.garcomMesa = null;
 		this.pedido = new HashMap<ItemCardapio, Integer>();
 		this.ocupada = false;
+		this.encerrada = false;
 	}
 }
