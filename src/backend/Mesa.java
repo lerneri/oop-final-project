@@ -9,7 +9,16 @@ public class Mesa {
 	private HashMap<ItemCardapio, Integer> pedido;
 	private Garcom garcomMesa;
 	private boolean ocupada;
+	private boolean encerrada;
 	
+	public boolean isEncerrada() {
+		return encerrada;
+	}
+
+	public void setEncerrada(boolean encerrada) {
+		this.encerrada = encerrada;
+	}
+
 	public Garcom getGarcomMesa() {
 		return garcomMesa;
 	}
