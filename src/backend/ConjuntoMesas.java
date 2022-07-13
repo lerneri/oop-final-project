@@ -19,7 +19,7 @@ public class ConjuntoMesas implements IConjuntoMesas{
 	public void inserirMesa(Mesa mesa) throws MesaJaExistenteException{
 		if(mesas != null) {
 			for(int i=0; i<mesas.size(); i++) {
-				if (mesas.get(i).getNumeroMesa()==mesa.getNumeroMesa()) {
+				if (mesas.get(i).getNumeroMesa().equals(mesa.getNumeroMesa())) {
 					throw new MesaJaExistenteException();
 				}
 			}
