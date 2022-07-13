@@ -61,4 +61,8 @@ public class ConjuntoGarcons implements IConjuntoGarcons{
 	public ArrayList<Garcom> getArrayGarcons(){
 		return this.garcons;
 	}
+	
+	public ConjuntoGarcons() {
+		
+	}
 }

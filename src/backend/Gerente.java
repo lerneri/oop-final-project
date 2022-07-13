@@ -1,5 +1,6 @@
 package backend;
 
+import java.io.IOException;
 import java.util.*;
 
 import excecoes.*;
@@ -36,19 +37,19 @@ public class Gerente {
 		mesas.inserirMesa(mesa);
 	}
 	
-	public void removerMesa(String numeroMesa) throws MesaInexistenteException, NumeroMesaInvalidoException {
+	public void removerMesa(String numeroMesa) throws MesaInexistenteException, NumeroMesaInvalidoException, IOException, CodigoItemInvalidoException {
 		Mesa mesa = new Mesa(numeroMesa);
-		mesas.removerMesa(mesa);
+		Fachada.getInstancia().getConjuntoMesas().removerMesa(mesa);
 	}
 	
-	public void cadastrarGarcom(String nome, String codigo) throws CodigoGarcomJaExistenteException, CodigoGarcomInvalidoException, NomeInvalidoException{
+	public void cadastrarGarcom(String nome, String codigo) throws CodigoGarcomJaExistenteException, CodigoGarcomInvalidoException, NomeInvalidoException, IOException, CodigoItemInvalidoException{
 		Garcom garcom = new Garcom(nome, codigo);
-		garcons.inserirGarcom(garcom);
+		Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(garcom);
 	}
 	
 	
-	public void removerGarcom(Garcom garcom) throws GarcomInexistenteException{
-		garcons.removerGarcom(garcom.getNome());
+	public void removerGarcom(Garcom garcom) throws GarcomInexistenteException, IOException, CodigoItemInvalidoException{
+		Fachada.getInstancia().getConjuntoGarcons().removerGarcom(garcom.getCodigo());
 	}
 	
 	
