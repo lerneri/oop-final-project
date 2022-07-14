@@ -6,11 +6,7 @@ import java.util.*;
 import excecoes.*;
 
 public class Gerente {
-	private String nome;
 
-	public Gerente(String nome) {
-		this.nome = nome;
-	}
 	
 	public ArrayList<Mesa> getMesasLivres() throws ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException{
 		ArrayList<Mesa> resposta = null;

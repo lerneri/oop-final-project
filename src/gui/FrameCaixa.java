@@ -76,6 +76,7 @@ public class FrameCaixa extends JFrame {
 		// Emissão de comprovante
 
 		JButton btnComprovante = new JButton("Emitir comprovante");
+<<<<<<< HEAD
 		getContentPane().add(btnComprovante, "cell 4 5,alignx center");
 		btnComprovante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,6 +114,11 @@ public class FrameCaixa extends JFrame {
 			}
 		});
 
+=======
+		getContentPane().add(btnComprovante, "cell 1 5");
+		
+		
+>>>>>>> 931d6772783e259f70f2ac0406cd814317c971fb
 	}
 
 }

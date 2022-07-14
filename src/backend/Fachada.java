@@ -48,7 +48,7 @@ public class Fachada {
 	}
 
 	Fachada() throws IOException, CodigoItemInvalidoException {
-		gerente = new Gerente("Fernando Trinta");
+		gerente = new Gerente();
 		cardapio = new Cardapio();
 		conjuntoMesas = new ConjuntoMesas();
 		conjuntoGarcons = new ConjuntoGarcons();

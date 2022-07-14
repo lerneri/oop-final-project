@@ -242,10 +242,4 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(btnNewButton_2, "cell 1 8,alignx center,aligny center");
 
 	}
-
-	public static void main(String[] args) {
-		FrameGerente fg = new FrameGerente();
-		fg.setVisible(true);
-	}
-
 }
