@@ -20,7 +20,7 @@ public class Caixa {
 //		bw.close();
 //	}
 	
-	public static void encerrarMesa(Mesa mesa) {
+	public void encerrarMesa(Mesa mesa) {
 		mesa.getPedido().clear();
 		mesa.setOcupada(false);
 		mesa.setEncerrada(false);

@@ -13,12 +13,17 @@ import excecoes.MesaJaExistenteException;
 
 public class Fachada {
 	private static Fachada instancia = null;
+	private Caixa caixa;
+	
+
 	private Gerente gerente;
 	private Cardapio cardapio;
 	private ConjuntoMesas conjuntoMesas;
 	private ConjuntoGarcons conjuntoGarcons;
 	
-	
+	public Caixa getCaixa() {
+		return caixa;
+	}
 	public Gerente getGerente() {
 		return gerente;
 	}
@@ -47,6 +52,7 @@ public class Fachada {
 		cardapio = new Cardapio();
 		conjuntoMesas = new ConjuntoMesas();
 		conjuntoGarcons = new ConjuntoGarcons();
+		caixa = new Caixa();
 	}
 	
 }
