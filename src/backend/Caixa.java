@@ -2,6 +2,8 @@ package backend;
 
 import java.io.*;
 import java.util.*;
+
+import excecoes.MesaNaoEncerravelException;
 public class Caixa {
 	
 //	public static void gerarNota(HashMap<ItemCardapio, Integer> pedido) throws IOException {
@@ -20,7 +22,10 @@ public class Caixa {
 //		bw.close();
 //	}
 	
-	public void encerrarMesa(Mesa mesa) {
+	public void encerrarMesa(Mesa mesa) throws MesaNaoEncerravelException{
+		if(mesa.isEncerrada()==false) {
+			throw new MesaNaoEncerravelException();
+		}
 		mesa.getPedido().clear();
 		mesa.setOcupada(false);
 		mesa.setEncerrada(false);
