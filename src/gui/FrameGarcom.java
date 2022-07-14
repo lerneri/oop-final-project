@@ -77,22 +77,14 @@ public class FrameGarcom extends JFrame {
 				String numeroMesa = textField_4.getText();
 				String codigoItem = textField_2.getText();
 				try {
-					// FALTA COLOCAR O CODIGO DO GARÇOM QUE ESTÁ LOGADO
-					Fachada.getInstancia().getConjuntoGarcons().getGarcom(garcomFrame.getCodigo()).adicionarPedido(numeroMesa, codigoItem, quantidade);
-				} catch (ConjuntoGarcomVazioException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Conjunto de garçons está vazio!");
+					garcomFrame.adicionarPedido(numeroMesa, codigoItem, quantidade);
+					JOptionPane.showMessageDialog(contentPane, "Pedido adicionado com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garçom não está responsável por esta mesa!");
 				} catch (ItemNaoExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Código do Item não existe!");
 				} catch (QuantidadeInvalidaException e1) {
 					JOptionPane.showMessageDialog(contentPane, "A Quantidade deve ser maior que zero!");
-				} catch (GarcomInexistenteException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Garçom não existe!");
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(contentPane, "IO exception no arquivo do cardapio!");
-				} catch (CodigoItemInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Código de algum item inserido incorretamente no arquivo cardapio!");
 				}
 			}
 		});
@@ -132,22 +124,15 @@ public class FrameGarcom extends JFrame {
 				String numeroMesa = textField_5.getText();
 				try {
 					int quantidade = Integer.parseInt(textField_1.getText());
-					Fachada.getInstancia().getConjuntoGarcons().getGarcom("CODIGO DO GARÇOM DO FRAME").removerPedido(numeroMesa, codigoItem, quantidade);
-				}catch (ConjuntoGarcomVazioException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Conjunto de garçons está vazio!");
-				}catch (GarcomNaoPossuiMesaException e1) {
+					garcomFrame.removerPedido(numeroMesa, codigoItem, quantidade);
+					JOptionPane.showMessageDialog(contentPane, "Item retirado do pedido com sucesso!");
+				} catch (GarcomNaoPossuiMesaException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garçom não está responsável por esta mesa!");
 				} catch (ItemNaoExistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Código do Item não existe!");
 				} catch (QuantidadeInvalidaException e1) {
-					JOptionPane.showMessageDialog(contentPane, "A quantidade digitada deve ser maior que zero!");
-				} catch (GarcomInexistenteException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Garçom não existe!");
-				} catch (IOException e1) {
-					JOptionPane.showMessageDialog(contentPane, "IO exception no arquivo do cardapio!");
-				} catch (CodigoItemInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Código de algum item inserido incorretamente no arquivo cardapio!");
-				}catch(NumberFormatException e1){
+					JOptionPane.showMessageDialog(contentPane, "Quantidade inválida!");
+				} catch(NumberFormatException e1){
 					JOptionPane.showMessageDialog(contentPane, "A quantidade digitada deve ser um número maior que zero!");
 				}
 			}

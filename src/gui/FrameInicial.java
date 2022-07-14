@@ -105,6 +105,8 @@ public class FrameInicial extends JFrame {
 
 							});
 							j.getFrameGarcom().add(btnVoltar, "cell 0 16,alignx center,aligny center");
+						}else {
+							JOptionPane.showMessageDialog(contentPane, "Nome garçom invalido");
 						}
 					} catch (GarcomInexistenteException e1) {
 						JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");

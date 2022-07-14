@@ -33,7 +33,7 @@ public class Garcom {
 	public Mesa getMesa(String numeroMesa) throws GarcomNaoPossuiMesaException{
 		Mesa resp = null;
 		for (int i=0; i<mesas.size(); i++) {
-			if (mesas.get(i).getNumeroMesa()==numeroMesa) {
+			if (mesas.get(i).getNumeroMesa().equals(numeroMesa)) {
 				resp = mesas.get(i);
 				break;
 			}
