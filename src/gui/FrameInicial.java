@@ -102,7 +102,7 @@ public class FrameInicial extends JFrame {
 								}
 							
 							});
-							j.getFrameGarcom().add(btnVoltar, "cell 0 10,alignx center,aligny center");
+							j.getFrameGarcom().add(btnVoltar, "cell 0 16,alignx center,aligny center");
 						}
 					} catch (GarcomInexistenteException | ConjuntoGarcomVazioException | IOException
 							| CodigoItemInvalidoException e1) {
