@@ -18,11 +18,13 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 
 import backend.*;
+import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
 import excecoes.GarcomInexistenteException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
+import excecoes.NomeInvalidoException;
 import excecoes.QuantidadeInvalidaException;
 
 public class FrameGarcom extends JFrame {
@@ -33,16 +35,9 @@ public class FrameGarcom extends JFrame {
 	private JTextField textField_6;
 	private Garcom garcomFrame;
 	
-	public void setNomeGarcomFrame(String nome) {
-		this.garcomFrame.setNome(nome);
-	}
-	
-	public void setCodigoGarcomFrame(String codigo) {
-		this.garcomFrame.setCodigo(codigo);
-	}
-	
-	public void setGarcomFrame(Garcom garcom) {
-		this.garcomFrame = garcom;
+		
+	public void setGarcomFrame(String codigo) throws GarcomInexistenteException, ConjuntoGarcomVazioException, IOException, CodigoItemInvalidoException {
+		this.garcomFrame = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 	}
 	
 	public FrameGarcom() {
