@@ -7,6 +7,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
@@ -27,19 +28,10 @@ public class FrameListarPedido extends JFrame {
 	/**
 	 * Auto-generated main method to display this JFrame
 	 */
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				FrameListarPedido inst = new FrameListarPedido();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
-
-	public FrameListarPedido() {
+	
+	public FrameListarPedido(String numMesa) throws IOException {
 		super();
-		initGUI();
+		initGUI(numMesa);
 		int larguraJanela = getWidth();
 		int alturaJanela = getHeight();
 		Toolkit tk = Toolkit.getDefaultToolkit();
@@ -52,34 +44,44 @@ public class FrameListarPedido extends JFrame {
 
 	}
 
-	private void initGUI() {
-		try {
-			jScrollPane1 = new JScrollPane();
+	private void initGUI(String numMesa) throws IOException {
+		jScrollPane1 = new JScrollPane();
 		getContentPane().add(jScrollPane1, BorderLayout.CENTER);
-		
-			DefaultTableModel modelo = new DefaultTableModel(null,
-					new String[] { "NOME", "CÓDIGO"});
-			jTable1 = new JTable();
-			jScrollPane1.setViewportView(jTable1);
-			jTable1.setModel(modelo);
-			modificarTabela();
-		} catch (ListaVaziaException e) {
-			JOptionPane.showMessageDialog(jTable1, "Lista Vazia Exception");
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(jTable1, "IO Exception");
-		} catch (CodigoItemInvalidoException e) {
-			JOptionPane.showMessageDialog(jTable1, "Codigo de algum item invalido no cardapio");
-		}
+
+		DefaultTableModel modelo = new DefaultTableModel(null,new String[] {"CÓDIGO", "NOME", "DESCRIÇÃO", "VALOR", "QUANTIDADE"});
+		jTable1 = new JTable();
+		jScrollPane1.setViewportView(jTable1);
+		jTable1.setModel(modelo);
+		modificarTabela(numMesa);
 	}
 
-	private void modificarTabela() throws ListaVaziaException, IOException, CodigoItemInvalidoException {
+	private void modificarTabela(String numMesa){
 		DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
 		modelo.setNumRows(0);
-		ArrayList<Garcom> garcons = Fachada.getInstancia().getConjuntoGarcons().getArrayGarcons();
+		HashMap<ItemCardapio, Integer> pedido;
+		try {
+			pedido = Fachada.getInstancia().getConjuntoMesas().getMesa(numMesa).getPedido();
+			double soma = 0;
+			for (Map.Entry <ItemCardapio, Integer> me : pedido.entrySet()) {
+				modelo.addRow(new String[] { me.getKey().getCodigo(), me.getKey().getNome(),me.getKey().getDescricao() ,me.getKey().getValor()+ ""});
 
-		for (Garcom garcom : garcons) {
-
-			modelo.addRow(new String[] { garcom.getNome(), garcom.getCodigo()});
+				soma += me.getKey().getValor();
+			}
+			
+		} catch (MesaInexistenteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ConjuntoMesasVazioException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (CodigoItemInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
+
 	}
 }

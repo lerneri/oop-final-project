@@ -36,6 +36,7 @@ public class FrameGarcom extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private Garcom garcomFrame;
+	private JTextField textField_7;
 	
 		
 	public void setGarcomFrame(String codigo) throws GarcomInexistenteException, ConjuntoGarcomVazioException, IOException, CodigoItemInvalidoException {
@@ -109,14 +110,14 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(lblNewLabel_7, "cell 0 8,alignx trailing");
 		
 		JTextField textField_3 = new JTextField();
-		getContentPane().add(textField_3, "cell 1 8 4 1");
+		getContentPane().add(textField_3, "flowx,cell 1 8 4 1");
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_8, "cell 0 9,alignx trailing");
 		
 		JTextField textField_1 = new JTextField();
-		getContentPane().add(textField_1, "cell 1 9 4 1");
+		getContentPane().add(textField_1, "flowx,cell 1 9 4 1");
 		textField_1.setColumns(2);
 		
 		JButton btnCancelar = new JButton("Cancelar pedido");
@@ -139,7 +140,7 @@ public class FrameGarcom extends JFrame {
 				}
 			}
 		});
-		getContentPane().add(btnCancelar, "cell 1 10 4 1");
+		getContentPane().add(btnCancelar, "flowx,cell 1 10 4 1");
 		
 		JLabel lblDirecionar = new JLabel("Direcionar para pagamento");
 		getContentPane().add(lblDirecionar, "cell 1 11 4 1");
@@ -172,6 +173,26 @@ public class FrameGarcom extends JFrame {
 			}
 		});
 		getContentPane().add(btnEncerrar, "cell 1 13 4 1");
+		
+		JButton btnMostrarPedido = new JButton("Mostrar Pedido");
+		btnMostrarPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String numMesa = textField_7.getText();
+				try {
+					FrameListarPedido fp = new FrameListarPedido(numMesa);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(contentPane, "IO Exception");
+				}
+			}
+		});
+		getContentPane().add(btnMostrarPedido, "cell 3 10");
+		
+		JLabel lblNumeroDaMesa = new JLabel("Numero da Mesa:");
+		getContentPane().add(lblNumeroDaMesa, "cell 3 8");
+		
+		textField_7 = new JTextField();
+		getContentPane().add(textField_7, "cell 3 9");
+		textField_7.setColumns(10);
 		
 		
 	}
