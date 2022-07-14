@@ -79,7 +79,12 @@ public class FrameGarcom extends JFrame {
 				int quantidade = Integer.parseInt(textField.getText());
 				String numeroMesa = textField_4.getText();
 				String codigoItem = textField_2.getText();
+				
 				try {
+				if(garcomFrame.getMesa(numeroMesa).isEncerrada()==true) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa já encerrada");
+					return;
+				}
 					garcomFrame.adicionarPedido(numeroMesa, codigoItem, quantidade);
 					JOptionPane.showMessageDialog(contentPane, "Pedido adicionado com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
