@@ -83,13 +83,21 @@ public class FrameCaixa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				try {
+					String mesaPagamento = txtMesas.getText();
+					Mesa m = Fachada.getInstancia().getConjuntoMesas().getMesa(mesaPagamento);
 					FileWriter fw = new FileWriter("cupomfiscal.txt");
 					BufferedWriter bw = new BufferedWriter(fw);
-					String mesaPagamento = txtMesas.getText();
 					bw.write("*CUPOM FISCAL*");
 					bw.write(System.lineSeparator());
 					double soma = 0;
-					// TODO: gerar começo do cupom a partir da conta da mesaPagamento
+					for (Map.Entry <ItemCardapio, Integer> me : m.getPedido().entrySet()) {
+						bw.write(me.getKey().getCodigo() + "  ");
+						bw.write(me.getKey().getNome() + "  ");
+						bw.write(me.getKey().getValor() + "");
+						bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
+						soma += me.getKey().getValor();
+						bw.write(System.lineSeparator());
+					}
 					bw.write("Valor total do pedido: R$" + soma);
 					bw.write(System.lineSeparator());
 					String metodo = comboBoxPagamento.getSelectedItem().toString();
@@ -101,7 +109,7 @@ public class FrameCaixa extends JFrame {
 					double troco = pago - soma;
 					bw.write(System.lineSeparator());
 					bw.write("Troco: R$" + troco);
-					Fachada.getInstancia().getCaixa().encerrarMesa(Fachada.getInstancia().getConjuntoMesas().getMesa(mesaPagamento));
+					Fachada.getInstancia().getCaixa().encerrarMesa(m);
 					bw.close();
 				} catch (MesaNaoEncerravelException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");

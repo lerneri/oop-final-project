@@ -21,9 +21,11 @@ import backend.*;
 import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
+import excecoes.ConjuntoMesasVazioException;
 import excecoes.GarcomInexistenteException;
 import excecoes.GarcomNaoPossuiMesaException;
 import excecoes.ItemNaoExistenteException;
+import excecoes.MesaInexistenteException;
 import excecoes.NomeInvalidoException;
 import excecoes.QuantidadeInvalidaException;
 
@@ -150,6 +152,25 @@ public class FrameGarcom extends JFrame {
 		textField_6.setColumns(10);
 		
 		JButton btnEncerrar = new JButton("Encerrar mesa");
+		btnEncerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String num = textField_6.getText();
+				try {
+					Mesa m = Fachada.getInstancia().getConjuntoMesas().getMesa(num);
+					if(m.isEncerrada() == false) {
+						m.setEncerrada(true);
+						JOptionPane.showMessageDialog(contentPane, "Mesa encerrada!");
+					}
+					else {
+						JOptionPane.showMessageDialog(contentPane, "Mesa já encerrada!");
+					}
+				} catch (MesaInexistenteException | ConjuntoMesasVazioException | IOException
+						| CodigoItemInvalidoException e) {
+					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(contentPane, "Mesa Inválida");
+				}
+			}
+		});
 		getContentPane().add(btnEncerrar, "cell 1 13 4 1");
 		
 		
