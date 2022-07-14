@@ -240,6 +240,26 @@ public class FrameGerente extends JFrame {
 			}
 		});
 		getContentPane().add(btnNewButton_2, "cell 1 8,alignx center,aligny center");
+		
+		JButton btnListarMesas = new JButton("Listar Mesas");
+		btnListarMesas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FrameListarMesas fm = new FrameListarMesas();
+				fm.setSize(400, 400);
+				fm.setVisible(true);
+			}
+		});
+		getContentPane().add(btnListarMesas, "cell 3 10,alignx center");
+		
+		JButton btnListarGarons = new JButton("Listar Garçons");
+		btnListarGarons.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FrameListarGarcons fg = new FrameListarGarcons();
+				fg.setSize(400, 400);
+				fg.setVisible(true);
+			}
+		});
+		getContentPane().add(btnListarGarons, "cell 3 11,alignx center");
 
 	}
 }

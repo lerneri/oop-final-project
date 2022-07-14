@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -18,7 +19,6 @@ import javax.swing.table.DefaultTableModel;
 import excecoes.*;
 
 import backend.*;
-
 
 public class FrameListarMesas extends JFrame {
 	private JScrollPane jScrollPane1;
@@ -53,7 +53,7 @@ public class FrameListarMesas extends JFrame {
 	}
 
 	private void initGUI() {
-		try {
+	
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			this.addWindowFocusListener(new WindowFocusListener() {
 				public void windowLostFocus(WindowEvent evt) {
@@ -64,31 +64,41 @@ public class FrameListarMesas extends JFrame {
 				}
 			});
 			{
-				jScrollPane1 = new JScrollPane();
+				try {
+					jScrollPane1 = new JScrollPane();
 				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
-				{
+				
 					DefaultTableModel modelo = new DefaultTableModel(null,
 							new String[] { "NÚMERO DA MESA"});
 					jTable1 = new JTable();
 					jScrollPane1.setViewportView(jTable1);
 					jTable1.setModel(modelo);
-					modificarTabela();
+					
+						modificarTabela();
+				} catch (ListaVaziaException e) {
+					JOptionPane.showMessageDialog(jTable1, "Lista Vazia Exception");
+				} catch (ConjuntoMesasVazioException e) {
+					JOptionPane.showMessageDialog(jTable1, "Conjunto de mesas vazio!");
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(jTable1, "IO Exception");
+				} catch (CodigoItemInvalidoException e) {
+					JOptionPane.showMessageDialog(jTable1, "Codigo de algum item invalido no cardapio");
 				}
 			}
+		
 			pack();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 	}
 
-	private void modificarTabela() throws ListaVaziaException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException {
+	private void modificarTabela()
+			throws ListaVaziaException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException {
 		DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
 		modelo.setNumRows(0);
 		ArrayList<Mesa> mesas = Fachada.getInstancia().getConjuntoMesas().getArrayMesas();
 
 		for (Mesa mesa : mesas) {
 
-			modelo.addRow(new String[] { mesa.getNumeroMesa()});
+			modelo.addRow(new String[] { mesa.getNumeroMesa() });
 		}
 	}
 }

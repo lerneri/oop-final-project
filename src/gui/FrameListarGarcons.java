@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -53,30 +54,21 @@ public class FrameListarGarcons extends JFrame {
 
 	private void initGUI() {
 		try {
-			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-			this.addWindowFocusListener(new WindowFocusListener() {
-				public void windowLostFocus(WindowEvent evt) {
-					System.out.println("this.windowLostFocus, event=" + evt);
-				}
-
-				public void windowGainedFocus(WindowEvent evt) {
-				}
-			});
-			{
-				jScrollPane1 = new JScrollPane();
-				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
-				{
-					DefaultTableModel modelo = new DefaultTableModel(null,
-							new String[] { "NOME", "CODIGO"});
-					jTable1 = new JTable();
-					jScrollPane1.setViewportView(jTable1);
-					jTable1.setModel(modelo);
-					modificarTabela();
-				}
-			}
-			pack();
-		} catch (Exception e) {
-			e.printStackTrace();
+			jScrollPane1 = new JScrollPane();
+		getContentPane().add(jScrollPane1, BorderLayout.CENTER);
+		
+			DefaultTableModel modelo = new DefaultTableModel(null,
+					new String[] { "NOME", "CÓDIGO"});
+			jTable1 = new JTable();
+			jScrollPane1.setViewportView(jTable1);
+			jTable1.setModel(modelo);
+			modificarTabela();
+		} catch (ListaVaziaException e) {
+			JOptionPane.showMessageDialog(jTable1, "Lista Vazia Exception");
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(jTable1, "IO Exception");
+		} catch (CodigoItemInvalidoException e) {
+			JOptionPane.showMessageDialog(jTable1, "Codigo de algum item invalido no cardapio");
 		}
 	}
 
