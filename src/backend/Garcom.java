@@ -18,6 +18,10 @@ public class Garcom {
 	private String codigo;
 	private ArrayList<Mesa> mesas;
 	
+	public void setNome(String novoNome) {
+		this.nome = novoNome;
+	}
+	
 	public ArrayList<Mesa> getMesasGarcom() {
 		return this.mesas;
 	}
