@@ -41,19 +41,6 @@ public class Janela {
 		frameCaixa = new FrameCaixa();
 		frameGerente = new FrameGerente();
 		frameGarcom = new FrameGarcom();
-		
-		//TODO: Tratamento de eventos para troca entre frames
-		
-		JButton btnVoltar = new JButton("Voltar à tela inicial");
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frameInicial.setVisible(true);
-			}
-		});
-		if(frameGarcom.isVisible()){
-			frameGarcom.getContentPane().add(btnVoltar, "cell 0 15");
-			}
-		
 	}
 	
 	

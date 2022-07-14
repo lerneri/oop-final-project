@@ -73,6 +73,15 @@ public class FrameInicial extends JFrame {
 					if(codigo.equals("3030")==true) {
 						Janela j = new Janela();
 						j.getFrameGerente().setVisible(true);
+						JButton btnVoltar = new JButton("Voltar");
+						btnVoltar.addActionListener(new ActionListener() {
+
+							public void actionPerformed(ActionEvent e) {
+								j.getFrameGerente().setVisible(false);
+							}
+						
+						});
+						j.getFrameGerente().add(btnVoltar, "cell 0 10,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
@@ -85,6 +94,15 @@ public class FrameInicial extends JFrame {
 						if(nome.equals(garcom.getNome())==true) {
 							Janela j = new Janela();
 							j.getFrameGarcom().setVisible(true);
+							JButton btnVoltar = new JButton("Voltar");
+							btnVoltar.addActionListener(new ActionListener() {
+
+								public void actionPerformed(ActionEvent e) {
+									j.getFrameGarcom().setVisible(false);
+								}
+							
+							});
+							j.getFrameGarcom().add(btnVoltar, "cell 0 10,alignx center,aligny center");
 						}
 					} catch (GarcomInexistenteException | ConjuntoGarcomVazioException | IOException
 							| CodigoItemInvalidoException e1) {
@@ -96,6 +114,15 @@ public class FrameInicial extends JFrame {
 					if(codigo.equals("0000")) {
 						Janela j = new Janela();
 						j.getFrameCaixa().setVisible(true);
+						JButton btnVoltar = new JButton("Voltar");
+						btnVoltar.addActionListener(new ActionListener() {
+
+							public void actionPerformed(ActionEvent e) {
+								j.getFrameCaixa().setVisible(false);
+							}
+						
+						});
+						j.getFrameCaixa().add(btnVoltar, "cell 0 10,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}

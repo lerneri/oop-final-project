@@ -72,28 +72,6 @@ public class FrameCaixa extends JFrame {
 		
 		JButton btnComprovante = new JButton("Emitir comprovante");
 		getContentPane().add(btnComprovante, "cell 1 5");
-		btnComprovante.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			FileWriter fw = new FileWriter("NF.txt");
-			BufferedWriter bw = new BufferedWriter(fw);
-			try{double soma = 0;
-			//TODO: getSoma a partir da conta da mesa
-			bw.write("Valor total do pedido: R$" + soma);
-			bw.write(System.lineSeparator());
-			String metodo = comboBoxPagamento.getSelectedItem().toString();
-			bw.write("Método de pagamento: " + metodo);
-			bw.write(System.lineSeparator());
-			String pagamento = valor.getText();
-			bw.write("Valor pago: R$" + pagamento);
-			double pago = Double.parseDouble(pagamento);
-			double troco = pago - soma;
-			bw.write(System.lineSeparator());
-			bw.write("Troco: R$" + troco);
-		
-			bw.close();}
-			finally {}
-			}
-		});
 		
 		
 	}
