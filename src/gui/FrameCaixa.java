@@ -31,21 +31,21 @@ public class FrameCaixa extends JFrame {
 		setTitle("Gerenciamento de Restaurante - Caixa");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[][grow]", "[][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[][][][][grow]", "[][][][][][][][][][]"));
 		
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, CAIXA!");
-		getContentPane().add(mensagemBoasVindas, "cell 0 0");
+		getContentPane().add(mensagemBoasVindas, "cell 2 0");
+		
+		JLabel lblEncerrarMesa = new JLabel("Pagamento");
+		getContentPane().add(lblEncerrarMesa, "cell 4 1,alignx center,aligny baseline");
 		
 		//Seleção de mesa para emissão de pagamento
 		
-		JLabel lblEncerrarMesa = new JLabel("Encerrar mesa");
-		getContentPane().add(lblEncerrarMesa, "cell 1 1,aligny baseline");
-		
 		JLabel lblMesa = new JLabel("Mesa:");
-		getContentPane().add(lblMesa, "cell 0 2,alignx trailing");
+		getContentPane().add(lblMesa, "flowx,cell 4 2,alignx center");
 		
 		JTextField txtMesas = new JTextField();
-		getContentPane().add(txtMesas, "cell 1 2");
+		getContentPane().add(txtMesas, "cell 4 2,alignx center");
 		txtMesas.setColumns(3);
 		
 		//Formas de pagamento
@@ -53,31 +53,34 @@ public class FrameCaixa extends JFrame {
 		String[] pagamentos = { "Crédito", "Débito", "Espécie", "PIX", "Cheque" };
 		
 		JLabel lblPagamentos = new JLabel("Forma de pagamento:");
-		getContentPane().add(lblPagamentos, "cell 0 3,alignx trailing");
+		getContentPane().add(lblPagamentos, "flowx,cell 4 3,alignx center");
 		
 		JComboBox comboBoxPagamento = new JComboBox(pagamentos);
-		getContentPane().add(comboBoxPagamento, "cell 1 3");
+		getContentPane().add(comboBoxPagamento, "cell 4 3,alignx center");
+		
+		//Pagamento
 		
 		JLabel lblValor = new JLabel("Valor recebido (R$):");
-		getContentPane().add(lblValor, "cell 0 4,alignx trailing");
+		getContentPane().add(lblValor, "flowx,cell 4 4,alignx center");
 		
 		JTextField valor = new JTextField();
 		valor.setText("000.00");
-		getContentPane().add(valor, "cell 1 4");
+		getContentPane().add(valor, "cell 4 4");
 		valor.setColumns(7);
-		
-		
 		
 		//Emissão de comprovante
 		
 		JButton btnComprovante = new JButton("Emitir comprovante");
-		getContentPane().add(btnComprovante, "cell 1 5");
+		getContentPane().add(btnComprovante, "cell 4 5,alignx center");
 		btnComprovante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			FileWriter fw = new FileWriter("NF.txt");
+			FileWriter fw = new FileWriter("cupomfiscal.txt");
 			BufferedWriter bw = new BufferedWriter(fw);
+			String mesaPagamento = txtMesas.getText();
+			bw.write("*CUPOM FISCAL*");
+			bw.write(System.lineSeparator());
 			try{double soma = 0;
-			//TODO: getSoma a partir da conta da mesa
+			//TODO: gerar começo do cupom a partir da conta da mesaPagamento 
 			bw.write("Valor total do pedido: R$" + soma);
 			bw.write(System.lineSeparator());
 			String metodo = comboBoxPagamento.getSelectedItem().toString();
@@ -91,7 +94,7 @@ public class FrameCaixa extends JFrame {
 			bw.write("Troco: R$" + troco);
 		
 			bw.close();}
-			finally {}
+			catch (IOException excep){}
 			}
 		});
 		
