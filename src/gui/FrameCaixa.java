@@ -25,6 +25,7 @@ import backend.*;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoMesasVazioException;
 import excecoes.MesaInexistenteException;
+import excecoes.MesaNaoEncerravelException;
 
 public class FrameCaixa extends JFrame {
 
@@ -76,11 +77,11 @@ public class FrameCaixa extends JFrame {
 		// Emissão de comprovante
 
 		JButton btnComprovante = new JButton("Emitir comprovante");
-<<<<<<< HEAD
+
 		getContentPane().add(btnComprovante, "cell 4 5,alignx center");
 		btnComprovante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				try {
 					FileWriter fw = new FileWriter("cupomfiscal.txt");
 					BufferedWriter bw = new BufferedWriter(fw);
@@ -102,23 +103,22 @@ public class FrameCaixa extends JFrame {
 					bw.write("Troco: R$" + troco);
 					Fachada.getInstancia().getCaixa().encerrarMesa(Fachada.getInstancia().getConjuntoMesas().getMesa(mesaPagamento));
 					bw.close();
+				} catch (MesaNaoEncerravelException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");
 				} catch (CodigoItemInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Codigo de um item invalido no arquivo cardapio.txt");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 				} catch (ConjuntoMesasVazioException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Conjunto Mesas Vazio");					
+					JOptionPane.showMessageDialog(contentPane, "Conjunto Mesas Vazio");
 				} catch (IOException excep) {
 					JOptionPane.showMessageDialog(contentPane, "IO exception");
 				}
 			}
 		});
 
-=======
 		getContentPane().add(btnComprovante, "cell 1 5");
-		
-		
->>>>>>> 931d6772783e259f70f2ac0406cd814317c971fb
+
 	}
 
 }

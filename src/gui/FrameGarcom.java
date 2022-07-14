@@ -83,7 +83,7 @@ public class FrameGarcom extends JFrame {
 				String codigoItem = textField_2.getText();
 				try {
 					// FALTA COLOCAR O CODIGO DO GARÇOM QUE ESTÁ LOGADO
-					Fachada.getInstancia().getConjuntoGarcons().getGarcom("CODIGO DO GARÇOM DO FRAME").adicionarPedido(numeroMesa, codigoItem, quantidade);
+					Fachada.getInstancia().getConjuntoGarcons().getGarcom(garcomFrame.getCodigo()).adicionarPedido(numeroMesa, codigoItem, quantidade);
 				} catch (ConjuntoGarcomVazioException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Conjunto de garçons está vazio!");
 				} catch (GarcomNaoPossuiMesaException e1) {
