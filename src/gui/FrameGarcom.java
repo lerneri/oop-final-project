@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -37,8 +38,11 @@ public class FrameGarcom extends JFrame {
 	private JTextField textField_6;
 	private Garcom garcomFrame;
 	private JTextField textField_7;
+	private HashMap<ItemCardapio, Integer> pedido;
 	
-		
+	public HashMap<ItemCardapio, Integer> getPedido(){
+		return pedido;
+	}
 	public void setGarcomFrame(String codigo) throws GarcomInexistenteException, ConjuntoGarcomVazioException, IOException, CodigoItemInvalidoException {
 		this.garcomFrame = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 	}
@@ -86,6 +90,8 @@ public class FrameGarcom extends JFrame {
 					return;
 				}
 					garcomFrame.adicionarPedido(numeroMesa, codigoItem, quantidade);
+					Mesa mesa = garcomFrame.getMesa(numeroMesa);
+					pedido = mesa.getPedido();
 					JOptionPane.showMessageDialog(contentPane, "Pedido adicionado com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garçom não está responsável por esta mesa!");
@@ -131,8 +137,14 @@ public class FrameGarcom extends JFrame {
 				String codigoItem = textField_3.getText();
 				String numeroMesa = textField_5.getText();
 				try {
+					if(garcomFrame.getMesa(numeroMesa).isEncerrada()==true) {
+						JOptionPane.showMessageDialog(contentPane, "Mesa já encerrada");
+						return;
+					}
 					int quantidade = Integer.parseInt(textField_1.getText());
 					garcomFrame.removerPedido(numeroMesa, codigoItem, quantidade);
+					Mesa mesa = garcomFrame.getMesa(numeroMesa);
+					pedido = mesa.getPedido();
 					JOptionPane.showMessageDialog(contentPane, "Item retirado do pedido com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Garçom não está responsável por esta mesa!");
@@ -185,6 +197,8 @@ public class FrameGarcom extends JFrame {
 				String numMesa = textField_7.getText();
 				try {
 					FrameListarPedido fp = new FrameListarPedido(numMesa);
+					fp.setVisible(true);
+					fp.setSize(400,400);
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(contentPane, "IO Exception");
 				}

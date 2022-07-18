@@ -24,7 +24,7 @@ import backend.*;
 public class FrameListarPedido extends JFrame {
 	private JScrollPane jScrollPane1;
 	private JTable jTable1;
-
+	
 	/**
 	 * Auto-generated main method to display this JFrame
 	 */
@@ -45,43 +45,42 @@ public class FrameListarPedido extends JFrame {
 	}
 
 	private void initGUI(String numMesa) throws IOException {
-		jScrollPane1 = new JScrollPane();
-		getContentPane().add(jScrollPane1, BorderLayout.CENTER);
+		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.addWindowFocusListener(new WindowFocusListener() {
+			public void windowLostFocus(WindowEvent evt) {
+				System.out.println("this.windowLostFocus, event=" + evt);
+			}
 
-		DefaultTableModel modelo = new DefaultTableModel(null,new String[] {"CÓDIGO", "NOME", "DESCRIÇÃO", "VALOR", "QUANTIDADE"});
-		jTable1 = new JTable();
-		jScrollPane1.setViewportView(jTable1);
-		jTable1.setModel(modelo);
-		modificarTabela(numMesa);
+			public void windowGainedFocus(WindowEvent evt) {
+			}
+		});
+				jScrollPane1 = new JScrollPane();
+			getContentPane().add(jScrollPane1, BorderLayout.CENTER);
+			
+			DefaultTableModel modelo = new DefaultTableModel(null,
+					new String[] {"CÓDIGO", "NOME", "DESCRIÇÃO", "VALOR", "QUANTIDADE"});
+				jTable1 = new JTable();
+				jScrollPane1.setViewportView(jTable1);
+				jTable1.setModel(modelo);
+				
+					modificarTabela(numMesa);
 	}
 
 	private void modificarTabela(String numMesa){
 		DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
 		modelo.setNumRows(0);
-		HashMap<ItemCardapio, Integer> pedido;
+		Mesa mesa;
 		try {
-			pedido = Fachada.getInstancia().getConjuntoMesas().getMesa(numMesa).getPedido();
+			mesa = Fachada.getInstancia().getConjuntoMesas().getMesa(numMesa);
+			HashMap<ItemCardapio, Integer> pedido = mesa.getPedido();
 			double soma = 0;
 			for (Map.Entry <ItemCardapio, Integer> me : pedido.entrySet()) {
-				modelo.addRow(new String[] { me.getKey().getCodigo(), me.getKey().getNome(),me.getKey().getDescricao() ,me.getKey().getValor()+ ""});
-
-				soma += me.getKey().getValor();
+				modelo.addRow(new String[] { me.getKey().getCodigo(), me.getKey().getNome(),me.getKey().getDescricao() ,me.getKey().getValor()+ "", +me.getValue()+""});
+				soma += (me.getKey().getValor()*me.getValue());
 			}
-			
-		} catch (MesaInexistenteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ConjuntoMesasVazioException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (CodigoItemInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (MesaInexistenteException | ConjuntoMesasVazioException | IOException | CodigoItemInvalidoException e) {
+			JOptionPane.showMessageDialog(jScrollPane1, "Mesa inválida");
 		}
 		
-
 	}
 }

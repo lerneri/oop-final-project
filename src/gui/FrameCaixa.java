@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JFrame;
@@ -85,17 +86,18 @@ public class FrameCaixa extends JFrame {
 				try {
 					String mesaPagamento = txtMesas.getText();
 					Mesa m = Fachada.getInstancia().getConjuntoMesas().getMesa(mesaPagamento);
+					HashMap<ItemCardapio, Integer> pedido = m.getPedido();
 					FileWriter fw = new FileWriter("cupomfiscal.txt");
 					BufferedWriter bw = new BufferedWriter(fw);
 					bw.write("*CUPOM FISCAL*");
 					bw.write(System.lineSeparator());
 					double soma = 0;
-					for (Map.Entry <ItemCardapio, Integer> me : m.getPedido().entrySet()) {
+					for (Map.Entry <ItemCardapio, Integer> me : pedido.entrySet()) {
 						bw.write(me.getKey().getCodigo() + "  ");
 						bw.write(me.getKey().getNome() + "  ");
-						bw.write(me.getKey().getValor() + "");
+						bw.write("Quantidade: "+me.getValue());
 						bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
-						soma += me.getKey().getValor();
+						soma += (me.getKey().getValor()*me.getValue());
 						bw.write(System.lineSeparator());
 					}
 					bw.write("Valor total do pedido: R$" + soma);
@@ -104,13 +106,21 @@ public class FrameCaixa extends JFrame {
 					bw.write("Método de pagamento: " + metodo);
 					bw.write(System.lineSeparator());
 					String pagamento = valor.getText();
-					bw.write("Valor pago: R$" + pagamento);
-					double pago = Double.parseDouble(pagamento);
-					double troco = pago - soma;
-					bw.write(System.lineSeparator());
-					bw.write("Troco: R$" + troco);
-					Fachada.getInstancia().getCaixa().encerrarMesa(m);
+					if(pagamento.equalsIgnoreCase("Espécie")) {
+						double pago = Double.parseDouble(pagamento);
+						bw.write("Valor pago + taxa de serviço(10%): R$" + (pago*1.1));
+						double troco = pago - soma;
+						bw.write(System.lineSeparator());
+						bw.write("Troco: R$" + troco);
+					} else {
+						bw.write("Valor pago + taxa de serviço(10%): R$" + (soma*1.1));
+					}
+					
+
 					bw.close();
+					JOptionPane.showMessageDialog(contentPane, "Cupom Fiscal Gerado!");
+					Fachada.getInstancia().getCaixa().encerrarMesa(m);
+					return;
 				} catch (MesaNaoEncerravelException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");
 				} catch (CodigoItemInvalidoException e1) {

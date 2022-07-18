@@ -58,7 +58,7 @@ public class ConjuntoGarcons implements IConjuntoGarcons{
 	}
 	
 	
-	public ArrayList<Garcom> getArrayGarcons(){
+	public ArrayList<Garcom> getArrayGarcons() throws ConjuntoGarcomVazioException{
 		return this.garcons;
 	}
 	

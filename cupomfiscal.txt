@@ -1,0 +1,6 @@
+*CUPOM FISCAL*
+4000  Ãgua IndaiÃ¡  Quantidade: 2  R$ 6.0
+2002  Maminha ao molho funghi  Quantidade: 2  R$ 96.0
+Valor total do pedido: R$102.0
+Método de pagamento: Crédito
+Valor pago + taxa de serviço(10%): R$112.2
