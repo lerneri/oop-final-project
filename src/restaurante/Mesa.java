@@ -1,8 +1,9 @@
-package backend;
+package restaurante;
 
 import java.util.*;
 
 import excecoes.*;
+import garcom.Garcom;
 
 public class Mesa {
 	private String numeroMesa;

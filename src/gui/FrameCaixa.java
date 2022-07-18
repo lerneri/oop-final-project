@@ -19,14 +19,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
+import restaurante.ItemCardapio;
+import restaurante.Mesa;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-import backend.*;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoMesasVazioException;
 import excecoes.MesaInexistenteException;
 import excecoes.MesaNaoEncerravelException;
+import fachada.Fachada;
 
 public class FrameCaixa extends JFrame {
 

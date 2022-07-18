@@ -1,9 +1,12 @@
-package backend;
+package gerente;
 
 import java.io.IOException;
 import java.util.*;
 
 import excecoes.*;
+import fachada.Fachada;
+import garcom.Garcom;
+import restaurante.Mesa;
 
 public class Gerente {
 

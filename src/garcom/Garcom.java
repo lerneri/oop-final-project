@@ -1,4 +1,4 @@
-package backend;
+package garcom;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,6 +12,9 @@ import excecoes.ItemNaoExistenteException;
 import excecoes.NomeInvalidoException;
 import excecoes.PedidoVazioException;
 import excecoes.QuantidadeInvalidaException;
+import restaurante.Cardapio;
+import restaurante.ItemCardapio;
+import restaurante.Mesa;
 
 public class Garcom {
 	private String nome;

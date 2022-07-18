@@ -17,8 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
-
-import backend.*;
+import restaurante.ItemCardapio;
+import restaurante.Mesa;
 import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
@@ -29,6 +29,8 @@ import excecoes.ItemNaoExistenteException;
 import excecoes.MesaInexistenteException;
 import excecoes.NomeInvalidoException;
 import excecoes.QuantidadeInvalidaException;
+import fachada.Fachada;
+import garcom.Garcom;
 
 public class FrameGarcom extends JFrame {
 
@@ -53,8 +55,12 @@ public class FrameGarcom extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new MigLayout("", "[][130px][grow][grow][grow]", "[][][][][][][][][][][][][][][][]"));
 		
+		/*   Isso vai ser implementado no FrameInicial 
+		          
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, nomeGarçom!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0");
+		
+		*/
 		
 		JLabel lblInserirPedido = new JLabel("Inserir pedido");
 		getContentPane().add(lblInserirPedido, "cell 1 1 4 1");

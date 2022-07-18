@@ -1,9 +1,10 @@
-package backend;
+package caixa;
 
 import java.io.*;
 import java.util.*;
 
 import excecoes.MesaNaoEncerravelException;
+import restaurante.Mesa;
 public class Caixa {
 
 	

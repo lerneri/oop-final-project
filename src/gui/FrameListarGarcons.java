@@ -17,8 +17,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import excecoes.*;
+import fachada.Fachada;
+import garcom.Garcom;
 
-import backend.*;
 
 public class FrameListarGarcons extends JFrame {
 	private JScrollPane jScrollPane1;

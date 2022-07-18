@@ -17,8 +17,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import excecoes.*;
-
-import backend.*;
+import fachada.Fachada;
+import restaurante.Mesa;
 
 public class FrameListarMesas extends JFrame {
 	private JScrollPane jScrollPane1;

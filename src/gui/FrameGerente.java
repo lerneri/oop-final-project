@@ -21,8 +21,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
-
-import backend.*;
+import restaurante.Mesa;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
 import excecoes.ConjuntoMesasVazioException;
@@ -34,6 +33,8 @@ import excecoes.MesaInexistenteException;
 import excecoes.MesaJaExistenteException;
 import excecoes.NomeInvalidoException;
 import excecoes.NumeroMesaInvalidoException;
+import fachada.Fachada;
+import garcom.Garcom;
 
 public class FrameGerente extends JFrame {
 
@@ -42,6 +43,7 @@ public class FrameGerente extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField tfRemoverMesa;
 
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
@@ -249,6 +251,16 @@ public class FrameGerente extends JFrame {
 				fm.setVisible(true);
 			}
 		});
+		
+		JLabel lblRemoverMesa = new JLabel("Mesa:");
+		getContentPane().add(lblRemoverMesa, "cell 0 9,alignx trailing");
+		
+		tfRemoverMesa = new JTextField();
+		tfRemoverMesa.setColumns(10);
+		getContentPane().add(tfRemoverMesa, "cell 1 9,growx");
+		
+		JButton btnRemoverMesa = new JButton("Remover mesa");
+		getContentPane().add(btnRemoverMesa, "cell 1 10");
 		getContentPane().add(btnListarMesas, "cell 3 10,alignx center");
 		
 		JButton btnListarGarons = new JButton("Listar Garçons");

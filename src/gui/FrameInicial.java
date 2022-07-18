@@ -18,12 +18,13 @@ import javax.swing.border.EmptyBorder;
 
 import net.miginfocom.swing.MigLayout;
 
-import backend.*;
 import excecoes.CodigoGarcomInvalidoException;
 import excecoes.CodigoItemInvalidoException;
 import excecoes.ConjuntoGarcomVazioException;
 import excecoes.GarcomInexistenteException;
 import excecoes.NomeInvalidoException;
+import fachada.Fachada;
+import garcom.Garcom;
 
 import javax.swing.SwingConstants;
 import java.awt.Component;
@@ -81,7 +82,7 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameGerente().add(btnVoltar, "cell 0 10,alignx center,aligny center");
+						j.getFrameGerente().add(btnVoltar, "cell 0 15,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
@@ -96,6 +97,7 @@ public class FrameInicial extends JFrame {
 							Janela j = new Janela();
 							j.getFrameGarcom().setVisible(true);
 							j.getFrameGarcom().setGarcomFrame(codigo);
+							JLabel mensagemBoasVindas = new JLabel("Bem-vindo, " + garcom.getNome()+ "!");
 							JButton btnVoltar = new JButton("Voltar");
 							btnVoltar.addActionListener(new ActionListener() {
 
@@ -104,7 +106,9 @@ public class FrameInicial extends JFrame {
 								}
 
 							});
+							j.getFrameGarcom().add(mensagemBoasVindas, "cell 0 0");
 							j.getFrameGarcom().add(btnVoltar, "cell 0 16,alignx center,aligny center");
+							
 						}else {
 							JOptionPane.showMessageDialog(contentPane, "Nome garçom invalido");
 						}
