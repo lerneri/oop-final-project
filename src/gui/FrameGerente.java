@@ -222,8 +222,7 @@ public class FrameGerente extends JFrame {
 		JButton btnNewButton_2 = new JButton("Cadastrar mesa");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// APOS A CORREÇÃO DO METODO CODIGOINVALIDOEXCEPTION, FAZER O TRATAMENTO DA NOVA
-				// EXCEÇÃO
+				
 				try {
 					Mesa m = new Mesa(textField_1.getText());
 					Fachada.getInstancia().getConjuntoMesas().inserirMesa(m);
@@ -260,8 +259,29 @@ public class FrameGerente extends JFrame {
 		getContentPane().add(tfRemoverMesa, "cell 1 9,growx");
 		
 		JButton btnRemoverMesa = new JButton("Remover mesa");
+		btnRemoverMesa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String numeroMesa = tfRemoverMesa.getText();
+				try {
+					Mesa m = Fachada.getInstancia().getConjuntoMesas().getMesa(numeroMesa);
+					Fachada.getInstancia().getConjuntoMesas().removerMesa(m);
+					JOptionPane.showMessageDialog(contentPane, "Mesa removida com sucesso!");
+					tfRemoverMesa.setText("");
+				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(contentPane, "IOException");
+				} catch (CodigoItemInvalidoException e1) {
+					JOptionPane.showMessageDialog(contentPane,
+							"Codigo de algum item no Cardapio foi digitado incorretamente");
+				} catch (MesaInexistenteException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
+				} catch (ConjuntoMesasVazioException e1) {
+					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
+				}
+			}
+		});
 		getContentPane().add(btnRemoverMesa, "cell 1 10");
 		getContentPane().add(btnListarMesas, "cell 3 10,alignx center");
+		
 		
 		JButton btnListarGarons = new JButton("Listar Garçons");
 		btnListarGarons.addActionListener(new ActionListener() {
