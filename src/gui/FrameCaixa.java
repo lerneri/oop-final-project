@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Formatter;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -111,23 +112,26 @@ public class FrameCaixa extends JFrame {
 					String pagamento = valor.getText();
 					if(pagamento.equalsIgnoreCase("Espécie")) {
 						double pago = Double.parseDouble(pagamento);
-						bw.write("Valor pago + taxa de serviço(10%): R$" + (pago*1.1));
+						bw.write("Total a pagar - Pedidos + taxa de serviço (10%): R$" + (soma*1.1));
+						bw.write("Valor recebido: R$" + (pago));
 						double troco = pago - soma;
+						Formatter formatter = new Formatter();
+				        formatter.format("%.2f", troco);
 						bw.write(System.lineSeparator());
-						bw.write("Troco: R$" + troco);
+						bw.write("Troco: R$ " + troco);
 					} else {
 						bw.write("Valor pago + taxa de serviço(10%): R$" + (soma*1.1));
 					}
 					
 
 					bw.close();
-					JOptionPane.showMessageDialog(contentPane, "Cupom Fiscal Gerado!");
+					JOptionPane.showMessageDialog(contentPane, "Cupom fiscal emitido!");
 					Fachada.getInstancia().getCaixa().encerrarMesa(m);
 					return;
 				} catch (MesaNaoEncerravelException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");
 				} catch (CodigoItemInvalidoException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Codigo de um item invalido no arquivo cardapio.txt");
+					JOptionPane.showMessageDialog(contentPane, "Codigo de um item inválido no arquivo cardapio.txt");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 				} catch (ConjuntoMesasVazioException e1) {

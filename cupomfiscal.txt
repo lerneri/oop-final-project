@@ -1,6 +1,5 @@
 *CUPOM FISCAL*
-4000  Ãgua IndaiÃ¡  Quantidade: 2  R$ 6.0
-2002  Maminha ao molho funghi  Quantidade: 2  R$ 96.0
-Valor total do pedido: R$102.0
-Método de pagamento: Crédito
-Valor pago + taxa de serviço(10%): R$112.2
+1001  Espetinho  Quantidade: 1  R$ 7.48
+Valor total do pedido: R$7.48
+Método de pagamento: Espécie
+Valor pago + taxa de serviço(10%): R$8.228000000000002
