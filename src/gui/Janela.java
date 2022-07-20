@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import java.awt.Toolkit;
 
 public class Janela {
 
@@ -38,6 +39,7 @@ public class Janela {
 	public Janela() {
 		//Inicializa os frames
 		frameInicial = new FrameInicial();
+		frameInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/restaurante.png")));
 		frameCaixa = new FrameCaixa();
 		frameGerente = new FrameGerente();
 		frameGarcom = new FrameGarcom();

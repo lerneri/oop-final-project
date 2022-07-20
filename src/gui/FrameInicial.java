@@ -39,10 +39,10 @@ public class FrameInicial extends JFrame {
 		setTitle("Gerenciamento de Restaurante");
 		setBounds(100, 100, 800, 600);
 
-		getContentPane().setLayout(new MigLayout("", "[217px][grow][grow][217px]", "[130px][][][][][][130px]"));
+		getContentPane().setLayout(new MigLayout("", "[217px][grow][grow]", "[130px][][][][][][130px]"));
 
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo! Selecione o funcionário atual:");
-		getContentPane().add(mensagemBoasVindas, "cell 1 0,grow");
+		getContentPane().add(mensagemBoasVindas, "cell 1 0,alignx center,growy");
 
 		JLabel lblFuncao = new JLabel("Função");
 		getContentPane().add(lblFuncao, "cell 0 1,alignx trailing,growy");
@@ -62,6 +62,7 @@ public class FrameInicial extends JFrame {
 		getContentPane().add(lblNewLabel_3, "cell 0 3,alignx trailing");
 
 		JPasswordField passwordCodigo = new JPasswordField();
+		passwordCodigo.setColumns(4);
 		getContentPane().add(passwordCodigo, "cell 1 3,growx");
 
 		JButton btnLogin = new JButton("Login");
@@ -82,7 +83,7 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameGerente().add(btnVoltar, "cell 0 15,alignx center,aligny center");
+						j.getFrameGerente().getContentPane().add(btnVoltar, "cell 0 15,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
@@ -106,8 +107,8 @@ public class FrameInicial extends JFrame {
 								}
 
 							});
-							j.getFrameGarcom().add(mensagemBoasVindas, "cell 0 0");
-							j.getFrameGarcom().add(btnVoltar, "cell 0 16,alignx center,aligny center");
+							j.getFrameGarcom().getContentPane().add(mensagemBoasVindas, "cell 0 0");
+							j.getFrameGarcom().getContentPane().add(btnVoltar, "cell 0 16,alignx center,aligny center");
 							
 						}else {
 							JOptionPane.showMessageDialog(contentPane, "Nome garçom invalido");
@@ -135,7 +136,7 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameCaixa().add(btnVoltar, "cell 0 10,alignx center,aligny center");
+						j.getFrameCaixa().getContentPane().add(btnVoltar, "cell 0 10,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
