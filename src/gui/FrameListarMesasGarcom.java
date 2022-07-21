@@ -18,6 +18,7 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import excecoes.*;
 import fachada.Fachada;
+import garcom.Garcom;
 import restaurante.Mesa;
 
 public class FrameListarMesasGarcom extends JFrame {
@@ -26,20 +27,22 @@ public class FrameListarMesasGarcom extends JFrame {
 
 	/**
 	 * Auto-generated main method to display this JFrame
+	 * @throws ConjuntoGarcomVazioException 
+	 * @throws GarcomInexistenteException 
 	 */
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				FrameListarMesasGarcom inst = new FrameListarMesasGarcom();
-				inst.setLocationRelativeTo(null);
-				inst.setVisible(true);
-			}
-		});
-	}
+	//public static void main(String[] args) {
+		//SwingUtilities.invokeLater(new Runnable() {
+			//public void run() {
+				//FrameListarMesasGarcom inst = new FrameListarMesasGarcom();
+				//inst.setLocationRelativeTo(null);
+				//inst.setVisible(true);
+			//}
+		//});
+	//}
 
-	public FrameListarMesasGarcom() {
+	public FrameListarMesasGarcom(String codigo) throws GarcomInexistenteException, ConjuntoGarcomVazioException {
 		super();
-		initGUI();
+		initGUI(codigo);
 		int larguraJanela = getWidth();
 		int alturaJanela = getHeight();
 		Toolkit tk = Toolkit.getDefaultToolkit();
@@ -52,7 +55,7 @@ public class FrameListarMesasGarcom extends JFrame {
 
 	}
 
-	private void initGUI() {
+	private void initGUI(String codigo) throws GarcomInexistenteException, ConjuntoGarcomVazioException {
 	
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			this.addWindowFocusListener(new WindowFocusListener() {
@@ -69,12 +72,12 @@ public class FrameListarMesasGarcom extends JFrame {
 				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 				
 					DefaultTableModel modelo = new DefaultTableModel(null,
-							new String[] { "NÚMERO DA MESA"});
+							new String[] { "NÃMERO DA MESA"});
 					jTable1 = new JTable();
 					jScrollPane1.setViewportView(jTable1);
 					jTable1.setModel(modelo);
 					
-						modificarTabela();
+						modificarTabela(codigo);
 				} catch (ListaVaziaException e) {
 					JOptionPane.showMessageDialog(jTable1, "Lista Vazia Exception");
 				} catch (ConjuntoMesasVazioException e) {
@@ -90,13 +93,13 @@ public class FrameListarMesasGarcom extends JFrame {
 		
 	}
 
-	private void modificarTabela()
-			throws ListaVaziaException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException {
+	private void modificarTabela(String codigo)
+			throws ListaVaziaException, ConjuntoMesasVazioException, IOException, CodigoItemInvalidoException, GarcomInexistenteException, ConjuntoGarcomVazioException {
 		DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
 		modelo.setNumRows(0);
-		ArrayList<Mesa> mesas = Fachada.getInstancia().getConjuntoGarcons().getArrayGarcons().getGarcom().getMesa();
+		Garcom garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 
-		for (Mesa mesa : mesas) {
+		for (Mesa mesa : garcom.getMesasGarcom()) {
 
 			modelo.addRow(new String[] { mesa.getNumeroMesa() });
 		}
