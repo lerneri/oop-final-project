@@ -39,7 +39,7 @@ public class Janela {
 	public Janela() {
 		//Inicializa os frames
 		frameInicial = new FrameInicial();
-		frameInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/restaurante.png")));
+		frameInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/prato.png")));
 		frameCaixa = new FrameCaixa();
 		frameGerente = new FrameGerente();
 		frameGarcom = new FrameGarcom();

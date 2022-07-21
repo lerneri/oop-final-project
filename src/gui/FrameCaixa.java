@@ -97,51 +97,49 @@ public class FrameCaixa extends JFrame {
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write("*CUPOM FISCAL*");
 			bw.write(System.lineSeparator());
-																											double soma = 0;
-																											for (Map.Entry <ItemCardapio, Integer> me : pedido.entrySet()) {
-																												bw.write(me.getKey().getCodigo() + "  ");
-																												bw.write(me.getKey().getNome() + "  ");
-																												bw.write("Quantidade: "+me.getValue());
-																												bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
-																												soma += (me.getKey().getValor()*me.getValue());
-																												bw.write(System.lineSeparator());
-																											}
-																											bw.write("Valor total do pedido: R$" + soma);
-																											bw.write(System.lineSeparator());
-																											String metodo = comboBoxPagamento.getSelectedItem().toString();
-																											bw.write("Método de pagamento: " + metodo);
-																											bw.write(System.lineSeparator());
-																											String pagamento = valor.getText();
-																											if(pagamento.equalsIgnoreCase("Espécie")) {
-																												double pago = Double.parseDouble(pagamento);
-																												bw.write("Total a pagar - Pedidos + taxa de serviço (10%): R$" + (soma*1.1));
-																												bw.write("Valor recebido: R$" + (pago));
-																												double troco = pago - soma;
-																												Formatter formatter = new Formatter();
-																										        formatter.format("%.2f", troco);
-																												bw.write(System.lineSeparator());
-																												bw.write("Troco: R$ " + troco);
-																											} else {
-																												bw.write("Valor pago + taxa de serviço(10%): R$" + (soma*1.1));
-																											}
-																											
-
-																											bw.close();
-																											JOptionPane.showMessageDialog(contentPane, "Cupom fiscal emitido!");
-																											Fachada.getInstancia().getCaixa().encerrarMesa(m);
-																											return;
-																										} catch (MesaNaoEncerravelException e1) {
-																											JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");
-																										} catch (CodigoItemInvalidoException e1) {
-																											JOptionPane.showMessageDialog(contentPane, "Codigo de um item inválido no arquivo cardapio.txt");
-																										} catch (MesaInexistenteException e1) {
-																											JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
-																										} catch (ConjuntoMesasVazioException e1) {
-																											JOptionPane.showMessageDialog(contentPane, "Conjunto Mesas Vazio");
-																										} catch (IOException excep) {
-																											JOptionPane.showMessageDialog(contentPane, "IO exception");
-																										}
-																									}
+			double soma = 0;
+			for (Map.Entry <ItemCardapio, Integer> me : pedido.entrySet()) {
+				bw.write(me.getKey().getCodigo() + "  ");
+				bw.write(me.getKey().getNome() + "  ");
+				bw.write("Quantidade: "+me.getValue());
+				bw.write("  R$ " + (me.getKey().getValor()*me.getValue()));
+				soma += (me.getKey().getValor()*me.getValue());
+				bw.write(System.lineSeparator());
+			}
+			bw.write("Valor total do pedido: R$" + soma);
+			bw.write(System.lineSeparator());
+			String metodo = comboBoxPagamento.getSelectedItem().toString();
+			bw.write("Método de pagamento: " + metodo);
+			bw.write(System.lineSeparator());
+			String pagamento = valor.getText();
+			if(pagamento.equalsIgnoreCase("Espécie")) {
+				double pago = Double.parseDouble(pagamento);
+				bw.write("Total a pagar - Pedidos + taxa de serviço (10%): R$" + (soma*1.1));
+				bw.write("Valor recebido: R$" + (pago));
+				double troco = pago - soma;
+				Formatter formatter = new Formatter();
+				formatter.format("%.2f", troco);
+				bw.write(System.lineSeparator());
+				bw.write("Troco: R$ " + troco);
+			} else {
+				bw.write("Valor pago + taxa de serviço(10%): R$" + (soma*1.1));
+			}
+			bw.close();
+			JOptionPane.showMessageDialog(contentPane, "Cupom fiscal emitido!");
+			Fachada.getInstancia().getCaixa().encerrarMesa(m);
+			return;
+			} catch (MesaNaoEncerravelException e1) {
+				JOptionPane.showMessageDialog(contentPane, "Mesa ainda não foi encerrada");
+			} catch (CodigoItemInvalidoException e1) {
+				JOptionPane.showMessageDialog(contentPane, "Código de um item inválido no arquivo cardapio.txt");
+			} catch (MesaInexistenteException e1) {
+				JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
+			} catch (ConjuntoMesasVazioException e1) {
+				JOptionPane.showMessageDialog(contentPane, "Conjunto Mesas Vazio");
+			} catch (IOException excep) {
+				JOptionPane.showMessageDialog(contentPane, "IO exception");
+			}
+			}
 																								});
 		
 				getContentPane().add(btnComprovante, "cell 1 5");
