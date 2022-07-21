@@ -138,7 +138,7 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameCaixa().getContentPane().add(btnVoltar, "cell 0 10,alignx center,aligny center");
+						j.getFrameCaixa().getContentPane().add(btnVoltar, "cell 0 16,alignx center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}

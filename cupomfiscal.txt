@@ -1,5 +1,7 @@
 *CUPOM FISCAL*
-1001  Espetinho  Quantidade: 1  R$ 7.48
-Valor total do pedido: R$7.48
-Método de pagamento: Crédito
-Valor pago + taxa de serviço(10%): R$8.228000000000002
+1001  Espetinho  Quantidade: 2  R$ 14.96
+2002  Maminha ao molho funghi  Quantidade: 1  R$ 48.0
+4001  Coca-Cola  Quantidade: 1  R$ 4.0
+Valor total do pedido: R$66.96000000000001
+Método de pagamento: Espécie
+Valor pago + taxa de serviço(10%): R$73.65600000000002

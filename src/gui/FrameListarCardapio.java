@@ -38,6 +38,7 @@ public class FrameListarCardapio extends JFrame {
 
 	public FrameListarCardapio() {
 		super();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(FrameListarCardapio.class.getResource("/imagens/cardapio.png")));
 		initGUI();
 		int larguraJanela = getWidth();
 		int alturaJanela = getHeight();

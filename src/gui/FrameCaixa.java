@@ -44,48 +44,58 @@ public class FrameCaixa extends JFrame {
 		setTitle("Gerenciamento de Restaurante - Caixa");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[][][][][][][grow]", "[][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[][][][][97.00][337.00][grow]", "[][][][][][][][][][][][][][][][][][]"));
 						
 								JLabel mensagemBoasVindas = new JLabel("Bem-vindo, CAIXA!");
-								getContentPane().add(mensagemBoasVindas, "cell 4 0,alignx center");
-				
-						JLabel lblEncerrarMesa = new JLabel("Pagamento");
-						getContentPane().add(lblEncerrarMesa, "cell 4 1,alignx center,aligny baseline");
+								getContentPane().add(mensagemBoasVindas, "cell 0 0,alignx center");
 
 		// Formas de pagamento
 
 		String[] pagamentos = { "Crédito", "Débito", "Espécie", "PIX", "Cheque" };
-				
-						// Seleção de mesa para emissão de pagamento
-				
-						JLabel lblMesa = new JLabel("Mesa:");
-						getContentPane().add(lblMesa, "flowx,cell 4 3,alignx center");
-				
-						JLabel lblPagamentos = new JLabel("Forma de pagamento:");
-						getContentPane().add(lblPagamentos, "flowx,cell 4 4,alignx center");
-				
-						// Pagamento
-				
-						JLabel lblValor = new JLabel("Valor recebido (R$):");
-						getContentPane().add(lblValor, "flowx,cell 4 5,alignx center");
-																										
-																												JTextField txtMesas = new JTextField();
-																												getContentPane().add(txtMesas, "cell 4 3,alignx center");
-																												txtMesas.setColumns(3);
-																												
-																														JComboBox comboBoxPagamento = new JComboBox(pagamentos);
-																														getContentPane().add(comboBoxPagamento, "cell 4 4,alignx center");
-																														
-																																JTextField valor = new JTextField();
-																																valor.setText("000.00");
-																																getContentPane().add(valor, "cell 4 5");
-																																valor.setColumns(7);
-																																
-		// Emissão de comprovante
-																																
-		JButton btnComprovante = new JButton("Emitir comprovante");
+												
+												JLabel lblNewLabel = new JLabel("");
+												getContentPane().add(lblNewLabel, "cell 5 3");
+												
+												JLabel lblNewLabel_1 = new JLabel("");
+												getContentPane().add(lblNewLabel_1, "cell 5 5");
+												
+														
+										
+												// Seleção de mesa para emissão de pagamento
+										
+												JLabel lblMesa = new JLabel("Mesa:");
+												getContentPane().add(lblMesa, "flowx,cell 5 6,alignx center");
+								
+										JTextField txtMesas = new JTextField();
+										getContentPane().add(txtMesas, "cell 5 6,alignx center");
+										txtMesas.setColumns(3);
+										
+										JLabel lblEncerrarMesa = new JLabel("Pagamento");
+										getContentPane().add(lblEncerrarMesa, "cell 5 4,alignx center,aligny baseline");
+						
+								JLabel lblPagamentos = new JLabel("Forma de pagamento:");
+								getContentPane().add(lblPagamentos, "flowx,cell 5 8,alignx center");
 		
-		getContentPane().add(btnComprovante, "flowx, cell 4 6,alignx center");
+				// Pagamento
+		
+				JLabel lblValor = new JLabel("Valor recebido (R$):");
+				getContentPane().add(lblValor, "flowx,cell 5 10,alignx center");
+		
+				JTextField valor = new JTextField();
+				valor.setText("000.00");
+				getContentPane().add(valor, "cell 5 10");
+				valor.setColumns(7);
+				
+						
+						
+						// Emissão de comprovante
+						
+						JButton btnComprovante = new JButton("Emitir comprovante");
+						
+						getContentPane().add(btnComprovante, "cell 5 12,alignx center");
+						
+						JComboBox comboBoxPagamento = new JComboBox(pagamentos);
+						getContentPane().add(comboBoxPagamento, "cell 5 8,alignx center");
 		btnComprovante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -112,12 +122,13 @@ public class FrameCaixa extends JFrame {
 			bw.write("Método de pagamento: " + metodo);
 			bw.write(System.lineSeparator());
 			String pagamento = valor.getText();
-			if(pagamento.equalsIgnoreCase("Espécie")) {
+			if(metodo.equalsIgnoreCase("Espécie")) {
 				double pago = Double.parseDouble(pagamento);
+				Formatter formatter = new Formatter();
+				formatter.format("%.2f", pago);
 				bw.write("Total a pagar - Pedidos + taxa de serviço (10%): R$" + (soma*1.1));
 				bw.write("Valor recebido: R$" + (pago));
-				double troco = pago - soma;
-				Formatter formatter = new Formatter();
+				double troco = pago - 1.1*soma;
 				formatter.format("%.2f", troco);
 				bw.write(System.lineSeparator());
 				bw.write("Troco: R$ " + troco);
@@ -142,7 +153,7 @@ public class FrameCaixa extends JFrame {
 			}
 																								});
 		
-				getContentPane().add(btnComprovante, "cell 4 6");
+				
 
 	}
 
