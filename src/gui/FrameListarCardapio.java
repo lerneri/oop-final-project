@@ -69,7 +69,7 @@ public class FrameListarCardapio extends JFrame {
 			getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 			
 				DefaultTableModel modelo = new DefaultTableModel(null,
-						new String[] { "NOME", "CÓDIGO"});
+						new String[] { "CÓDIGO", "DESCRIÇÃO", "PRODUTO", "PREÇO"});
 				jTable1 = new JTable();
 				jScrollPane1.setViewportView(jTable1);
 				jTable1.setModel(modelo);
@@ -93,11 +93,11 @@ public class FrameListarCardapio extends JFrame {
 	private void modificarTabela() throws ListaVaziaException, IOException, CodigoItemInvalidoException, ConjuntoGarcomVazioException {
 		DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
 		modelo.setNumRows(0);
-		ArrayList<ItemCardapio> cardapio = Fachada.getInstancia().getCardapio().getItemCardapio();
-
-		for (Cardapio cardapio : itens) {
-
-			modelo.addRow(new String[] { cardapio.getNome(), cardapio.getCodigo()});
+		
+		ArrayList<ItemCardapio> c = Fachada.getInstancia().getCardapio().cardapio;
+		
+		for (int i=0; i<c.size();i++) {
+			modelo.addRow(new String[] {c.get(i).getCodigo(), c.get(i).getDescricao(), c.get(i).getNome(), c.get(i).getValor()+""});
 		}
 	}
 }
