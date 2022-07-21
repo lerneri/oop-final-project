@@ -35,6 +35,7 @@ import excecoes.NomeInvalidoException;
 import excecoes.NumeroMesaInvalidoException;
 import fachada.Fachada;
 import garcom.Garcom;
+import java.awt.Font;
 
 public class FrameGerente extends JFrame {
 
@@ -44,34 +45,44 @@ public class FrameGerente extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField tfRemoverMesa;
+	private JTextField textField_6;
 
 	public FrameGerente() {
 		setTitle("Gerenciamento de Restaurante - Gerente");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[106px][:115px:115px,grow][37px][172px][][][][][]", "[14px][14px][22px][23px][23px][22px][23px][20px][23px][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[106px][:115px:115px,grow][37px][172px][][][][grow][]", "[14px][14px][22px][][][23px][23px][22px][][23px][][20px][23px][][][][][][][][][][][][][]"));
 
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, GERENTE!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0,alignx center,aligny center");
 
 		JLabel lblGerenciamentoSalao = new JLabel("Gerenciamento de salão");
+		lblGerenciamentoSalao.setFont(new Font("Arial", Font.BOLD, 13));
 		getContentPane().add(lblGerenciamentoSalao, "cell 1 1,alignx left,aligny center");
 		
 				JLabel lblGerenciamentoFuncionarios = new JLabel("Gerenciamento de funcionários");
+				lblGerenciamentoFuncionarios.setFont(new Font("Arial", Font.BOLD, 13));
 				getContentPane().add(lblGerenciamentoFuncionarios, "cell 7 1,alignx center,aligny center");
+										
+										JLabel lblNewLabel = new JLabel("Cadastro de mesa");
+										lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
+										getContentPane().add(lblNewLabel, "cell 1 3");
+										
+										JLabel lblNewLabel_4 = new JLabel("Cadastro de novo gar\u00E7om");
+										getContentPane().add(lblNewLabel_4, "cell 7 3");
 								
 										JLabel lblNewLabel_7 = new JLabel("Nova mesa:");
-										getContentPane().add(lblNewLabel_7, "cell 0 3,alignx right,aligny center");
+										getContentPane().add(lblNewLabel_7, "cell 0 5,alignx right,aligny center");
 								
 										JTextField textField_1 = new JTextField();
-										getContentPane().add(textField_1, "cell 1 3,alignx left,aligny center");
+										getContentPane().add(textField_1, "cell 1 5,alignx left,aligny center");
 										textField_1.setColumns(2);
 		
 				JLabel Nome1 = new JLabel("Nome:");
-				getContentPane().add(Nome1, "cell 6 3,alignx right,aligny center");
+				getContentPane().add(Nome1, "cell 6 5,alignx right,aligny center");
 		
 				JTextField textField_2 = new JTextField();
-				getContentPane().add(textField_2, "cell 7 3,alignx left,aligny center");
+				getContentPane().add(textField_2, "cell 7 5,alignx left,aligny center");
 				textField_2.setColumns(10);
 						
 								JButton btnNewButton_2 = new JButton("Cadastrar mesa");
@@ -95,14 +106,14 @@ public class FrameGerente extends JFrame {
 										}
 									}
 								});
-								getContentPane().add(btnNewButton_2, "cell 1 4,alignx center,aligny center");
+								getContentPane().add(btnNewButton_2, "cell 1 6,alignx center,aligny center");
 		
 				JLabel lblNewLabel_11 = new JLabel("Código:");
-				getContentPane().add(lblNewLabel_11, "cell 6 4,alignx right,aligny center");
+				getContentPane().add(lblNewLabel_11, "cell 6 6,alignx right,aligny center");
 		
 				JPasswordField passwordField = new JPasswordField();
 				passwordField.setColumns(4);
-				getContentPane().add(passwordField, "cell 7 4,alignx left,aligny center");
+				getContentPane().add(passwordField, "cell 7 6,alignx left,aligny center");
 		
 				JButton btnNewButton_3 = new JButton("Cadastrar garçom");
 				btnNewButton_3.addActionListener(new ActionListener() {
@@ -131,27 +142,33 @@ public class FrameGerente extends JFrame {
 
 					}
 				});
-				getContentPane().add(btnNewButton_3, "cell 7 5,alignx center,aligny center");
+				getContentPane().add(btnNewButton_3, "cell 7 7,alignx center,aligny center");
+										
+										JLabel lblNewLabel_1 = new JLabel("Aloca\u00E7\u00E3o de gar\u00E7om");
+										getContentPane().add(lblNewLabel_1, "cell 1 8");
 								
 										JLabel lblNewLabel_5 = new JLabel("Mesa:");
-										getContentPane().add(lblNewLabel_5, "cell 0 6,alignx trailing,aligny center");
+										getContentPane().add(lblNewLabel_5, "cell 0 9,alignx trailing,aligny center");
 						
 								textField = new JTextField();
-								getContentPane().add(textField, "cell 1 6,alignx left");
+								getContentPane().add(textField, "cell 1 9,alignx left");
 								textField.setColumns(2);
+								
+								JLabel lblNewLabel_8 = new JLabel("Remo\u00E7\u00E3o de gar\u00E7om");
+								getContentPane().add(lblNewLabel_8, "cell 7 10");
 						
 								JLabel lblNewLabel_6 = new JLabel("Garçom:");
-								getContentPane().add(lblNewLabel_6, "cell 0 7,alignx trailing,aligny center");
+								getContentPane().add(lblNewLabel_6, "cell 0 11,alignx trailing,aligny center");
 				
 						textField_3 = new JTextField();
-						getContentPane().add(textField_3, "cell 1 7,growx");
+						getContentPane().add(textField_3, "cell 1 11,growx");
 						textField_3.setColumns(4);
 		
 				JLabel lblNewLabel_10 = new JLabel("Código:");
-				getContentPane().add(lblNewLabel_10, "cell 6 7,alignx trailing,aligny center");
+				getContentPane().add(lblNewLabel_10, "cell 6 11,alignx trailing,aligny center");
 		
 		textField_5 = new JTextField();
-		getContentPane().add(textField_5, "cell 7 7,alignx left");
+		getContentPane().add(textField_5, "cell 7 11,alignx left");
 		textField_5.setColumns(4);
 		
 				JButton btnNewButton_4 = new JButton("Remover garçom");
@@ -204,26 +221,21 @@ public class FrameGerente extends JFrame {
 								}
 							}
 						});
-						getContentPane().add(btnNewButton_1, "cell 1 8,alignx center,aligny top");
-				getContentPane().add(btnNewButton_4, "cell 7 8,alignx center,aligny center");
-		
-		
-		JButton btnListarGarons = new JButton("Listar garçons");
-		btnListarGarons.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				FrameListarGarcons fg = new FrameListarGarcons();
-				fg.setSize(400, 400);
-				fg.setVisible(true);
-			}
-		});
+						getContentPane().add(btnNewButton_1, "cell 1 12,alignx center,aligny top");
+				getContentPane().add(btnNewButton_4, "cell 7 12,alignx center,aligny center");
+				
+				JLabel lblNewLabel_2 = new JLabel("Ocupa\u00E7\u00E3o de mesa");
+				getContentPane().add(lblNewLabel_2, "cell 1 14");
+				
+				JLabel lblNewLabel_9 = new JLabel("Mesas por gar\u00E7om");
+				getContentPane().add(lblNewLabel_9, "cell 7 14");
 		
 				JLabel lblMesa1 = new JLabel("Mesa:");
-				getContentPane().add(lblMesa1, "cell 0 10,alignx trailing,aligny center");
+				getContentPane().add(lblMesa1, "cell 0 15,alignx trailing,aligny center");
 		
 				textField_4 = new JTextField();
-				getContentPane().add(textField_4, "cell 1 10,alignx left");
+				getContentPane().add(textField_4, "cell 1 15,alignx left");
 				textField_4.setColumns(2);
-		getContentPane().add(btnListarGarons, "cell 7 10,alignx center");
 		
 		JButton btnListarMesas = new JButton("Listar Mesas");
 		btnListarMesas.addActionListener(new ActionListener() {
@@ -283,16 +295,40 @@ public class FrameGerente extends JFrame {
 
 					}
 				});
-				getContentPane().add(btnOcupar, "cell 1 11,alignx center,aligny center");
+				
+				JLabel lblNewLabel_12 = new JLabel("C\u00F3digo:");
+				getContentPane().add(lblNewLabel_12, "cell 6 15,alignx trailing");
+				
+				textField_6 = new JTextField();
+				getContentPane().add(textField_6, "cell 7 15,alignx left");
+				textField_6.setColumns(4);
+				getContentPane().add(btnOcupar, "cell 1 16,alignx center,aligny center");
+		
+		JButton btnNewButton = new JButton("Listar mesas atribu\u00EDdas");
+		getContentPane().add(btnNewButton, "cell 7 16,alignx center");
+		
+		JLabel lblNewLabel_3 = new JLabel("Remo\u00E7\u00E3o de mesa");
+		getContentPane().add(lblNewLabel_3, "cell 1 18");
+		
+		
+		JButton btnListarGarons = new JButton("Listar garçons");
+		btnListarGarons.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FrameListarGarcons fg = new FrameListarGarcons();
+				fg.setSize(400, 400);
+				fg.setVisible(true);
+			}
+		});
+		getContentPane().add(btnListarGarons, "cell 7 18,alignx center");
 		
 		JLabel lblRemoverMesa = new JLabel("Mesa:");
-		getContentPane().add(lblRemoverMesa, "cell 0 13,alignx trailing");
+		getContentPane().add(lblRemoverMesa, "cell 0 19,alignx trailing");
 		
 		tfRemoverMesa = new JTextField();
 		tfRemoverMesa.setColumns(2);
-		getContentPane().add(tfRemoverMesa, "cell 1 13,alignx left");
-		getContentPane().add(btnRemoverMesa, "cell 1 14,alignx center");
-		getContentPane().add(btnListarMesas, "cell 1 16,alignx center");
+		getContentPane().add(tfRemoverMesa, "cell 1 19,alignx left");
+		getContentPane().add(btnRemoverMesa, "cell 1 20,alignx center");
+		getContentPane().add(btnListarMesas, "cell 1 22,alignx center");
 
 	}
 }

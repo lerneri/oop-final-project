@@ -41,13 +41,13 @@ public class FrameInicial extends JFrame {
 
 		getContentPane().setLayout(new MigLayout("", "[217px][grow][grow]", "[130px][][][][][][130px]"));
 
-		JLabel mensagemBoasVindas = new JLabel("Bem-vindo! Selecione o funcionÃ¡rio atual:");
+		JLabel mensagemBoasVindas = new JLabel("Bem-vindo! Selecione o funcionário atual:");
 		getContentPane().add(mensagemBoasVindas, "cell 1 0,alignx center,growy");
 
-		JLabel lblFuncao = new JLabel("FunÃ§Ã£o");
+		JLabel lblFuncao = new JLabel("Função");
 		getContentPane().add(lblFuncao, "cell 0 1,alignx trailing,growy");
 
-		String[] funcoes = { "Gerente", "Caixa", "GarÃ§om" };
+		String[] funcoes = { "Gerente", "Caixa", "Garçom" };
 		JComboBox comboBoxFuncao = new JComboBox(funcoes);
 		getContentPane().add(comboBoxFuncao, "cell 1 1,growx");
 
@@ -58,7 +58,7 @@ public class FrameInicial extends JFrame {
 		getContentPane().add(textNome, "cell 1 2,growx");
 		textNome.setColumns(10);
 
-		JLabel lblNewLabel_3 = new JLabel("CÃ³digo de acesso");
+		JLabel lblNewLabel_3 = new JLabel("Código de acesso");
 		getContentPane().add(lblNewLabel_3, "cell 0 3,alignx trailing");
 
 		JPasswordField passwordCodigo = new JPasswordField();
@@ -87,7 +87,7 @@ public class FrameInicial extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login invÃ¡lido");
 					}
-				} else if (aux == "GarÃ§om") {
+				} else if (aux == "Garçom") {
 					String nome = textNome.getText();
 					String codigo = passwordCodigo.getText();
 
@@ -97,7 +97,7 @@ public class FrameInicial extends JFrame {
 						garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 						if (nome.equals(garcom.getNome())) {
 							Janela j = new Janela();
-							j.getFrameGarcom().setTitle("Gerenciamento de Restaurante - GarÃ§om " + garcom.getNome());
+							j.getFrameGarcom().setTitle("Gerenciamento de Restaurante - Garçom " + garcom.getNome());
 							j.getFrameGarcom().setVisible(true);
 							j.getFrameGarcom().setGarcomFrame(codigo);
 							JLabel mensagemBoasVindas = new JLabel("Bem-vindo, " + garcom.getNome()+ "!");
@@ -113,16 +113,16 @@ public class FrameInicial extends JFrame {
 							j.getFrameGarcom().getContentPane().add(btnVoltar, "cell 0 16,alignx center,aligny center");
 							
 						}else {
-							JOptionPane.showMessageDialog(contentPane, "Nome garÃ§om invalido");
+							JOptionPane.showMessageDialog(contentPane, "Nome garçom inválido");
 						}
 					} catch (GarcomInexistenteException e1) {
 						JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
 					} catch (ConjuntoGarcomVazioException e1) {
-						JOptionPane.showMessageDialog(contentPane, "Conjunto garÃ§om vazio");
+						JOptionPane.showMessageDialog(contentPane, "Conjunto garçom vazio");
 					} catch (IOException e1) {
 						JOptionPane.showMessageDialog(contentPane, "IO exception");
 					} catch (CodigoItemInvalidoException e1) {
-						JOptionPane.showMessageDialog(contentPane, "CÃ³digo de algum item invalido no cardapio");
+						JOptionPane.showMessageDialog(contentPane, "Código de algum item inválido no cardápio");
 					}
 
 				} else if (aux.equalsIgnoreCase("Caixa") == true) {
@@ -140,7 +140,7 @@ public class FrameInicial extends JFrame {
 						});
 						j.getFrameCaixa().getContentPane().add(btnVoltar, "cell 0 16,alignx center");
 					} else {
-						JOptionPane.showMessageDialog(contentPane, "Login invÃ¡lido");
+						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
 				}
 			}
