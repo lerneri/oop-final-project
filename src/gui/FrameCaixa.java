@@ -142,7 +142,7 @@ public class FrameCaixa extends JFrame {
 			}
 																								});
 		
-				getContentPane().add(btnComprovante, "cell 1 5");
+				getContentPane().add(btnComprovante, "cell 4 6");
 
 	}
 

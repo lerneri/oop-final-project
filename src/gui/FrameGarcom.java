@@ -53,7 +53,7 @@ public class FrameGarcom extends JFrame {
 		setTitle("Gerenciamento de Restaurante - Garçom garcom.nome");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new MigLayout("", "[][130px][grow][grow][grow]", "[][][][][][][][][][][][][][][][]"));
+		getContentPane().setLayout(new MigLayout("", "[][130px][grow][][grow][grow]", "[][][][][][][][][][][][][][][][]"));
 		
 		/*   Isso vai ser implementado no FrameInicial 
 		          
@@ -63,11 +63,18 @@ public class FrameGarcom extends JFrame {
 		*/
 		
 		JLabel lblInserirPedido = new JLabel("Inserir pedido");
-		getContentPane().add(lblInserirPedido, "cell 1 1 4 1");
+		getContentPane().add(lblInserirPedido, "flowx,cell 1 1 5 1");
 		
 		textField_4 = new JTextField();
 		getContentPane().add(textField_4, "cell 1 2,growx");
 		textField_4.setColumns(10);
+		
+		JLabel lblNumeroDaMesa = new JLabel("Mesa:");
+		getContentPane().add(lblNumeroDaMesa, "cell 3 2");
+		
+		textField_7 = new JTextField();
+		getContentPane().add(textField_7, "cell 4 2");
+		textField_7.setColumns(10);
 		
 		JLabel lblItem = new JLabel("Item:");
 		getContentPane().add(lblItem, "cell 0 3,alignx trailing");
@@ -76,11 +83,26 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(textField_2, "cell 1 3");
 		textField_2.setColumns(4);
 		
+		JButton btnMostrarPedido = new JButton("Mostrar conta");
+		btnMostrarPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String numMesa = textField_7.getText();
+				try {
+					FrameListarPedido fp = new FrameListarPedido(numMesa);
+					fp.setVisible(true);
+					fp.setSize(400,400);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(contentPane, "IO Exception");
+				}
+			}
+		});
+		getContentPane().add(btnMostrarPedido, "cell 4 3");
+		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_2, "cell 0 4,alignx trailing,aligny baseline");
 		
 		JTextField textField = new JTextField();
-		getContentPane().add(textField, "cell 1 4 4 1");
+		getContentPane().add(textField, "cell 1 4 5 1");
 		textField.setColumns(2);
 		
 		JButton btnNewButton = new JButton("Confirmar pedido");
@@ -108,10 +130,10 @@ public class FrameGarcom extends JFrame {
 				}
 			}
 		});
-		getContentPane().add(btnNewButton, "cell 1 5 4 1");
+		getContentPane().add(btnNewButton, "cell 1 5 5 1");
 		
 		JLabel lblNewLabel_4 = new JLabel("Remover pedido");
-		getContentPane().add(lblNewLabel_4, "cell 1 6 4 1");
+		getContentPane().add(lblNewLabel_4, "cell 1 6 5 1");
 		
 		JLabel lblMesa2 = new JLabel("Mesa:");
 		getContentPane().add(lblMesa2, "cell 0 2,alignx trailing");
@@ -127,14 +149,14 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(lblNewLabel_7, "cell 0 8,alignx trailing");
 		
 		JTextField textField_3 = new JTextField();
-		getContentPane().add(textField_3, "flowx,cell 1 8 4 1");
+		getContentPane().add(textField_3, "flowx,cell 1 8 5 1");
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_8, "cell 0 9,alignx trailing");
 		
 		JTextField textField_1 = new JTextField();
-		getContentPane().add(textField_1, "flowx,cell 1 9 4 1");
+		getContentPane().add(textField_1, "flowx,cell 1 9 5 1");
 		textField_1.setColumns(2);
 		
 		JButton btnCancelar = new JButton("Cancelar pedido");
@@ -163,10 +185,10 @@ public class FrameGarcom extends JFrame {
 				}
 			}
 		});
-		getContentPane().add(btnCancelar, "flowx,cell 1 10 4 1");
+		getContentPane().add(btnCancelar, "flowx,cell 1 10 5 1");
 		
 		JLabel lblDirecionar = new JLabel("Direcionar para pagamento");
-		getContentPane().add(lblDirecionar, "cell 1 11 4 1");
+		getContentPane().add(lblDirecionar, "cell 1 11 5 1");
 		
 		JLabel lblMesa3 = new JLabel("Mesa:");
 		getContentPane().add(lblMesa3, "cell 0 12,alignx trailing");
@@ -195,29 +217,10 @@ public class FrameGarcom extends JFrame {
 				}
 			}
 		});
-		getContentPane().add(btnEncerrar, "cell 1 13 4 1");
+		getContentPane().add(btnEncerrar, "cell 1 13 5 1");
 		
-		JButton btnMostrarPedido = new JButton("Mostrar Pedido");
-		btnMostrarPedido.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String numMesa = textField_7.getText();
-				try {
-					FrameListarPedido fp = new FrameListarPedido(numMesa);
-					fp.setVisible(true);
-					fp.setSize(400,400);
-				} catch (IOException e) {
-					JOptionPane.showMessageDialog(contentPane, "IO Exception");
-				}
-			}
-		});
-		getContentPane().add(btnMostrarPedido, "cell 3 10");
-		
-		JLabel lblNumeroDaMesa = new JLabel("Numero da Mesa:");
-		getContentPane().add(lblNumeroDaMesa, "cell 3 8");
-		
-		textField_7 = new JTextField();
-		getContentPane().add(textField_7, "cell 3 9");
-		textField_7.setColumns(10);
+		JLabel lblNewLabel = new JLabel("Visualizar conta parcial");
+		getContentPane().add(lblNewLabel, "cell 4 1");
 		
 		
 	}

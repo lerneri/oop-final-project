@@ -1,5 +1,5 @@
 *CUPOM FISCAL*
 1001  Espetinho  Quantidade: 1  R$ 7.48
 Valor total do pedido: R$7.48
-Método de pagamento: Espécie
+Método de pagamento: Crédito
 Valor pago + taxa de serviço(10%): R$8.228000000000002

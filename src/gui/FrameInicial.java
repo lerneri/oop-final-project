@@ -83,7 +83,7 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameGerente().getContentPane().add(btnVoltar, "cell 0 15,alignx center,aligny center");
+						j.getFrameGerente().getContentPane().add(btnVoltar, "cell 3 19,alignx center,aligny center");
 					} else {
 						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
@@ -93,9 +93,11 @@ public class FrameInicial extends JFrame {
 
 					Garcom garcom;
 					try {
+						
 						garcom = Fachada.getInstancia().getConjuntoGarcons().getGarcom(codigo);
 						if (nome.equals(garcom.getNome())) {
 							Janela j = new Janela();
+							j.getFrameGarcom().setTitle("Gerenciamento de Restaurante - Garçom " + garcom.getNome());
 							j.getFrameGarcom().setVisible(true);
 							j.getFrameGarcom().setGarcomFrame(codigo);
 							JLabel mensagemBoasVindas = new JLabel("Bem-vindo, " + garcom.getNome()+ "!");

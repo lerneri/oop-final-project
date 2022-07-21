@@ -41,8 +41,11 @@ public class Janela {
 		frameInicial = new FrameInicial();
 		frameInicial.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/prato.png")));
 		frameCaixa = new FrameCaixa();
+		frameCaixa.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/prato.png")));
 		frameGerente = new FrameGerente();
+		frameGerente.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/prato.png")));
 		frameGarcom = new FrameGarcom();
+		frameGarcom.setIconImage(Toolkit.getDefaultToolkit().getImage(Janela.class.getResource("/imagens/prato.png")));
 	}
 	
 	
