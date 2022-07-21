@@ -68,7 +68,7 @@ public class FrameGerente extends JFrame {
 										lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
 										getContentPane().add(lblNewLabel, "cell 1 3");
 										
-										JLabel lblNewLabel_4 = new JLabel("Cadastro de novo gar\u00E7om");
+										JLabel lblNewLabel_4 = new JLabel("Cadastro de novo garçom");
 										getContentPane().add(lblNewLabel_4, "cell 7 3");
 								
 										JLabel lblNewLabel_7 = new JLabel("Nova mesa:");
@@ -144,7 +144,7 @@ public class FrameGerente extends JFrame {
 				});
 				getContentPane().add(btnNewButton_3, "cell 7 7,alignx center,aligny center");
 										
-										JLabel lblNewLabel_1 = new JLabel("Aloca\u00E7\u00E3o de gar\u00E7om");
+										JLabel lblNewLabel_1 = new JLabel("Alocação de garçom");
 										getContentPane().add(lblNewLabel_1, "cell 1 8");
 								
 										JLabel lblNewLabel_5 = new JLabel("Mesa:");
@@ -154,7 +154,7 @@ public class FrameGerente extends JFrame {
 								getContentPane().add(textField, "cell 1 9,alignx left");
 								textField.setColumns(2);
 								
-								JLabel lblNewLabel_8 = new JLabel("Remo\u00E7\u00E3o de gar\u00E7om");
+								JLabel lblNewLabel_8 = new JLabel("Remoção de garçom");
 								getContentPane().add(lblNewLabel_8, "cell 7 10");
 						
 								JLabel lblNewLabel_6 = new JLabel("Garçom:");
@@ -306,6 +306,13 @@ public class FrameGerente extends JFrame {
 		
 		JButton btnNewButton = new JButton("Listar mesas atribu\u00EDdas");
 		getContentPane().add(btnNewButton, "cell 7 16,alignx center");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FrameListarCardapio fm = new FrameListarMesasGarcom();
+				fm.setSize(400, 400);
+				fm.setVisible(true);
+			}
+		});
 		
 		JLabel lblNewLabel_3 = new JLabel("Remo\u00E7\u00E3o de mesa");
 		getContentPane().add(lblNewLabel_3, "cell 1 18");
