@@ -18,16 +18,14 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import excecoes.*;
 import fachada.Fachada;
-import garcom.Garcom;
+import restaurante.*;
 
 
 public class FrameListarCardapio extends JFrame {
 	private JScrollPane jScrollPane1;
 	private JTable jTable1;
 
-	/**
-	 * Auto-generated main method to display this JFrame
-	 */
+
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -96,9 +94,9 @@ public class FrameListarCardapio extends JFrame {
 		modelo.setNumRows(0);
 		ArrayList<ItemCardapio> cardapio = Fachada.getInstancia().getCardapio().getItemCardapio();
 
-		for (Garcom garcom : garcons) {
+		for (Cardapio cardapio : itens) {
 
-			modelo.addRow(new String[] { garcom.getNome(), garcom.getCodigo()});
+			modelo.addRow(new String[] { cardapio.getNome(), cardapio.getCodigo()});
 		}
 	}
 }
