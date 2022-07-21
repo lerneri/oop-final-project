@@ -31,6 +31,8 @@ import excecoes.NomeInvalidoException;
 import excecoes.QuantidadeInvalidaException;
 import fachada.Fachada;
 import garcom.Garcom;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class FrameGarcom extends JFrame {
 
@@ -41,6 +43,7 @@ public class FrameGarcom extends JFrame {
 	private Garcom garcomFrame;
 	private JTextField textField_7;
 	private HashMap<ItemCardapio, Integer> pedido;
+	private final Action action = new SwingAction();
 	
 	public HashMap<ItemCardapio, Integer> getPedido(){
 		return pedido;
@@ -50,17 +53,10 @@ public class FrameGarcom extends JFrame {
 	}
 	
 	public FrameGarcom() {
-		setTitle("Gerenciamento de Restaurante - Gar√ßom garcom.nome");
 		setBounds(100, 100, 800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new MigLayout("", "[][130px][grow][][grow][grow]", "[][][][][][][][][][][][][][][][]"));
 		
-		/*   Isso vai ser implementado no FrameInicial 
-		          
-		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, nomeGar√ßom!");
-		getContentPane().add(mensagemBoasVindas, "cell 0 0");
-		
-		*/
 		
 		JLabel lblInserirPedido = new JLabel("Inserir pedido");
 		getContentPane().add(lblInserirPedido, "flowx,cell 1 1 5 1");
@@ -69,12 +65,16 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(textField_4, "cell 1 2,growx");
 		textField_4.setColumns(10);
 		
-		JLabel lblNumeroDaMesa = new JLabel("Mesa:");
-		getContentPane().add(lblNumeroDaMesa, "cell 3 2");
-		
-		textField_7 = new JTextField();
-		getContentPane().add(textField_7, "cell 4 2");
-		textField_7.setColumns(10);
+		JButton btnNewButton_1 = new JButton("Visualizar card·pio");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FrameListarCardapio fm = new FrameListarCardapio();
+				fm.setSize(400, 400);
+				fm.setVisible(true);
+			}
+		});
+		btnNewButton_1.setAction(action);
+		getContentPane().add(btnNewButton_1, "cell 4 2");
 		
 		JLabel lblItem = new JLabel("Item:");
 		getContentPane().add(lblItem, "cell 0 3,alignx trailing");
@@ -83,26 +83,11 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(textField_2, "cell 1 3");
 		textField_2.setColumns(4);
 		
-		JButton btnMostrarPedido = new JButton("Mostrar conta");
-		btnMostrarPedido.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String numMesa = textField_7.getText();
-				try {
-					FrameListarPedido fp = new FrameListarPedido(numMesa);
-					fp.setVisible(true);
-					fp.setSize(400,400);
-				} catch (IOException e) {
-					JOptionPane.showMessageDialog(contentPane, "IO Exception");
-				}
-			}
-		});
-		getContentPane().add(btnMostrarPedido, "cell 4 3");
-		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_2, "cell 0 4,alignx trailing,aligny baseline");
 		
 		JTextField textField = new JTextField();
-		getContentPane().add(textField, "cell 1 4 5 1");
+		getContentPane().add(textField, "flowx,cell 1 4 5 1");
 		textField.setColumns(2);
 		
 		JButton btnNewButton = new JButton("Confirmar pedido");
@@ -114,7 +99,7 @@ public class FrameGarcom extends JFrame {
 				
 				try {
 				if(garcomFrame.getMesa(numeroMesa).isEncerrada()==true) {
-					JOptionPane.showMessageDialog(contentPane, "Mesa j√° encerrada");
+					JOptionPane.showMessageDialog(contentPane, "Mesa j· encerrada");
 					return;
 				}
 					garcomFrame.adicionarPedido(numeroMesa, codigoItem, quantidade);
@@ -122,18 +107,18 @@ public class FrameGarcom extends JFrame {
 					pedido = mesa.getPedido();
 					JOptionPane.showMessageDialog(contentPane, "Pedido adicionado com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Gar√ßom n√£o est√° respons√°vel por esta mesa!");
+					JOptionPane.showMessageDialog(contentPane, "GarÁom n„o est· respons·vel por esta mesa!");
 				} catch (ItemNaoExistenteException e1) {
-					JOptionPane.showMessageDialog(contentPane, "C√≥digo do Item n√£o existe!");
+					JOptionPane.showMessageDialog(contentPane, "CÛdigo do item n„o existe!");
 				} catch (QuantidadeInvalidaException e1) {
-					JOptionPane.showMessageDialog(contentPane, "A Quantidade deve ser maior que zero!");
+					JOptionPane.showMessageDialog(contentPane, "A quantidade deve ser maior que zero!");
 				}
 			}
 		});
-		getContentPane().add(btnNewButton, "cell 1 5 5 1");
+		getContentPane().add(btnNewButton, "flowx,cell 1 5 5 1");
 		
 		JLabel lblNewLabel_4 = new JLabel("Remover pedido");
-		getContentPane().add(lblNewLabel_4, "cell 1 6 5 1");
+		getContentPane().add(lblNewLabel_4, "flowx,cell 1 6 5 1");
 		
 		JLabel lblMesa2 = new JLabel("Mesa:");
 		getContentPane().add(lblMesa2, "cell 0 2,alignx trailing");
@@ -166,7 +151,7 @@ public class FrameGarcom extends JFrame {
 				String numeroMesa = textField_5.getText();
 				try {
 					if(garcomFrame.getMesa(numeroMesa).isEncerrada()==true) {
-						JOptionPane.showMessageDialog(contentPane, "Mesa j√° encerrada");
+						JOptionPane.showMessageDialog(contentPane, "Mesa j· encerrada");
 						return;
 					}
 					int quantidade = Integer.parseInt(textField_1.getText());
@@ -175,13 +160,13 @@ public class FrameGarcom extends JFrame {
 					pedido = mesa.getPedido();
 					JOptionPane.showMessageDialog(contentPane, "Item retirado do pedido com sucesso!");
 				} catch (GarcomNaoPossuiMesaException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Gar√ßom n√£o est√° respons√°vel por esta mesa!");
+					JOptionPane.showMessageDialog(contentPane, "GarÁom n„o est· respons·vel por esta mesa!");
 				} catch (ItemNaoExistenteException e1) {
-					JOptionPane.showMessageDialog(contentPane, "C√≥digo do Item n√£o existe!");
+					JOptionPane.showMessageDialog(contentPane, "N„o existe item para este cÛdigo!");
 				} catch (QuantidadeInvalidaException e1) {
-					JOptionPane.showMessageDialog(contentPane, "Quantidade inv√°lida!");
+					JOptionPane.showMessageDialog(contentPane, "Quantidade inv·lida!");
 				} catch(NumberFormatException e1){
-					JOptionPane.showMessageDialog(contentPane, "A quantidade digitada deve ser um n√∫mero maior que zero!");
+					JOptionPane.showMessageDialog(contentPane, "A quantidade digitada deve ser um n˙mero maior que zero!");
 				}
 			}
 		});
@@ -208,19 +193,44 @@ public class FrameGarcom extends JFrame {
 						JOptionPane.showMessageDialog(contentPane, "Mesa encerrada!");
 					}
 					else {
-						JOptionPane.showMessageDialog(contentPane, "Mesa j√° encerrada!");
+						JOptionPane.showMessageDialog(contentPane, "Mesa j· encerrada!");
 					}
 				} catch (MesaInexistenteException | ConjuntoMesasVazioException | IOException
 						| CodigoItemInvalidoException e) {
 					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(contentPane, "Mesa Inv√°lida");
+					JOptionPane.showMessageDialog(contentPane, "Mesa inv·lida");
 				}
 			}
 		});
 		getContentPane().add(btnEncerrar, "cell 1 13 5 1");
 		
+		JLabel lblNewLabel_1 = new JLabel("Card·pio");
+		getContentPane().add(lblNewLabel_1, "cell 4 1,aligny baseline");
+		
+		JButton btnMostrarPedido = new JButton("Mostrar conta");
+		btnMostrarPedido.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String numMesa = textField_7.getText();
+				try {
+					FrameListarPedido fp = new FrameListarPedido(numMesa);
+					fp.setVisible(true);
+					fp.setSize(400,400);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(contentPane, "IO Exception");
+				}
+			}
+		});
+		getContentPane().add(btnMostrarPedido, "cell 4 6");
+		
+		textField_7 = new JTextField();
+		getContentPane().add(textField_7, "cell 4 5");
+		textField_7.setColumns(10);
+		
+		JLabel lblNumeroDaMesa = new JLabel("Mesa:");
+		getContentPane().add(lblNumeroDaMesa, "cell 3 5");
+		
 		JLabel lblNewLabel = new JLabel("Visualizar conta parcial");
-		getContentPane().add(lblNewLabel, "cell 4 1");
+		getContentPane().add(lblNewLabel, "cell 4 4");
 		
 		
 	}
@@ -230,4 +240,12 @@ public class FrameGarcom extends JFrame {
 		fg.setVisible(true);
 	}
 
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Visualizar card·pio");
+			
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }

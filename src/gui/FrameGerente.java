@@ -54,10 +54,10 @@ public class FrameGerente extends JFrame {
 		JLabel mensagemBoasVindas = new JLabel("Bem-vindo, GERENTE!");
 		getContentPane().add(mensagemBoasVindas, "cell 0 0,alignx center,aligny center");
 
-		JLabel lblGerenciamentoSalao = new JLabel("Gerenciamento de sal√£o");
+		JLabel lblGerenciamentoSalao = new JLabel("Gerenciamento de sal„o");
 		getContentPane().add(lblGerenciamentoSalao, "cell 1 1,alignx left,aligny center");
 		
-				JLabel lblGerenciamentoFuncionarios = new JLabel("Gerenciamento de funcion√°rios");
+				JLabel lblGerenciamentoFuncionarios = new JLabel("Gerenciamento de funcion·rios");
 				getContentPane().add(lblGerenciamentoFuncionarios, "cell 7 1,alignx center,aligny center");
 								
 										JLabel lblNewLabel_7 = new JLabel("Nova mesa:");
@@ -86,25 +86,25 @@ public class FrameGerente extends JFrame {
 										} catch (NumeroMesaInvalidoException e1) {
 											JOptionPane.showMessageDialog(contentPane, "Numero da mesa deve conter apenas 2 n√∫meros!");
 										} catch (MesaJaExistenteException e1) {
-											JOptionPane.showMessageDialog(contentPane, "Mesa j√° existente");
+											JOptionPane.showMessageDialog(contentPane, "Mesa j· existente");
 										} catch (IOException e1) {
 											JOptionPane.showMessageDialog(contentPane, "IOException");
 										} catch (CodigoItemInvalidoException e1) {
 											JOptionPane.showMessageDialog(contentPane,
-													"Codigo de algum item no Cardapio foi digitado incorretamente");
+													"Codigo de algum item no card·pio foi digitado incorretamente");
 										}
 									}
 								});
 								getContentPane().add(btnNewButton_2, "cell 1 4,alignx center,aligny center");
 		
-				JLabel lblNewLabel_11 = new JLabel("C√≥digo:");
+				JLabel lblNewLabel_11 = new JLabel("CÛdigo:");
 				getContentPane().add(lblNewLabel_11, "cell 6 4,alignx right,aligny center");
 		
 				JPasswordField passwordField = new JPasswordField();
 				passwordField.setColumns(4);
 				getContentPane().add(passwordField, "cell 7 4,alignx left,aligny center");
 		
-				JButton btnNewButton_3 = new JButton("Cadastrar gar√ßom");
+				JButton btnNewButton_3 = new JButton("Cadastrar garÁom");
 				btnNewButton_3.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 
@@ -114,19 +114,19 @@ public class FrameGerente extends JFrame {
 						try {
 							Garcom g = new Garcom(textField_2.getText(), passwordField.getText());
 							Fachada.getInstancia().getConjuntoGarcons().inserirGarcom(g);
-							JOptionPane.showMessageDialog(contentPane, "Gar√ßom inserido com sucesso!");
+							JOptionPane.showMessageDialog(contentPane, "GarÁom inserido com sucesso!");
 							textField_2.setText("");
 							passwordField.setText("");
 						} catch (CodigoGarcomJaExistenteException e1) {
-							JOptionPane.showMessageDialog(contentPane, "C√≥digo do gar√ßom j√° existe");
+							JOptionPane.showMessageDialog(contentPane, "CÛdigo de garÁom j· existe");
 						} catch (IOException e1) {
 							JOptionPane.showMessageDialog(contentPane, "IO Exception");
 						} catch (CodigoGarcomInvalidoException e1) {
-							JOptionPane.showMessageDialog(contentPane, "Codigo do gar√ßom deve possuir apenas 4 n√∫meros!");
+							JOptionPane.showMessageDialog(contentPane, "Codigo do garÁom deve possuir apenas 4 n˙meros!");
 						} catch (CodigoItemInvalidoException e1) {
-							JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente!");
+							JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no card·pio foi digitado incorretamente!");
 						} catch (NomeInvalidoException e1) {
-							JOptionPane.showMessageDialog(contentPane, "Nome do gar√ßom deve possuir apenas letras e espa√ßos!");
+							JOptionPane.showMessageDialog(contentPane, "Nome do garÁom deve possuir apenas letras e espaÁos!");
 						}
 
 					}
@@ -140,21 +140,21 @@ public class FrameGerente extends JFrame {
 								getContentPane().add(textField, "cell 1 6,alignx left");
 								textField.setColumns(2);
 						
-								JLabel lblNewLabel_6 = new JLabel("Gar√ßom:");
+								JLabel lblNewLabel_6 = new JLabel("GarÁom:");
 								getContentPane().add(lblNewLabel_6, "cell 0 7,alignx trailing,aligny center");
 				
 						textField_3 = new JTextField();
 						getContentPane().add(textField_3, "cell 1 7,growx");
 						textField_3.setColumns(4);
 		
-				JLabel lblNewLabel_10 = new JLabel("C√≥digo:");
+				JLabel lblNewLabel_10 = new JLabel("CÛdigo:");
 				getContentPane().add(lblNewLabel_10, "cell 6 7,alignx trailing,aligny center");
 		
 		textField_5 = new JTextField();
 		getContentPane().add(textField_5, "cell 7 7,alignx left");
 		textField_5.setColumns(4);
 		
-				JButton btnNewButton_4 = new JButton("Remover gar√ßom");
+				JButton btnNewButton_4 = new JButton("Remover garÁom");
 				btnNewButton_4.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String codigo = textField_5.getText();
@@ -167,40 +167,40 @@ public class FrameGerente extends JFrame {
 						} catch (GarcomInexistenteException e1) {
 							JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
 						} catch (ConjuntoGarcomVazioException e1) {
-							JOptionPane.showMessageDialog(contentPane, "Conjunto de gar√ßons vazio!");
+							JOptionPane.showMessageDialog(contentPane, "Conjunto de garÁons vazio!");
 						} catch (IOException e1) {
 							JOptionPane.showMessageDialog(contentPane, "IO Exception");
 						} catch (CodigoItemInvalidoException e1) {
-							JOptionPane.showMessageDialog(contentPane, "Codigo de algum item no Cardapio foi digitado incorretamente");
+							JOptionPane.showMessageDialog(contentPane, "CÛdigo de algum item no card·pio foi digitado incorretamente");
 						}
 						
 					}
 				});
 				
-						JButton btnNewButton_1 = new JButton("Realocar gar√ßom");
+						JButton btnNewButton_1 = new JButton("Realocar garÁom");
 						btnNewButton_1.addActionListener(new ActionListener() {
 							public void actionPerformed(ActionEvent e) {
 								String numeroMesa = textField.getText();
 								String numeroGarcom = textField_3.getText();
 								try {
 									Fachada.getInstancia().getGerente().alocarGarcomMesa(numeroMesa, numeroGarcom);
-									JOptionPane.showMessageDialog(contentPane, "Garcom Realocado com sucesso!");
+									JOptionPane.showMessageDialog(contentPane, "GarÁom Realocado com sucesso!");
 									textField.setText("");
 									textField_3.setText("");
 								} catch (ConjuntoMesasVazioException e1) {
 									JOptionPane.showMessageDialog(contentPane, "Conjunto de mesas vazio!");
 								} catch (ConjuntoGarcomVazioException e1) {
-									JOptionPane.showMessageDialog(contentPane, "Conjunto de gar√ßons vazio!");
+									JOptionPane.showMessageDialog(contentPane, "Conjunto de garÁons vazio!");
 								} catch (GarcomInexistenteException e1) {
-									JOptionPane.showMessageDialog(contentPane, "Garcom inexistente");
+									JOptionPane.showMessageDialog(contentPane, "GarÁom inexistente");
 								} catch (MesaInexistenteException e1) {
 									JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 								} catch (IOException e1) {
 									JOptionPane.showMessageDialog(contentPane, "IO Exception");
 								} catch (CodigoItemInvalidoException e1) {
-									JOptionPane.showMessageDialog(contentPane,"Codigo de algum item no Cardapio foi digitado incorretamente");
+									JOptionPane.showMessageDialog(contentPane,"CÛdigo de algum item no card·pio foi digitado incorretamente");
 								} catch (GarcomJaPossuiMesaException e1) {
-									JOptionPane.showMessageDialog(contentPane,"Gar√ßom j√° possui essa mesa");
+									JOptionPane.showMessageDialog(contentPane,"GarÁom j· possui essa mesa");
 								}
 							}
 						});
@@ -208,7 +208,7 @@ public class FrameGerente extends JFrame {
 				getContentPane().add(btnNewButton_4, "cell 7 8,alignx center,aligny center");
 		
 		
-		JButton btnListarGarons = new JButton("Listar gar√ßons");
+		JButton btnListarGarons = new JButton("Listar garÁons");
 		btnListarGarons.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrameListarGarcons fg = new FrameListarGarcons();
@@ -247,7 +247,7 @@ public class FrameGerente extends JFrame {
 					JOptionPane.showMessageDialog(contentPane, "IOException");
 				} catch (CodigoItemInvalidoException e1) {
 					JOptionPane.showMessageDialog(contentPane,
-							"Codigo de algum item no Cardapio foi digitado incorretamente");
+							"CÛdigo de algum item no card·pio foi digitado incorretamente");
 				} catch (MesaInexistenteException e1) {
 					JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 				} catch (ConjuntoMesasVazioException e1) {
@@ -264,19 +264,19 @@ public class FrameGerente extends JFrame {
 							Mesa m;
 							m = Fachada.getInstancia().getConjuntoMesas().getMesa(s);
 							if (m.isOcupada() == true) {
-								JOptionPane.showMessageDialog(contentPane, "Mesa J√° Ocupada");
+								JOptionPane.showMessageDialog(contentPane, "Mesa j· ocupada");
 								return;
 							}
 							m.setOcupada(true);
 							JOptionPane.showMessageDialog(contentPane, "Mesa ocupada com sucesso!");
 							textField_4.setText("");
 						} catch (ConjuntoMesasVazioException e1) {
-							JOptionPane.showMessageDialog(contentPane, "Conjunto de Mesas vazio");
+							JOptionPane.showMessageDialog(contentPane, "Conjunto de mesas vazio");
 						} catch (IOException e2) {
 							JOptionPane.showMessageDialog(contentPane, "IO Exception");
 						} catch (CodigoItemInvalidoException e2) {
 							JOptionPane.showMessageDialog(contentPane,
-									"Codigo de algum item no Cardapio foi digitado incorretamente");
+									"CÛdigo de algum item no card·pio foi digitado incorretamente");
 						} catch (MesaInexistenteException e1) {
 							JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 						}

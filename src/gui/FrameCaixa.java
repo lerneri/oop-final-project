@@ -51,7 +51,7 @@ public class FrameCaixa extends JFrame {
 
 		// Formas de pagamento
 
-		String[] pagamentos = { "Cr√©dito", "D√©bito", "Esp√©cie", "PIX", "Cheque" };
+		String[] pagamentos = { "CrÈdito", "DÈbito", "EspÈcie", "PIX", "Cheque" };
 												
 												JLabel lblNewLabel = new JLabel("");
 												getContentPane().add(lblNewLabel, "cell 5 3");
@@ -126,23 +126,23 @@ public class FrameCaixa extends JFrame {
 				double pago = Double.parseDouble(pagamento);
 				Formatter formatter = new Formatter();
 				formatter.format("%.2f", pago);
-				bw.write("Total a pagar - Pedidos + taxa de servi√ßo (10%): R$" + (soma*1.1));
+				bw.write("Total a pagar - Pedidos + taxa de serviÁo (10%): R$" + (soma*1.1));
 				bw.write("Valor recebido: R$" + (pago));
 				double troco = pago - 1.1*soma;
 				formatter.format("%.2f", troco);
 				bw.write(System.lineSeparator());
 				bw.write("Troco: R$ " + troco);
 			} else {
-				bw.write("Valor pago + taxa de servi√ßo(10%): R$" + (soma*1.1));
+				bw.write("Valor pago + taxa de serviÁo(10%): R$" + (soma*1.1));
 			}
 			bw.close();
 			JOptionPane.showMessageDialog(contentPane, "Cupom fiscal emitido!");
 			Fachada.getInstancia().getCaixa().encerrarMesa(m);
 			return;
 			} catch (MesaNaoEncerravelException e1) {
-				JOptionPane.showMessageDialog(contentPane, "Mesa ainda n√£o foi encerrada");
+				JOptionPane.showMessageDialog(contentPane, "Mesa ainda n„ foi encerrada");
 			} catch (CodigoItemInvalidoException e1) {
-				JOptionPane.showMessageDialog(contentPane, "C√≥digo de um item inv√°lido no arquivo cardapio.txt");
+				JOptionPane.showMessageDialog(contentPane, "CÛdigo de um item inv·lido no arquivo cardapio.txt");
 			} catch (MesaInexistenteException e1) {
 				JOptionPane.showMessageDialog(contentPane, "Mesa inexistente");
 			} catch (ConjuntoMesasVazioException e1) {

@@ -69,7 +69,7 @@ public class FrameListarCardapio extends JFrame {
 			getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 			
 				DefaultTableModel modelo = new DefaultTableModel(null,
-						new String[] { "CÓDIGO", "DESCRIÇÃO", "PRODUTO", "PREÇO"});
+						new String[] { "CӓDIGO", "DESCRIǇÃO", "PRODUTO", "PREǇO"});
 				jTable1 = new JTable();
 				jScrollPane1.setViewportView(jTable1);
 				jTable1.setModel(modelo);
@@ -78,11 +78,11 @@ public class FrameListarCardapio extends JFrame {
 			} catch (ListaVaziaException e) {
 				JOptionPane.showMessageDialog(jTable1, "Lista Vazia Exception");
 			} catch (ConjuntoGarcomVazioException e) {
-				JOptionPane.showMessageDialog(jTable1, "Conjunto de garçons vazio!");
+				JOptionPane.showMessageDialog(jTable1, "Conjunto de gar�ons vazio!");
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(jTable1, "IO Exception");
 			} catch (CodigoItemInvalidoException e) {
-				JOptionPane.showMessageDialog(jTable1, "Codigo de algum item invalido no cardapio");
+				JOptionPane.showMessageDialog(jTable1, "C�digo de algum item invalido no card�pio");
 			}
 		}
 	
