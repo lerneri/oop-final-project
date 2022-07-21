@@ -61,7 +61,7 @@ public class FrameCaixa extends JFrame {
 												
 														
 										
-												// Sele√ß√£o de mesa para emiss√£o de pagamento
+												// Sele√ß„o de mesa para emiss„o de pagamento
 										
 												JLabel lblMesa = new JLabel("Mesa:");
 												getContentPane().add(lblMesa, "flowx,cell 5 6,alignx center");
@@ -88,7 +88,7 @@ public class FrameCaixa extends JFrame {
 				
 						
 						
-						// Emiss√£o de comprovante
+						// Emiss„o de comprovante
 						
 						JButton btnComprovante = new JButton("Emitir comprovante");
 						
@@ -119,28 +119,29 @@ public class FrameCaixa extends JFrame {
 			bw.write("Valor total do pedido: R$" + soma);
 			bw.write(System.lineSeparator());
 			String metodo = comboBoxPagamento.getSelectedItem().toString();
-			bw.write("M√©todo de pagamento: " + metodo);
+			bw.write("MÈtodo de pagamento: " + metodo);
 			bw.write(System.lineSeparator());
 			String pagamento = valor.getText();
-			if(metodo.equalsIgnoreCase("Esp√©cie")) {
+			Formatter formatter = new Formatter();
+			formatter.format("%.2f", soma);
+			if(metodo.equalsIgnoreCase("EspÈcie")) {
 				double pago = Double.parseDouble(pagamento);
-				Formatter formatter = new Formatter();
-				formatter.format("%.2f", pago);
 				bw.write("Total a pagar - Pedidos + taxa de serviÁo (10%): R$" + (soma*1.1));
-				bw.write("Valor recebido: R$" + (pago));
+				bw.write(System.lineSeparator());
+				bw.write("Valor recebido: R$" + formatter.format("%.2f", pago));
 				double troco = pago - 1.1*soma;
 				formatter.format("%.2f", troco);
 				bw.write(System.lineSeparator());
 				bw.write("Troco: R$ " + troco);
 			} else {
-				bw.write("Valor pago + taxa de serviÁo(10%): R$" + (soma*1.1));
+				bw.write("Valor pago + taxa de serviÁo(10%): R$" + formatter.format("%.2f", soma*1.1));
 			}
 			bw.close();
 			JOptionPane.showMessageDialog(contentPane, "Cupom fiscal emitido!");
 			Fachada.getInstancia().getCaixa().encerrarMesa(m);
 			return;
 			} catch (MesaNaoEncerravelException e1) {
-				JOptionPane.showMessageDialog(contentPane, "Mesa ainda n„ foi encerrada");
+				JOptionPane.showMessageDialog(contentPane, "Mesa ainda n„o foi encerrada");
 			} catch (CodigoItemInvalidoException e1) {
 				JOptionPane.showMessageDialog(contentPane, "CÛdigo de um item inv·lido no arquivo cardapio.txt");
 			} catch (MesaInexistenteException e1) {

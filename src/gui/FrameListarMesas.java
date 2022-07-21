@@ -69,7 +69,7 @@ public class FrameListarMesas extends JFrame {
 				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 				
 					DefaultTableModel modelo = new DefaultTableModel(null,
-							new String[] { "NÃšMERO DA MESA"});
+							new String[] { "Número da mesa"});
 					jTable1 = new JTable();
 					jScrollPane1.setViewportView(jTable1);
 					jTable1.setModel(modelo);
@@ -82,7 +82,7 @@ public class FrameListarMesas extends JFrame {
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(jTable1, "IO Exception");
 				} catch (CodigoItemInvalidoException e) {
-					JOptionPane.showMessageDialog(jTable1, "Codigo de algum item invalido no cardapio");
+					JOptionPane.showMessageDialog(jTable1, "Código de algum item inválido no cardapio");
 				}
 			}
 		

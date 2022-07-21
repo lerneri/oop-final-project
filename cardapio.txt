@@ -1,13 +1,14 @@
 1000:Batata frita:Porção de batata frita (300g):14.50
 1001:Espetinho:Frango, Carne ou Linguiça (100g):7.48
-1002:Dadinho de tapioca: Porção de dadinhos de tapioca (350g):17.99
+1002:Dadinho de tapioca:Porção de dadinhos de tapioca (350g):17.99
+1003:Bolinho de bacalhau:Porção de 6 bolinhos de bacalhau:12.99
 2000:Filé à Parmegiana:Acompanha uma porção de arroz ou baião (300g) e um corte de filé mignon ao molho parmegiana(200g):62
 2001:Picanha ao molho madeira:Porção de arroz ou baião (300g) e um corte de picanha ao molho madeira(200g):55
 2002:Maminha ao molho funghi:Porção de arroz ou baião(300g) e um corte de maminha ao molho funghi(200g):48
 2003:Kebab vegetariano:Porção de legumes e cogumelos na brasa ao molho de soja(400g):32
 3000:Pudim:Pudim de leite condensado - Fatia:5
-3001:Gelato:Variados sabores - TaÃ§a(250mL):15
-3002:Brownie:Brownie de chocolate - Fatia:7
+3001:Gelato:Sabores do dia - Taça(250mL):15
+3002:Brownie:Brownie de chocolate - Unidade:7
 4000:Água mineral:Água Indaiá - Garrafa(500mL):3
 4001:Refrigerante:Coca-Cola, Guaraná Kuat, Fanta Laranja, Cajuína São Geraldo - Lata(350mL):4
 4002:Whisky Blend:Red Label - Dose(30mL):9

@@ -59,7 +59,7 @@ public class FrameListarPedido extends JFrame {
 			getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 			
 			DefaultTableModel modelo = new DefaultTableModel(null,
-					new String[] {"CÃ“DIGO", "NOME", "DESCRIÃ‡ÃƒO", "VALOR", "QUANTIDADE"});
+					new String[] {"Código", "Nome", "Descrição", "Preço (R$)", "Quantidade"});
 				jTable1 = new JTable();
 				jScrollPane1.setViewportView(jTable1);
 				jTable1.setModel(modelo);

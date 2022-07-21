@@ -62,8 +62,8 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(lblInserirPedido, "flowx,cell 1 1 5 1");
 		
 		textField_4 = new JTextField();
-		getContentPane().add(textField_4, "cell 1 2,growx");
-		textField_4.setColumns(10);
+		getContentPane().add(textField_4, "cell 1 2,alignx left");
+		textField_4.setColumns(3);
 		
 		JButton btnNewButton_1 = new JButton("Visualizar cardápio");
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -127,15 +127,15 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(lblMesa, "cell 0 7,alignx trailing");
 		
 		textField_5 = new JTextField();
-		getContentPane().add(textField_5, "cell 1 7,growx");
-		textField_5.setColumns(10);
+		getContentPane().add(textField_5, "cell 1 7,alignx left");
+		textField_5.setColumns(3);
 		
 		JLabel lblNewLabel_7 = new JLabel("Item:");
 		getContentPane().add(lblNewLabel_7, "cell 0 8,alignx trailing");
 		
 		JTextField textField_3 = new JTextField();
 		getContentPane().add(textField_3, "flowx,cell 1 8 5 1");
-		textField_3.setColumns(10);
+		textField_3.setColumns(4);
 		
 		JLabel lblNewLabel_8 = new JLabel("Quantidade:");
 		getContentPane().add(lblNewLabel_8, "cell 0 9,alignx trailing");
@@ -179,8 +179,8 @@ public class FrameGarcom extends JFrame {
 		getContentPane().add(lblMesa3, "cell 0 12,alignx trailing");
 		
 		textField_6 = new JTextField();
-		getContentPane().add(textField_6, "cell 1 12,growx");
-		textField_6.setColumns(10);
+		getContentPane().add(textField_6, "cell 1 12,alignx left");
+		textField_6.setColumns(3);
 		
 		JButton btnEncerrar = new JButton("Encerrar mesa");
 		btnEncerrar.addActionListener(new ActionListener() {
@@ -224,7 +224,7 @@ public class FrameGarcom extends JFrame {
 		
 		textField_7 = new JTextField();
 		getContentPane().add(textField_7, "cell 4 5");
-		textField_7.setColumns(10);
+		textField_7.setColumns(3);
 		
 		JLabel lblNumeroDaMesa = new JLabel("Mesa:");
 		getContentPane().add(lblNumeroDaMesa, "cell 3 5");

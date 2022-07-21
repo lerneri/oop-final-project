@@ -72,7 +72,7 @@ public class FrameListarMesasGarcom extends JFrame {
 				getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 				
 					DefaultTableModel modelo = new DefaultTableModel(null,
-							new String[] { "NÃMERO DA MESA"});
+							new String[] { "N�mero da mesa"});
 					jTable1 = new JTable();
 					jScrollPane1.setViewportView(jTable1);
 					jTable1.setModel(modelo);

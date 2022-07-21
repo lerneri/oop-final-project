@@ -69,7 +69,7 @@ public class FrameListarCardapio extends JFrame {
 			getContentPane().add(jScrollPane1, BorderLayout.CENTER);
 			
 				DefaultTableModel modelo = new DefaultTableModel(null,
-						new String[] { "CÓ“DIGO", "DESCRIÇ‡ÃƒO", "PRODUTO", "PREÇ‡O"});
+						new String[] { "Código", "Descrição", "Produto", "Preço (R$)"});
 				jTable1 = new JTable();
 				jScrollPane1.setViewportView(jTable1);
 				jTable1.setModel(modelo);
