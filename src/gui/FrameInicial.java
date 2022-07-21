@@ -83,9 +83,9 @@ public class FrameInicial extends JFrame {
 							}
 
 						});
-						j.getFrameGerente().getContentPane().add(btnVoltar, "cell 3 19,alignx center,aligny center");
+						j.getFrameGerente().getContentPane().add(btnVoltar, "cell 0 25,alignx center,aligny center");
 					} else {
-						JOptionPane.showMessageDialog(contentPane, "Login invÃ¡lido");
+						JOptionPane.showMessageDialog(contentPane, "Login inválido");
 					}
 				} else if (aux == "Garçom") {
 					String nome = textNome.getText();

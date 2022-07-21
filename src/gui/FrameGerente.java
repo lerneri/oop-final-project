@@ -65,7 +65,6 @@ public class FrameGerente extends JFrame {
 				getContentPane().add(lblGerenciamentoFuncionarios, "cell 7 1,alignx center,aligny center");
 										
 										JLabel lblNewLabel = new JLabel("Cadastro de mesa");
-										lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
 										getContentPane().add(lblNewLabel, "cell 1 3");
 										
 										JLabel lblNewLabel_4 = new JLabel("Cadastro de novo garçom");
